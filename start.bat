@@ -2,6 +2,7 @@
 adb kill-server
 adb start-server
 set M=""
+set pressanykey=""
 cls*
 
 rem Selection 1 - Start Menu
@@ -173,6 +174,7 @@ if not %M%==X GOTO wrgintm
 
 :adb_reboot_device
 cls
+set pressanykey=""
 echo.
 echo ==============================
 echo Ez Adb Tools 2020.1.0
@@ -188,6 +190,7 @@ goto adb_reboot
 
 :adb_reboot_fastboot
 cls
+set pressanykey=""
 echo.
 echo ==============================
 echo Ez Adb Tools 2020.1.0
@@ -203,6 +206,7 @@ goto adb_reboot
 
 :adb_reboot_recovery
 cls
+set pressanykey=""
 echo.
 echo ==============================
 echo Ez Adb Tools 2020.1.0
@@ -218,6 +222,7 @@ goto adb_reboot
 
 :adb_reboot_edl
 cls
+set pressanykey=""
 echo.
 echo ==============================
 echo Ez Adb Tools 2020.1.0
@@ -234,6 +239,7 @@ goto adb_reboot
 
 :adb_reboot_download
 cls
+set pressanykey=""
 echo.
 echo ==============================
 echo Ez Adb Tools 2020.1.0
@@ -249,6 +255,7 @@ goto adb_reboot
 
 :adb_reboot_safemode_root
 cls
+set pressanykey=""
 echo.
 echo ==============================
 echo Ez Adb Tools 2020.1.0
@@ -273,7 +280,7 @@ echo.
 echo ==============================
 echo Ez Adb Tools 2020.1.0
 echo ==============================
-echo Start Menu
+echo Fastboot Related
 echo ==============================
 echo.
 echo Coming soon...
