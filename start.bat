@@ -1,9 +1,19 @@
 @echo off
+cls
+goto int
+
+rem Selection 0 - Initialization
+
+rem Restart Adb
 adb kill-server
 adb start-server
+
+rem Empty all variables
 set M=""
 set pressanykey=""
-cls
+set adb_install_app=""
+
+rem End of Selection 0 - Initialization
 
 rem Selection 1 - Start Menu
 :menu
@@ -11,7 +21,7 @@ cls
 set M=""
 echo.
 echo ==============================
-echo Ez Adb Tools 2020.1.1
+echo Ez Adb Tools 2020.1.11
 echo ==============================
 echo Start Menu
 echo ==============================
@@ -185,7 +195,8 @@ echo.
 cd bin
 adb.exe reboot
 cd ..
-set /p pressanykey="Press any key to return to the menu..."
+echo Done!
+choice /d y /t 2 > nul
 goto adb_reboot
 
 :adb_reboot_fastboot
@@ -201,7 +212,8 @@ echo.
 cd bin
 adb.exe reboot bootloader
 cd ..
-set /p pressanykey="Press any key to return to the menu..."
+echo Done!
+choice /d y /t 2 > nul
 goto adb_reboot
 
 :adb_reboot_recovery
@@ -217,7 +229,8 @@ echo.
 cd bin
 adb.exe reboot recovery
 cd ..
-set /p pressanykey="Press any key to return to the menu..."
+echo Done!
+choice /d y /t 2 > nul
 goto adb_reboot
 
 :adb_reboot_edl
@@ -234,7 +247,8 @@ echo.
 cd bin
 adb.exe reboot edl
 cd ..
-set /p pressanykey="Press any key to return to the menu..."
+echo Done!
+choice /d y /t 2 > nul
 goto adb_reboot
 
 :adb_reboot_download
@@ -250,7 +264,8 @@ echo.
 cd bin
 adb.exe reboot download
 cd ..
-set /p pressanykey="Press any key to return to the menu..."
+echo Done!
+choice /d y /t 2 > nul
 goto adb_reboot
 
 :adb_reboot_safemode_root
@@ -266,7 +281,8 @@ echo.
 cd bin
 adb.exe shell echo "1" > /data/property/persist.sys.safemode
 cd ..
-set /p pressanykey="Press any key to return to the menu..."
+echo Done!
+choice /d y /t 2 > nul
 goto adb_reboot
 
 rem End of Selection 2.4 - Reboot Menu
@@ -283,11 +299,34 @@ echo ==============================
 echo Fastboot Related
 echo ==============================
 echo.
-echo Coming soon...
-choice /d y /t 2 > nul
-goto menu
+echo 1 - Reboot device
+echo X - Back
+echo.
+set /P M="Type options on screen then press ENTER: "
+if %M%==1 GOTO fastboot_reboot
+if %M%==X GOTO adb
+if not %M%==1 GOTO wrgintm
+if not %M%==X GOTO wrgintm
 
 rem End of Selection 3 - Fastboot Related
+
+rem Selection 3.1 - Reboot Device
+cls
+echo.
+echo ==============================
+echo Ez Adb Tools 2020.1.0
+echo ==============================
+echo Reboot Device
+echo ==============================
+echo.
+echo Rebooting device in fastboot mode in 5 seconds...
+choice /d y /t 5 > nul
+fastboot reboot
+echo Done!
+choice /d y /t 2 > nul
+goto fastboot
+
+rem End of Selection 3.1 - Reboot Device
 
 rem Selection 4 - Exit
 
