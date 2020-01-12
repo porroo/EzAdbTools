@@ -154,7 +154,7 @@ echo 3 - Reboot into Recovery Mode
 echo 4 - Reboot into Emergency Download Mode
 echo 5 - Reboot into Download Mode
 echo 6 - Reboot into Safe Mode (ROOT)
-echo X - Exit
+echo X - Back
 echo.
 set /P M="Type options on screen then press ENTER: "
 if %M%==1 GOTO adb_reboot_device
@@ -163,7 +163,7 @@ if %M%==3 GOTO adb_reboot_recovery
 if %M%==4 GOTO adb_reboot_edl
 if %M%==5 GOTO adb_reboot_download
 if %M%==6 GOTO adb_reboot_safemode_root
-if %M%==X GOTO exit
+if %M%==X GOTO adb
 if not %M%==1 GOTO wrgintm
 if not %M%==2 GOTO wrgintm
 if not %M%==3 GOTO wrgintm
@@ -286,3 +286,22 @@ echo.
 echo Coming soon...
 choice /d y /t 2 > nul
 goto menu
+
+rem End of Selection 3 - Fastboot Related
+
+rem Selection 4 - Exit
+
+cls
+set M=""
+echo.
+echo ==============================
+echo Ez Adb Tools 2020.1.0
+echo ==============================
+echo Exit
+echo ==============================
+echo.
+echo Exiting in 2 seconds...
+choice /d y /t 2 > nul
+exit
+
+rem End od Selection 4 - Exit
