@@ -4,6 +4,7 @@ goto int
 
 rem Selection 0 - Initialization
 
+:int
 rem Restart Adb
 adb kill-server
 adb start-server
