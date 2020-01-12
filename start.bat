@@ -293,6 +293,8 @@ rem Selection 4 - Exit
 
 cls
 set M=""
+set pressanykey=""
+set adb_install_app=""
 echo.
 echo ==============================
 echo Ez Adb Tools 2020.1.0
