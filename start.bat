@@ -9,18 +9,18 @@ rem Restart Adb
 adb kill-server
 adb start-server
 rem Empty all variables
-set M=""
-set pressanykey=""
-set adb_install_app=""
+set M=
+set pressanykey=
+set adb_install_app=
 rem Set variables
-set productnamever="Ez Adb Tools 2020.1.11"
+set productnamever=Ez Adb Tools 2020.1.11
 
 rem End of Selection 0 - Initialization
 
 rem Selection 1 - Start Menu
 :menu
 cls
-set M=""
+set M=
 echo.
 echo ==============================
 echo %productnamever%
@@ -57,7 +57,7 @@ goto adb
 
 :adb
 cls
-set M=""
+set M=
 echo.
 echo ==============================
 echo %productnamever%
@@ -152,7 +152,7 @@ rem Selection 2.4 - Reboot Menu
 
 :adb_reboot
 cls
-set M=""
+set M=
 echo.
 echo ==============================
 echo %productnamever%
@@ -186,7 +186,6 @@ if not %M%==X GOTO wrgintm
 
 :adb_reboot_device
 cls
-set pressanykey=""
 echo.
 echo ==============================
 echo %productnamever%
@@ -203,7 +202,6 @@ goto adb_reboot
 
 :adb_reboot_fastboot
 cls
-set pressanykey=""
 echo.
 echo ==============================
 echo %productnamever%
@@ -220,7 +218,6 @@ goto adb_reboot
 
 :adb_reboot_recovery
 cls
-set pressanykey=""
 echo.
 echo ==============================
 echo %productnamever%
@@ -237,7 +234,6 @@ goto adb_reboot
 
 :adb_reboot_edl
 cls
-set pressanykey=""
 echo.
 echo ==============================
 echo %productnamever%
@@ -255,7 +251,6 @@ goto adb_reboot
 
 :adb_reboot_download
 cls
-set pressanykey=""
 echo.
 echo ==============================
 echo %productnamever%
@@ -272,7 +267,6 @@ goto adb_reboot
 
 :adb_reboot_safemode_root
 cls
-set pressanykey=""
 echo.
 echo ==============================
 echo %productnamever%
@@ -293,7 +287,7 @@ rem Selection 3 - Fastboot Related
 
 :fastboot
 cls
-set M=""
+set M=
 echo.
 echo ==============================
 echo %productnamever%
@@ -333,9 +327,10 @@ rem End of Selection 3.1 - Reboot Device
 rem Selection 4 - Exit
 
 cls
-set M=""
-set pressanykey=""
-set adb_install_app=""
+set M=
+set pressanykey=
+set adb_install_app=
+set productnamever=
 echo.
 echo ==============================
 echo %productnamever%
