@@ -3,7 +3,7 @@ adb kill-server
 adb start-server
 set M=""
 set pressanykey=""
-cls*
+cls
 
 rem Selection 1 - Start Menu
 :menu
