@@ -11,7 +11,7 @@ cls
 set M=""
 echo.
 echo ==============================
-echo Ez Adb Tools 2020.1.0
+echo Ez Adb Tools 2020.1.1
 echo ==============================
 echo Start Menu
 echo ==============================
