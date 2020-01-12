@@ -8,11 +8,12 @@ rem Selection 0 - Initialization
 rem Restart Adb
 adb kill-server
 adb start-server
-
 rem Empty all variables
 set M=""
 set pressanykey=""
 set adb_install_app=""
+rem Set variables
+set productnamever="Ez Adb Tools 2020.1.11"
 
 rem End of Selection 0 - Initialization
 
@@ -22,7 +23,7 @@ cls
 set M=""
 echo.
 echo ==============================
-echo Ez Adb Tools 2020.1.11
+echo %productnamever%
 echo ==============================
 echo Start Menu
 echo ==============================
@@ -34,7 +35,7 @@ echo.
 set /P M="Type options on screen then press ENTER: "
 if %M%==1 GOTO adb
 if %M%==2 GOTO fastboot
-if %M%==X GOTO exit
+if %M%==X (GOTO exit) else if %M%==x (GOTO exit)
 if not %M%==1 GOTO wrgintm
 if not %M%==2 GOTO wrgintm
 if not %M%==X GOTO wrgintm
@@ -59,7 +60,7 @@ cls
 set M=""
 echo.
 echo ==============================
-echo Ez Adb Tools 2020.1.0
+echo %productnamever%
 echo ==============================
 echo Adb Related
 echo ==============================
@@ -75,7 +76,7 @@ if %M%==1 GOTO adb_app_install
 if %M%==2 GOTO adb_android_shell
 if %M%==3 GOTO adb_devices
 if %M%==4 GOTO adb_reboot
-if %M%==X GOTO exit
+if %M%==X (GOTO menu) else if %M%==X (GOTO menu)
 if not %M%==1 GOTO wrginta
 if not %M%==2 GOTO wrginta
 if not %M%==3 GOTO wrginta
@@ -88,7 +89,7 @@ rem Selection 2.1 - Install Application
 cls
 echo.
 echo ==============================
-echo Ez Adb Tools 2020.1.0
+echo %productnamever%
 echo ==============================
 echo Install Application
 echo ==============================
@@ -116,7 +117,7 @@ rem Selection 2.2 - Android Shell
 cls
 echo.
 echo ==============================
-echo Ez Adb Tools 2020.1.0
+echo %productnamever%
 echo ==============================
 echo Android Shell
 echo ==============================
@@ -133,7 +134,7 @@ rem Selection 2.3 - Check Connected Devices
 cls
 echo.
 echo ==============================
-echo Ez Adb Tools 2020.1.0
+echo %productnamever%
 echo ==============================
 echo Check Connected Devices
 echo ==============================
@@ -154,7 +155,7 @@ cls
 set M=""
 echo.
 echo ==============================
-echo Ez Adb Tools 2020.1.0
+echo %productnamever%
 echo ==============================
 echo Start Menu
 echo ==============================
@@ -174,7 +175,7 @@ if %M%==3 GOTO adb_reboot_recovery
 if %M%==4 GOTO adb_reboot_edl
 if %M%==5 GOTO adb_reboot_download
 if %M%==6 GOTO adb_reboot_safemode_root
-if %M%==X GOTO adb
+if %M%==X (GOTO adb) else if %M%==x (GOTO adb)
 if not %M%==1 GOTO wrgintm
 if not %M%==2 GOTO wrgintm
 if not %M%==3 GOTO wrgintm
@@ -188,7 +189,7 @@ cls
 set pressanykey=""
 echo.
 echo ==============================
-echo Ez Adb Tools 2020.1.0
+echo %productnamever%
 echo ==============================
 echo Reboot device
 echo ==============================
@@ -205,7 +206,7 @@ cls
 set pressanykey=""
 echo.
 echo ==============================
-echo Ez Adb Tools 2020.1.0
+echo %productnamever%
 echo ==============================
 echo Reboot into Fastboot Mode
 echo ==============================
@@ -222,7 +223,7 @@ cls
 set pressanykey=""
 echo.
 echo ==============================
-echo Ez Adb Tools 2020.1.0
+echo %productnamever%
 echo ==============================
 echo Reboot into Recovery Mode
 echo ==============================
@@ -239,7 +240,7 @@ cls
 set pressanykey=""
 echo.
 echo ==============================
-echo Ez Adb Tools 2020.1.0
+echo %productnamever%
 echo ==============================
 echo Reboot into 
 echo Emergency Download Mode
@@ -257,7 +258,7 @@ cls
 set pressanykey=""
 echo.
 echo ==============================
-echo Ez Adb Tools 2020.1.0
+echo %productnamever%
 echo ==============================
 echo Reboot into Download Mode
 echo ==============================
@@ -274,7 +275,7 @@ cls
 set pressanykey=""
 echo.
 echo ==============================
-echo Ez Adb Tools 2020.1.0
+echo %productnamever%
 echo ==============================
 echo Reboot into Safe Mode (ROOT)
 echo ==============================
@@ -295,7 +296,7 @@ cls
 set M=""
 echo.
 echo ==============================
-echo Ez Adb Tools 2020.1.0
+echo %productnamever%
 echo ==============================
 echo Fastboot Related
 echo ==============================
@@ -305,7 +306,7 @@ echo X - Back
 echo.
 set /P M="Type options on screen then press ENTER: "
 if %M%==1 GOTO fastboot_reboot
-if %M%==X GOTO adb
+if %M%==X GOTO menu
 if not %M%==1 GOTO wrgintm
 if not %M%==X GOTO wrgintm
 
@@ -315,7 +316,7 @@ rem Selection 3.1 - Reboot Device
 cls
 echo.
 echo ==============================
-echo Ez Adb Tools 2020.1.0
+echo %productnamever%
 echo ==============================
 echo Reboot Device
 echo ==============================
@@ -337,7 +338,7 @@ set pressanykey=""
 set adb_install_app=""
 echo.
 echo ==============================
-echo Ez Adb Tools 2020.1.0
+echo %productnamever%
 echo ==============================
 echo Exit
 echo ==============================
