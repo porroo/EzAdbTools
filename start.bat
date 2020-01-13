@@ -13,7 +13,7 @@ set M=
 set pressanykey=
 set adb_install_app=
 rem Set variables
-set productnamever=Ez Adb Tools 2020.1.11
+set productnamever=Ez Adb Tools 2020.1.12
 set productnamever=%productnamever:"=% 
 
 rem End of Selection 0 - Initialization
