@@ -19,6 +19,7 @@ set productnamever=%productnamever:"=%
 rem End of Selection 0 - Initialization
 
 rem Selection 1 - Start Menu
+
 :menu
 cls
 set M=
@@ -36,10 +37,12 @@ echo.
 set /P M="Type options on screen then press ENTER: "
 if %M%==1 GOTO adb
 if %M%==2 GOTO fastboot
-if %M%==X (GOTO exit) else if %M%==x (GOTO exit)
+if %M%==X GOTO exit
+if %M%==x GOTO exit
 if not %M%==1 GOTO wrgintm
 if not %M%==2 GOTO wrgintm
 if not %M%==X GOTO wrgintm
+if not %M%==x GOTO wrgintm
 
 :wrgintm
 cls
@@ -50,6 +53,7 @@ goto menu
 rem End of Selection 1 - Start Menu
 
 rem Selection 2 - Adb Related
+
 :wrginta
 cls
 echo You have entered a wrong input, try again.
@@ -77,12 +81,14 @@ if %M%==1 GOTO adb_app_install
 if %M%==2 GOTO adb_android_shell
 if %M%==3 GOTO adb_devices
 if %M%==4 GOTO adb_reboot
-if %M%==X (GOTO menu) else if %M%==X (GOTO menu)
+if %M%==X GOTO menu
+if %M%==x GOTO menu
 if not %M%==1 GOTO wrginta
 if not %M%==2 GOTO wrginta
 if not %M%==3 GOTO wrginta
 if not %M%==4 GOTO wrginta
 if not %M%==X GOTO wrginta
+if not %M%==x GOTO wrginta
 
 rem Selection 2.1 - Install Application
 
@@ -176,7 +182,8 @@ if %M%==3 GOTO adb_reboot_recovery
 if %M%==4 GOTO adb_reboot_edl
 if %M%==5 GOTO adb_reboot_download
 if %M%==6 GOTO adb_reboot_safemode_root
-if %M%==X (GOTO adb) else if %M%==x (GOTO adb)
+if %M%==X GOTO adb
+if %M%==x GOTO adb
 if not %M%==1 GOTO wrgintm
 if not %M%==2 GOTO wrgintm
 if not %M%==3 GOTO wrgintm
@@ -184,6 +191,7 @@ if not %M%==4 GOTO wrgintm
 if not %M%==5 GOTO wrgintm
 if not %M%==6 GOTO wrgintm
 if not %M%==X GOTO wrgintm
+if not %M%==x GOTO wrgintm
 
 :adb_reboot_device
 cls
@@ -297,17 +305,24 @@ echo Fastboot Related
 echo ==============================
 echo.
 echo 1 - Reboot device
+echo 2 - Bootloader unlocking related
 echo X - Back
 echo.
 set /P M="Type options on screen then press ENTER: "
 if %M%==1 GOTO fastboot_reboot
+if %M%==2 GOTO fastboot_unlock
 if %M%==X GOTO menu
+if %M%==x GOTO menu
 if not %M%==1 GOTO wrgintm
+if not %M%==2 GOTO wrgintm
 if not %M%==X GOTO wrgintm
+if not %M%==x GOTO wrgintm
 
 rem End of Selection 3 - Fastboot Related
 
 rem Selection 3.1 - Reboot Device
+
+:fastboot_reboot
 cls
 echo.
 echo ==============================
@@ -318,15 +333,83 @@ echo ==============================
 echo.
 echo Rebooting device in fastboot mode in 5 seconds...
 choice /d y /t 5 > nul
-fastboot reboot
+cd bin
+fastboot.exe reboot
+cd ..
 echo Done!
 choice /d y /t 2 > nul
 goto fastboot
 
 rem End of Selection 3.1 - Reboot Device
 
+rem Selection 3.2 - Bootloader unlocking related
+
+:fastboot_unlock
+cls
+echo.
+echo ==============================
+echo %productnamever%
+echo ==============================
+echo Bootloader unlocking related
+echo ==============================
+echo.
+echo 1 - Bootloader Unlock Status
+echo 2 - Bootloader Unlock (No code)
+echo X - Back
+echo.
+set /P M="Type options on screen then press ENTER: "
+if %M%==1 GOTO fastboot_unlock_stat
+if %M%==2 GOTO fastboot_unlock_nocode_unlock
+if %M%==X GOTO menu
+if %M%==x GOTO menu
+if not %M%==1 GOTO wrgintm
+if not %M%==2 GOTO wrgintm
+if not %M%==X GOTO wrgintm
+if not %M%==x GOTO wrgintm
+
+rem End of Selection 3.2 - Bootloader unlocking related
+
+rem Selection 3.2.1 - Bootloader Unlock Status
+
+:fastboot_unlock_stat
+cls
+echo.
+echo ==============================
+echo %productnamever%
+echo ==============================
+echo Bootloader Unlock Status
+echo ==============================
+echo.
+echo True means unlocked, False means not unlocked
+cd bin 
+fastboot.exe oem device-info
+cd ..
+choice /d y /t 2 > nul
+goto fastboot_unlock
+
+rem End ofSelection 3.2.1 - Bootloader Unlock Status
+
+rem Selection 3.2.2 - Bootloader Unlock (No code)
+
+:fastboot_unlock_nocode_unlock
+cls
+echo.
+echo ==============================
+echo %productnamever%
+echo ==============================
+echo Bootloader Unlock (No code)
+echo ==============================
+echo.
+cd bin
+fastboot.exe oem unlock
+cd ..
+choice /d y /t 2 > nul
+echo Done!
+goto fastboot_unlock
+
 rem Selection 4 - Exit
 
+:exit
 cls
 set M=
 set pressanykey=
