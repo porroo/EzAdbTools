@@ -5,6 +5,11 @@ goto int
 rem Selection 0 - Initialization
 
 :int
+rem Delete working.bat
+if not exist working.bat (
+  call delworking.bat
+)
+if %delworkingbat%==0 call delworking.bat
 rem Restart Adb
 adb kill-server
 adb start-server
@@ -103,11 +108,12 @@ echo ==============================
 echo.
 set /P adb_install_app="Drag and drop the apk file in this window then hit enter: "
 if exist %adb_install_app% (
+set delworkingbat=0
     (
 	echo cd bin
 	echo adb.exe install %adb_install_app%
 	echo cd ..
-    echo call delworking.bat
+        echo call delworking.bat
 )>"working.bat"
 call working.bat
 ) else (
@@ -442,6 +448,7 @@ echo Unlock Bootloader (Code)
 echo ==============================
 echo.
 set /P unlock_key="Type in the code you got for unlocking: "
+set delworkingbat=0
     (
 	echo cd bin
 	echo fastboot.exe oem-unlock %unlock_key%
