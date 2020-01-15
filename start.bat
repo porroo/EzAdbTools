@@ -355,14 +355,17 @@ echo ==============================
 echo.
 echo 1 - Bootloader Unlock Status
 echo 2 - Bootloader Unlock (No code)
+echo 3 - Bootloader Unlock (Code)
 echo X - Back
 echo.
 set /P M="Type options on screen then press ENTER: "
 if %M%==1 GOTO fastboot_unlock_stat
-if %M%==2 GOTO fastboot_unlock_nocode_unlock
+if %M%==2 GOTO fastboot_unlock_nocode
+if %M%==3 GOTO fastboot_unlock_code
 if %M%==X GOTO menu
 if %M%==x GOTO menu
 if not %M%==1 GOTO wrgintm
+if not %M%==2 GOTO wrgintm
 if not %M%==2 GOTO wrgintm
 if not %M%==X GOTO wrgintm
 if not %M%==x GOTO wrgintm
@@ -391,7 +394,7 @@ rem End ofSelection 3.2.1 - Bootloader Unlock Status
 
 rem Selection 3.2.2 - Bootloader Unlock (No code)
 
-:fastboot_unlock_nocode_unlock
+:fastboot_unlock_nocode
 cls
 echo.
 echo ==============================
@@ -406,6 +409,30 @@ cd ..
 choice /d y /t 2 > nul
 echo Done!
 goto fastboot_unlock
+
+rem End of Selection 3.2.2 - Bootloader Unlock (No Code)
+
+rem Selection 3.2.3 - Bootloader Unlock (Code)
+
+:fastboot_unlock_code
+cls
+echo.
+echo ==============================
+echo %productnamever%
+echo ==============================
+echo Unlock Bootloader (Code)
+echo ==============================
+echo.
+set /P unlock_key="Type in the code you got for unlocking: "
+    (
+	echo cd bin
+	echo fastboot.exe oem-unlock %unlock_key%
+	echo cd ..
+        echo call delworking.bat
+)>"working.bat"
+call working.bat
+
+rem End of Selection 3.2.3 - Bootloader Unlock (Code)
 
 rem Selection 4 - Exit
 
