@@ -184,14 +184,20 @@ if %M%==5 GOTO adb_reboot_download
 if %M%==6 GOTO adb_reboot_safemode_root
 if %M%==X GOTO adb
 if %M%==x GOTO adb
-if not %M%==1 GOTO wrgintm
-if not %M%==2 GOTO wrgintm
-if not %M%==3 GOTO wrgintm
-if not %M%==4 GOTO wrgintm
-if not %M%==5 GOTO wrgintm
-if not %M%==6 GOTO wrgintm
-if not %M%==X GOTO wrgintm
-if not %M%==x GOTO wrgintm
+if not %M%==1 GOTO wrgintar
+if not %M%==2 GOTO wrgintar
+if not %M%==3 GOTO wrgintar
+if not %M%==4 GOTO wrgintar
+if not %M%==5 GOTO wrgintar
+if not %M%==6 GOTO wrgintar
+if not %M%==X GOTO wrgintar
+if not %M%==x GOTO wrgintar
+
+:wrgintar
+cls
+echo You have entered a wrong input, try again.
+choice /d y /t 2 > nul
+goto adb_reboot
 
 :adb_reboot_device
 cls
@@ -313,10 +319,16 @@ if %M%==1 GOTO fastboot_reboot
 if %M%==2 GOTO fastboot_unlock
 if %M%==X GOTO menu
 if %M%==x GOTO menu
-if not %M%==1 GOTO wrgintm
-if not %M%==2 GOTO wrgintm
-if not %M%==X GOTO wrgintm
-if not %M%==x GOTO wrgintm
+if not %M%==1 GOTO wrgintf
+if not %M%==2 GOTO wrgintf
+if not %M%==X GOTO wrgintf
+if not %M%==x GOTO wrgintf
+
+:wrgintf
+cls
+echo You have entered a wrong input, try again.
+choice /d y /t 2 > nul
+goto fastboot
 
 rem End of Selection 3 - Fastboot Related
 
@@ -364,11 +376,17 @@ if %M%==2 GOTO fastboot_unlock_nocode
 if %M%==3 GOTO fastboot_unlock_code
 if %M%==X GOTO menu
 if %M%==x GOTO menu
-if not %M%==1 GOTO wrgintm
-if not %M%==2 GOTO wrgintm
-if not %M%==2 GOTO wrgintm
-if not %M%==X GOTO wrgintm
-if not %M%==x GOTO wrgintm
+if not %M%==1 GOTO wrgintfu
+if not %M%==2 GOTO wrgintfu
+if not %M%==2 GOTO wrgintfu
+if not %M%==X GOTO wrgintfu
+if not %M%==x GOTO wrgintfu
+
+:wrgintfu
+cls
+echo You have entered a wrong input, try again.
+choice /d y /t 2 > nul
+goto fastboot_unlock
 
 rem End of Selection 3.2 - Bootloader unlocking related
 
@@ -406,8 +424,8 @@ echo.
 cd bin
 fastboot.exe oem unlock
 cd ..
-choice /d y /t 2 > nul
 echo Done!
+choice /d y /t 2 > nul
 goto fastboot_unlock
 
 rem End of Selection 3.2.2 - Bootloader Unlock (No Code)
