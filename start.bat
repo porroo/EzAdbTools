@@ -6,20 +6,24 @@ rem Selection 0 - Initialization
 
 :int
 rem Delete working.bat
-if not exist working.bat (
+if exist working.bat (
   call delworking.bat
+) else if %delworkingbat%==0 (
+  call delworking.bat
+) else (
+  rem Restart Adb
+  adb kill-server
+  adb start-server
+  
+  rem Empty all variables
+  set M=
+  set pressanykey=
+  set adb_install_app=
+  
+  rem Set variables
+  set productnamever=Ez Adb Tools 2020.1.12
+  set productnamever=%productnamever:"=% 
 )
-if %delworkingbat%==0 call delworking.bat
-rem Restart Adb
-adb kill-server
-adb start-server
-rem Empty all variables
-set M=
-set pressanykey=
-set adb_install_app=
-rem Set variables
-set productnamever=Ez Adb Tools 2020.1.12
-set productnamever=%productnamever:"=% 
 
 rem End of Selection 0 - Initialization
 
@@ -106,7 +110,7 @@ echo ==============================
 echo Install Application
 echo ==============================
 echo.
-set /P adb_install_app="Drag and drop the apk file in this window then hit enter: "
+set /P adb_install_app="Drag and drop the apk file into this window then hit enter: "
 if exist %adb_install_app% (
 set delworkingbat=0
     (
@@ -135,7 +139,7 @@ echo ==============================
 echo Android Shell
 echo ==============================
 echo.
-echo This will stop EzAdbTools, restart this program if you need it.
+echo This will stop EzAdbTools, restart this program if you need it later.
 cd bin 
 call adb.exe shell
 
