@@ -7,6 +7,7 @@ rem ==============================
 if %delworkingbat%==0 (
   echo Why are you here, if you launched this not using the start.bat,
   echo Please don't do that please!
+  pause
   call start.bat
 ) else (
   set delworkingbat=1
