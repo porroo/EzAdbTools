@@ -8,7 +8,7 @@ rem Selection 0 - Initialization
 rem Delete working.bat
 if exist working.bat (
   call delworking.bat
-) else if %delworkingbat%==0 (
+) else if %delworkingbat%==1 (
   call delworking.bat
 ) else (
   rem Restart Adb
