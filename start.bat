@@ -41,8 +41,8 @@ echo ==============================
 echo Start Menu
 echo ==============================
 echo.
-echo 1 - Adb related
-echo 2 - Fastboot related
+echo 1 - adb related
+echo 2 - fastboot related
 echo X - Exit
 echo.
 set /P M="Type options on screen then press ENTER: "
@@ -78,7 +78,7 @@ echo.
 echo ==============================
 echo %productnamever%
 echo ==============================
-echo Adb Related
+echo adb Related
 echo ==============================
 echo.
 echo 1 - Install Application
@@ -115,6 +115,8 @@ echo.
 set /P adb_install_app="Drag and drop the apk file into this window then hit enter: "
 if exist %adb_install_app% (
 set delworkingbat=0
+
+rem Creating working.bat
     (
 	echo cd bin
 	echo adb.exe install %adb_install_app%
@@ -319,11 +321,11 @@ echo.
 echo ==============================
 echo %productnamever%
 echo ==============================
-echo Fastboot Related
+echo fastboot Related
 echo ==============================
 echo.
 echo 1 - Reboot device
-echo 2 - Bootloader unlocking related
+echo 2 - Bootloader unlocking menu
 echo X - Back
 echo.
 set /P M="Type options on screen then press ENTER: "
@@ -374,12 +376,12 @@ echo.
 echo ==============================
 echo %productnamever%
 echo ==============================
-echo Bootloader unlocking related
+echo Bootloader unlocking menu
 echo ==============================
 echo.
 echo 1 - Bootloader Unlock Status
 echo 2 - Bootloader Unlock (No code)
-echo 3 - Bootloader Unlock (Code)
+echo 3 - Bootloader Unlock (Code needed)
 echo X - Back
 echo.
 set /P M="Type options on screen then press ENTER: "
@@ -450,11 +452,13 @@ echo.
 echo ==============================
 echo %productnamever%
 echo ==============================
-echo Unlock Bootloader (Code)
+echo Unlock Bootloader (Code needed)
 echo ==============================
 echo.
-set /P unlock_key="Type in the code you got for unlocking your device: "
+set /P unlock_key="Input the code you got for unlocking your device: "
 set delworkingbat=0
+
+rem Creating working.bat
     (
 	echo cd bin
 	echo fastboot.exe oem-unlock %unlock_key%
