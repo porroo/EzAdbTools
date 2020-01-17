@@ -12,8 +12,10 @@ if exist working.bat (
   call delworking.bat
 ) else (
   rem Restart Adb
-  adb kill-server
-  adb start-server
+  cd bin
+  adb.exe kill-server
+  adb.exe start-server
+  cd ..
   
   rem Empty all variables
   set M=
