@@ -1,4 +1,12 @@
 @echo off
+
+:: This is the main script of EzAdbTools
+:: ========================================
+:: |   EzAdbTools, Made by Ricky Cheung   |
+:: |      For adb and fastboot noobs      |
+:: |        XDA: tiny.cc/ezatxda          |
+:: ========================================
+
 cls
 goto int
 
@@ -63,7 +71,7 @@ goto menu
 
 rem End of Selection 1 - Start Menu
 
-rem Selection 2 - Adb Related
+rem Selection 2 - adb Related
 
 :wrginta
 cls
@@ -100,6 +108,8 @@ if not %M%==3 GOTO wrginta
 if not %M%==4 GOTO wrginta
 if not %M%==X GOTO wrginta
 if not %M%==x GOTO wrginta
+
+rem End of Selection 2 - adb Related
 
 rem Selection 2.1 - Install Application
 
@@ -304,7 +314,7 @@ echo Reboot into Safe Mode (ROOT)
 echo ==============================
 echo.
 cd bin
-adb.exe shell echo "1" > /data/property/persist.sys.safemode
+adb.exe shell su & adb.exe shell echo "1" > /data/property/persist.sys.safemode
 cd ..
 echo Done!
 choice /d y /t 2 > nul
@@ -312,7 +322,7 @@ goto adb_reboot
 
 rem End of Selection 2.4 - Reboot Menu
 
-rem Selection 3 - Fastboot Related
+rem Selection 3 - fastboot Related
 
 :fastboot
 cls
@@ -344,7 +354,7 @@ echo You have entered a wrong input, try again.
 choice /d y /t 2 > nul
 goto fastboot
 
-rem End of Selection 3 - Fastboot Related
+rem End of Selection 3 - fastboot Related
 
 rem Selection 3.1 - Reboot Device
 
