@@ -8,7 +8,7 @@ rem Selection 0 - Initialization
 rem Delete working.bat
 if exist working.bat (
   call delworking.bat
-) else if %delworkingbat%==1 (
+) else if %delworkingbat%==0 (
   call delworking.bat
 ) else (
   rem Restart Adb
@@ -451,7 +451,7 @@ echo ==============================
 echo Unlock Bootloader (Code)
 echo ==============================
 echo.
-set /P unlock_key="Type in the code you got for unlocking: "
+set /P unlock_key="Type in the code you got for unlocking your device: "
 set delworkingbat=0
     (
 	echo cd bin
@@ -482,4 +482,4 @@ echo Exiting in 2 seconds...
 choice /d y /t 2 > nul
 exit
 
-rem End od Selection 4 - Exit
+rem End of Selection 4 - Exit
