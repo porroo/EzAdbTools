@@ -35,6 +35,10 @@ if exist working.bat (
   set productnamever=%productnamever:"=% 
 )
 
+rem adb and fastboot test
+set tempvar=%cd%
+call adbfastbootchk.bat
+
 rem End of Selection 0 - Initialization
 
 rem Selection 1 - Start Menu
