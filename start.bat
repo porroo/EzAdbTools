@@ -9,6 +9,7 @@
 
 cls
 goto int
+title EzAdbTools
 
 rem Selection 0 - Initialization
 
@@ -31,7 +32,7 @@ if exist working.bat (
   set adb_install_app=
   
   rem Set variables
-  set productnamever=Ez Adb Tools 2020.1.12
+  set productnamever=Ez Adb Tools 2020.1.13
   set productnamever=%productnamever:"=% 
 )
 
