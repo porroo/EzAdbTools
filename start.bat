@@ -35,9 +35,25 @@ if exist working.bat (
   set productnamever=%productnamever:"=% 
 )
 
-rem adb and fastboot test
-set tempvar=%cd%
-call adbfastbootchk.bat
+rem adb.exe check
+echo Checking for adb.exe...
+if not exist "%rf%\bin\adb.exe" (
+echo Unable to find adb.exe. Redownload this application.
+choice /d y /t 2 > nul
+exit
+) else (
+echo Found adb.exe
+)
+
+rem fastboot.exe check
+echo Checking for fastboot...
+if not exist "%rf%\bin\fastboot.exe" (
+echo Unable to find fastboot.exe. Redownload this application.
+choice /d y /t 2 > nul
+exit
+)
+echo Found fastboot.exe
+goto :menu
 
 rem End of Selection 0 - Initialization
 
