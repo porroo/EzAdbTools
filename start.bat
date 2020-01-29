@@ -15,11 +15,7 @@ rem Selection 0 - Initialization
 
 :int
 rem Delete working.bat
-if exist working.bat (
-  call delworking.bat
-) else if %delworkingbat%==0 (
-  call delworking.bat
-) else (
+if exist working.bat call delworking.bat
   rem Restart Adb
   cd bin
   adb.exe kill-server
@@ -38,7 +34,7 @@ if exist working.bat (
 
 rem adb.exe check
 echo Checking for adb.exe...
-if not exist "%rf%\bin\adb.exe" (
+if not exist "%CD%\bin\adb.exe" (
 echo Unable to find adb.exe. Redownload this application.
 choice /d y /t 2 > nul
 exit
@@ -48,7 +44,7 @@ echo Found adb.exe
 
 rem fastboot.exe check
 echo Checking for fastboot...
-if not exist "%rf%\bin\fastboot.exe" (
+if not exist "%CD%\bin\fastboot.exe" (
 echo Unable to find fastboot.exe. Redownload this application.
 choice /d y /t 2 > nul
 exit
