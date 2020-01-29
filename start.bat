@@ -149,6 +149,11 @@ set delworkingbat=0
 
 rem Creating working.bat
     (
+        echo ==============================
+        echo %productnamever%
+        echo ==============================
+        echo Install Application
+        echo ==============================
 	echo cd bin
 	echo adb.exe install %adb_install_app%
 	echo cd ..
@@ -491,6 +496,11 @@ set delworkingbat=0
 
 rem Creating working.bat
     (
+        echo ==============================
+        echo %productnamever%
+        echo ==============================
+        echo Unlock Bootloader (Code needed)
+        echo ==============================
 	echo cd bin
 	echo fastboot.exe oem-unlock %unlock_key%
 	echo cd ..
