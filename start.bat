@@ -9,7 +9,7 @@
 
 cls
 goto int
-title EzAdbTools
+title EzAdbTools - Initialization
 
 rem Selection 0 - Initialization
 
@@ -61,6 +61,7 @@ rem End of Selection 0 - Initialization
 rem Selection 1 - Start Menu
 
 :menu
+title EzAdbTools - Start Menu
 cls
 set M=
 echo.
@@ -85,6 +86,7 @@ if not %M%==X GOTO wrgintm
 if not %M%==x GOTO wrgintm
 
 :wrgintm
+title EzAdbTools - Wrong Input
 cls
 echo You have entered a wrong input, try again.
 choice /d y /t 2 > nul
@@ -95,12 +97,14 @@ rem End of Selection 1 - Start Menu
 rem Selection 2 - adb Related
 
 :wrginta
+title EzAdbTools - Wrong Input
 cls
 echo You have entered a wrong input, try again.
 choice /d y /t 2 > nul
 goto adb
 
 :adb
+title EzAdbTools - adb Related
 cls
 set M=
 echo.
@@ -135,6 +139,7 @@ rem End of Selection 2 - adb Related
 rem Selection 2.1 - Install Application
 
 :adb_app_install
+title EzAdbTools - Install Application
 cls
 echo.
 echo ==============================
@@ -171,6 +176,7 @@ rem End of Selection 2.1 - Install Application
 rem Selection 2.2 - Android Shell
 
 :adb_android_shell
+title EzAdbTools - Android Shell
 cls
 echo.
 echo ==============================
@@ -188,6 +194,7 @@ rem End of Selection 2.2 - Android Shell
 rem Selection 2.3 - Check Connected Devices
 
 :adb_devices
+title EzAdbTools - Check Connected Devices
 cls
 echo.
 echo ==============================
@@ -208,13 +215,14 @@ rem End of Selection 2.3 - Check Connected Devices
 rem Selection 2.4 - Reboot Menu
 
 :adb_reboot
+title EzAdbTools - Reboot Menu
 cls
 set M=
 echo.
 echo ==============================
 echo %productnamever%
 echo ==============================
-echo Start Menu
+echo Reboot Menu
 echo ==============================
 echo.
 echo 1 - Reboot device
@@ -244,12 +252,14 @@ if not %M%==X GOTO wrgintar
 if not %M%==x GOTO wrgintar
 
 :wrgintar
+title EzAdbTools - Wrong Input
 cls
 echo You have entered a wrong input, try again.
 choice /d y /t 2 > nul
 goto adb_reboot
 
 :adb_reboot_device
+title EzAdbTools - Reboot device
 cls
 echo.
 echo ==============================
@@ -266,6 +276,7 @@ choice /d y /t 2 > nul
 goto adb_reboot
 
 :adb_reboot_fastboot
+title EzAdbTools - Reboot into Fastboot Mode
 cls
 echo.
 echo ==============================
@@ -282,6 +293,7 @@ choice /d y /t 2 > nul
 goto adb_reboot
 
 :adb_reboot_recovery
+title EzAdbTools - Reboot into Recovery Mode
 cls
 echo.
 echo ==============================
@@ -298,6 +310,7 @@ choice /d y /t 2 > nul
 goto adb_reboot
 
 :adb_reboot_edl
+title EzAdbTools - Reboot into Emergency Download Mode
 cls
 echo.
 echo ==============================
@@ -315,6 +328,7 @@ choice /d y /t 2 > nul
 goto adb_reboot
 
 :adb_reboot_download
+title EzAdbTools - Reboot into Download Mode
 cls
 echo.
 echo ==============================
@@ -331,6 +345,7 @@ choice /d y /t 2 > nul
 goto adb_reboot
 
 :adb_reboot_safemode_root
+title EzAdbTools - Reboot into Safe Mode (ROOT)
 cls
 echo.
 echo ==============================
@@ -351,6 +366,7 @@ rem End of Selection 2.4 - Reboot Menu
 rem Selection 3 - fastboot Related
 
 :fastboot
+title EzAdbTools - fastboot Related
 cls
 set M=
 echo.
@@ -375,6 +391,7 @@ if not %M%==X GOTO wrgintf
 if not %M%==x GOTO wrgintf
 
 :wrgintf
+title EzAdbTools - Wrong Input
 cls
 echo You have entered a wrong input, try again.
 choice /d y /t 2 > nul
@@ -385,6 +402,7 @@ rem End of Selection 3 - fastboot Related
 rem Selection 3.1 - Reboot Device
 
 :fastboot_reboot
+title EzAdbTools - Reboot Device
 cls
 echo.
 echo ==============================
@@ -407,6 +425,7 @@ rem End of Selection 3.1 - Reboot Device
 rem Selection 3.2 - Bootloader unlocking related
 
 :fastboot_unlock
+title EzAdbTools - Bootloader unlocking menu
 cls
 echo.
 echo ==============================
@@ -433,6 +452,7 @@ if not %M%==X GOTO wrgintfu
 if not %M%==x GOTO wrgintfu
 
 :wrgintfu
+title EzAdbTools - Wrong Input
 cls
 echo You have entered a wrong input, try again.
 choice /d y /t 2 > nul
@@ -443,6 +463,7 @@ rem End of Selection 3.2 - Bootloader unlocking related
 rem Selection 3.2.1 - Bootloader Unlock Status
 
 :fastboot_unlock_stat
+title EzAdbTools - Bootloader Unlock Status
 cls
 echo.
 echo ==============================
@@ -463,6 +484,7 @@ rem End ofSelection 3.2.1 - Bootloader Unlock Status
 rem Selection 3.2.2 - Bootloader Unlock (No code)
 
 :fastboot_unlock_nocode
+title EzAdbTools - Bootloader Unlock (No code)
 cls
 echo.
 echo ==============================
@@ -480,9 +502,10 @@ goto fastboot_unlock
 
 rem End of Selection 3.2.2 - Bootloader Unlock (No Code)
 
-rem Selection 3.2.3 - Bootloader Unlock (Code)
+rem Selection 3.2.3 - Bootloader Unlock (Code needed)
 
 :fastboot_unlock_code
+title EzAdbTools - Bootloader Unlock (Code needed)
 cls
 echo.
 echo ==============================
@@ -513,6 +536,7 @@ rem End of Selection 3.2.3 - Bootloader Unlock (Code)
 rem Selection 4 - Exit
 
 :exit
+title EzAdbTools - Exit
 cls
 set M=
 set pressanykey=
