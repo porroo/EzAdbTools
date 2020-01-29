@@ -71,7 +71,7 @@ echo 1 - adb related
 echo 2 - fastboot related
 echo X - Exit
 echo.
-set /P M="Type options on screen then press ENTER: "
+set /P M="Input options shown on screen then press ENTER: "
 if %M%==1 GOTO adb
 if %M%==2 GOTO fastboot
 if %M%==X GOTO exit
@@ -117,7 +117,7 @@ echo 4 - Reboot Menu
 echo 5 - Full Backup
 echo X - Back
 echo.
-set /P M="Type options on screen then press ENTER: "
+set /P M="Input options shown on screen then press ENTER: "
 if %M%==1 GOTO adb_app_install
 if %M%==2 GOTO adb_android_shell
 if %M%==3 GOTO adb_devices
@@ -232,7 +232,7 @@ echo 5 - Reboot into Download Mode
 echo 6 - Reboot into Safe Mode (ROOT)
 echo X - Back
 echo.
-set /P M="Type options on screen then press ENTER: "
+set /P M="Input options shown on screen then press ENTER: "
 if %M%==1 GOTO adb_reboot_device
 if %M%==2 GOTO adb_reboot_fastboot
 if %M%==3 GOTO adb_reboot_recovery
@@ -412,7 +412,7 @@ echo 1 - Reboot device
 echo 2 - Bootloader unlocking menu
 echo X - Back
 echo.
-set /P M="Type options on screen then press ENTER: "
+set /P M="Input options shown on screen then press ENTER: "
 if %M%==1 GOTO fastboot_reboot
 if %M%==2 GOTO fastboot_unlock
 if %M%==X GOTO menu
@@ -471,7 +471,7 @@ echo 2 - Bootloader Unlock (No code)
 echo 3 - Bootloader Unlock (Code needed)
 echo X - Back
 echo.
-set /P M="Type options on screen then press ENTER: "
+set /P M="Input options shown on screen then press ENTER: "
 if %M%==1 GOTO fastboot_unlock_stat
 if %M%==2 GOTO fastboot_unlock_nocode
 if %M%==3 GOTO fastboot_unlock_code
