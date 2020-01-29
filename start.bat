@@ -118,6 +118,7 @@ echo 1 - Install Application
 echo 2 - Android Shell
 echo 3 - Check connected devices
 echo 4 - Reboot Menu
+echo 5 - Full Backup
 echo X - Back
 echo.
 set /P M="Type options on screen then press ENTER: "
@@ -125,12 +126,14 @@ if %M%==1 GOTO adb_app_install
 if %M%==2 GOTO adb_android_shell
 if %M%==3 GOTO adb_devices
 if %M%==4 GOTO adb_reboot
+if %M%==5 GOTO adb_full_backup
 if %M%==X GOTO menu
 if %M%==x GOTO menu
 if not %M%==1 GOTO wrginta
 if not %M%==2 GOTO wrginta
 if not %M%==3 GOTO wrginta
 if not %M%==4 GOTO wrginta
+if not %M%==5 GOTO wrginta
 if not %M%==X GOTO wrginta
 if not %M%==x GOTO wrginta
 
@@ -154,11 +157,11 @@ set delworkingbat=0
 
 rem Creating working.bat
     (
-        echo ==============================
-        echo %productnamever%
-        echo ==============================
-        echo Install Application
-        echo ==============================
+        echo echo ==============================
+        echo echo %productnamever%
+        echo echo ==============================
+        echo echo Install Application
+        echo echo ==============================
 	echo cd bin
 	echo adb.exe install %adb_install_app%
 	echo cd ..
@@ -363,6 +366,39 @@ goto adb_reboot
 
 rem End of Selection 2.4 - Reboot Menu
 
+rem Selection 2.5 - Full Backup
+
+:adb_full_backup
+title EzAdbTools - Full Backup
+cls
+echo.
+echo ==============================
+echo %productnamever%
+echo ==============================
+echo Full Backup
+echo ==============================
+echo.
+echo This feature is not tested.
+choice /d y /t 2 > nul
+if %backupfirst%=="yes" (
+SET backuptimes=1
+SET backupfirst=no
+) else if %backupfirst%=="no" (
+SET /A backuptimes=%backuptimes% + 1
+)
+    (
+        echo echo ==============================
+        echo echo %productnamever%
+        echo echo ==============================
+        echo echo Full Backup
+        echo echo ==============================
+	echo cd bin
+	echo adb.exe backup -apk -shared -all -f %CD%/backups/backup%backuptimes%.ab
+)>"working.bat"
+call working.bat
+
+rem End of Selection 2.5 - Full Backup
+
 rem Selection 3 - fastboot Related
 
 :fastboot
@@ -519,11 +555,11 @@ set delworkingbat=0
 
 rem Creating working.bat
     (
-        echo ==============================
-        echo %productnamever%
-        echo ==============================
-        echo Unlock Bootloader (Code needed)
-        echo ==============================
+        echo echo ==============================
+        echo echo %productnamever%
+        echo echo ==============================
+        echo echo Unlock Bootloader (Code needed)
+        echo echo ==============================
 	echo cd bin
 	echo fastboot.exe oem-unlock %unlock_key%
 	echo cd ..
