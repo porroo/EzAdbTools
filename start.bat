@@ -119,7 +119,7 @@ echo X - Back
 echo.
 set /P M="Input options shown on screen then press ENTER: "
 if %M%==1 GOTO adb_app_install
-if %M%==2 GOTO adb_android_shell
+if %M%==2 GOTO adb_root_shell_ask
 if %M%==3 GOTO adb_devices
 if %M%==4 GOTO adb_reboot
 if %M%==5 GOTO adb_full_backup
@@ -174,6 +174,35 @@ rem End of Selection 2.1 - Install Application
 
 rem Selection 2.2 - Android Shell
 
+rem Ask for root shell
+:adb_root_shell_ask
+title EzAdbTools - Android Shell
+cls
+echo.
+echo ==============================
+echo %productnamever%
+echo ==============================
+echo Android Shell
+echo ==============================
+echo.
+echo Do you want to use Android Shell in root mode?
+set /P M="Select an option (Y/N): "
+if %M%==Y GOTO adb_su_android_shell
+if %M%==N GOTO adb_android_shell
+if %M%==y GOTO adb_su_android_shell
+if %M%==n GOTO adb_android_shell
+if not %M%==Y GOTO wrgintas
+if not %M%==N GOTO wrgintas
+if not %M%==y GOTO wrgintas
+if not %M%==n GOTO wrgintas
+
+:wrgintas
+title EzAdbTools - Wrong Input
+cls
+echo You have entered a wrong input, try again.
+choice /d y /t 2 > nul
+goto adb_root_shell_ask
+
 :adb_android_shell
 title EzAdbTools - Android Shell
 cls
@@ -186,7 +215,21 @@ echo ==============================
 echo.
 echo This will stop EzAdbTools, restart this program if you need it later.
 cd bin 
-call adb.exe shell
+adb.exe shell
+
+:adb_su_android_shell
+title EzAdbTools - Android Shell
+cls
+echo.
+echo ==============================
+echo %productnamever%
+echo ==============================
+echo Android Shell
+echo ==============================
+echo.
+echo This will stop EzAdbTools, restart this program if you need it later.
+cd bin 
+adb.exe shell su
 
 rem End of Selection 2.2 - Android Shell
 
