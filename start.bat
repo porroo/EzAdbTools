@@ -102,6 +102,7 @@ goto adb
 :adb
 title EzAdbTools - adb Related
 cls
+if %root_mode%==1 goto adb_root_mode
 set M=
 echo.
 echo ==============================
@@ -115,6 +116,7 @@ echo 2 - Android Shell
 echo 3 - Check connected devices
 echo 4 - Reboot Menu
 echo 5 - Full Backup
+echo R - Enable Root Mode
 echo X - Back
 echo.
 set /P M="Input options shown on screen then press ENTER: "
@@ -123,6 +125,8 @@ if %M%==2 GOTO adb_root_shell_ask
 if %M%==3 GOTO adb_devices
 if %M%==4 GOTO adb_reboot
 if %M%==5 GOTO adb_full_backup
+if %M%==R GOTO adb_root_mode_on
+if %M%==r GOTO adb_root_mode_on
 if %M%==X GOTO menu
 if %M%==x GOTO menu
 if not %M%==1 GOTO wrginta
@@ -130,6 +134,47 @@ if not %M%==2 GOTO wrginta
 if not %M%==3 GOTO wrginta
 if not %M%==4 GOTO wrginta
 if not %M%==5 GOTO wrginta
+if not %M%==R GOTO wrginta
+if not %M%==r GOTO wrginta
+if not %M%==X GOTO wrginta
+if not %M%==x GOTO wrginta
+
+:adb
+title EzAdbTools - adb Related
+cls
+set M=
+echo.
+echo ==============================
+echo %productnamever%
+echo ==============================
+echo adb Related (Root Mode)
+echo ==============================
+echo.
+echo 1 - Install Application
+echo 2 - Android Shell
+echo 3 - Check connected devices
+echo 4 - Reboot Menu
+echo 5 - Full Backup
+echo R - Disable Root Mode
+echo X - Back
+echo.
+set /P M="Input options shown on screen then press ENTER: "
+if %M%==1 GOTO adb_app_install
+if %M%==2 GOTO adb_root_shell_ask
+if %M%==3 GOTO adb_devices
+if %M%==4 GOTO adb_reboot
+if %M%==5 GOTO adb_full_backup
+if %M%==R GOTO adb_root_mode_off
+if %M%==r GOTO adb_root_mode_off
+if %M%==X GOTO menu
+if %M%==x GOTO menu
+if not %M%==1 GOTO wrginta
+if not %M%==2 GOTO wrginta
+if not %M%==3 GOTO wrginta
+if not %M%==4 GOTO wrginta
+if not %M%==5 GOTO wrginta
+if not %M%==R GOTO wrginta
+if not %M%==r GOTO wrginta
 if not %M%==X GOTO wrginta
 if not %M%==x GOTO wrginta
 
@@ -437,6 +482,45 @@ SET /A backuptimes=%backuptimes% + 1
 call working.bat
 
 rem End of Selection 2.5 - Full Backup
+
+rem Selection 2.R - Root Mode
+:adb_root_mode_on
+title EzAdbTools - Enable Root Mode
+cls
+set M=
+echo.
+echo ==============================
+echo %productnamever%
+echo ==============================
+echo Enable Root Mode
+echo ==============================
+echo.
+cd bin
+adb.exe root
+cd ..
+set root_mode=1
+echo Root mode is enabled.
+choice /d y /t 3 > nul
+
+:adb_root_mode_off
+title EzAdbTools - Disable Root Mode
+cls
+set M=
+echo.
+echo ==============================
+echo %productnamever%
+echo ==============================
+echo Disable Root Mode
+echo ==============================
+echo.
+cd bin
+adb.exe unroot
+cd ..
+set root_mode=0
+echo Root mode is disabled.
+choice /d y /t 3 > nul
+
+rem End of Selection 2.R - Root Mode
 
 rem Selection 3 - fastboot Related
 
