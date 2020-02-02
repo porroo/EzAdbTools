@@ -150,7 +150,7 @@ echo ==============================
 echo adb Related (Root Mode)
 echo ==============================
 echo.
-echo 1 - Install Application
+echo 1 - Application Manager
 echo 2 - Android Shell
 echo 3 - Check connected devices
 echo 4 - Reboot Menu
@@ -159,7 +159,7 @@ echo R - Disable Root Mode
 echo X - Back
 echo.
 set /P M="Input options shown on screen then press ENTER: "
-if %M%==1 GOTO adb_app_install
+if %M%==1 GOTO adb_appman
 if %M%==2 GOTO adb_root_shell_ask
 if %M%==3 GOTO adb_devices
 if %M%==4 GOTO adb_reboot
@@ -181,6 +181,27 @@ if not %M%==x GOTO wrginta
 rem End of Selection 2 - adb Related
 
 rem Selection 2.1 - Install Application
+
+:adb_appman
+title EzAdbTools - Application Manager
+cls
+echo.
+echo ==============================
+echo %productnamever%
+echo ==============================
+echo Application Manager
+echo ==============================
+echo.
+echo 1 - Install Application
+echo X - Back
+echo.
+set /P M="Input options shown on screen then press ENTER: "
+if %M%==1 GOTO adb_app_install
+if %M%==X GOTO adb
+if %M%==x GOTO adb
+if not %M%==1 GOTO adb_app_install
+if not %M%==X GOTO adb
+if not %M%==x GOTO adb
 
 :adb_app_install
 title EzAdbTools - Install Application
