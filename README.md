@@ -6,7 +6,8 @@ This binary requires a copy of Windows 7 for maximum compatibility. It currently
 
 ## Usage
 Download the binary and extract the downloaded <b>.zip</b> file, then double click on the <b>start.bat</b> file to start using this tool.
-<b>Warning</b>: Do <b>NOT</b> launch any other batch file in the folder in case you screwed something up.
+### Warnings 
+Do <b>NOT</b> launch any other batch file in the folder in case you screwed something up.
 
 ## Versioning
 We use <b>TipzVer</b> for versioning. For the versions available, see the [tags on this repository](https://github.com/TipzTeam/EzAdbTools/tags)
