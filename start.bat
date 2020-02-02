@@ -14,23 +14,22 @@ title EzAdbTools - Initialization
 rem Selection 0 - Initialization
 
 :int
+title EzAdbTools - Initialization
+echo Initializing...
 rem Delete working.bat
 if exist working.bat call delworking.bat
-  rem Restart Adb
-  cd bin
-  adb.exe kill-server
-  adb.exe start-server
-  cd ..
-  
-  rem Empty all variables
-  set M=
-  set pressanykey=
-  set adb_install_app=
-  
-  rem Set variables
-  set productnamever=Ez Adb Tools 2020.1.13
-  set productnamever=%productnamever:"=% 
-)
+rem Restart Adb
+cd bin
+adb.exe kill-server
+adb.exe start-server
+cd ..
+rem Empty all variables
+set M=
+set pressanykey=
+set adb_install_app=
+rem Set variables
+set productnamever=Ez Adb Tools Test Build 202002021231HKT
+set productnamever=%productnamever:"=% 
 
 rem adb.exe check
 echo Checking for adb.exe...
