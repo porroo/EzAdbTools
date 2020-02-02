@@ -214,7 +214,7 @@ echo ==============================
 echo.
 set /P adb_install_app="Drag and drop the apk file into this window then hit enter: "
 if exist %adb_install_app% (
-set delworkingbat=0
+set delworkingbat=1
 
 rem Creating working.bat
     (
@@ -487,6 +487,7 @@ choice /d y /t 2 > nul
 if %backupfirst%=="yes" (
 SET backuptimes=1
 SET backupfirst=no
+set delworkingbat=1
 ) else if %backupfirst%=="no" (
 SET /A backuptimes=%backuptimes% + 1
 )
@@ -694,7 +695,7 @@ echo Unlock Bootloader (Code needed)
 echo ==============================
 echo.
 set /P unlock_key="Input the code you got for unlocking your device: "
-set delworkingbat=0
+set delworkingbat=1
 
 rem Creating working.bat
     (
