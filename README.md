@@ -6,6 +6,7 @@ This binary requires a copy of Windows 7 for maximum compatibility. It currently
 
 ## Usage
 Download the binary and extract the downloaded <b>.zip</b> file, then double click on the <b>start.bat</b> file to start using this tool.
+
 ### Warnings 
 Do <b>NOT</b> launch any other batch file in the folder in case you screwed something up.
 
