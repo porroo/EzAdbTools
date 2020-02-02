@@ -198,9 +198,16 @@ set /P M="Input options shown on screen then press ENTER: "
 if %M%==1 GOTO adb_app_install
 if %M%==X GOTO adb
 if %M%==x GOTO adb
-if not %M%==1 GOTO adb_app_install
-if not %M%==X GOTO adb
-if not %M%==x GOTO adb
+if not %M%==1 GOTO wrgintaam
+if not %M%==X GOTO wrgintaam
+if not %M%==x GOTO wrgintaam
+
+:wrgintaam
+title EzAdbTools - Wrong Input
+cls
+echo You have entered a wrong input, try again.
+choice /d y /t 2 > nul
+goto adb_appman
 
 :adb_app_install
 title EzAdbTools - Install Application
