@@ -1,9 +1,12 @@
 # EzAdbTools, a open source batch tool
+This is a tool for the developers that is new to the Android developing community. 
 
-## What is this?
-EzAdbTools is a tool for the developers that is new to the Android developing community. 
-EzAdbTools provides the simple experience of using adb and fastboot for any new users.
-As of right now, this tool is incomplete and need the help of developers which is more professional.
+## Requirements
+This binary requires a copy of Windows 7 for maximum compatibility. It currently only supports Windows, in future updates we might add support for macOS and Linux.
+
+## Usage
+Download the binary and extract the downloaded <b>.zip</b> file, then double click on the <b>start.bat</b> file to start using this tool.
+<b>Warning</b>: Do <b>NOT</b> launch any other batch file in the folder in case you screwed something up.
 
 ## Links
 XDA Thread: https://forum.xda-developers.com/android/software/tools-ezadbtools-source-simple-adb-t4033297
