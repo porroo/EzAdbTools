@@ -9,4 +9,4 @@ Download the binary and extract the downloaded <b>.zip</b> file, then double cli
 <b>Warning</b>: Do <b>NOT</b> launch any other batch file in the folder in case you screwed something up.
 
 ## Links
-XDA Thread: https://forum.xda-developers.com/android/software/tools-ezadbtools-source-simple-adb-t4033297
+<b>XDA Thread</b>: https://forum.xda-developers.com/android/software/tools-ezadbtools-source-simple-adb-t4033297
