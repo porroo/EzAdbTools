@@ -1,4 +1,6 @@
 @echo off
+rem Added colors!
+color 0c
 
 :: This is the main script of EzAdbTools
 :: ========================================
