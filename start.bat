@@ -17,7 +17,7 @@ rem Selection 0 - Initialization
 title EzAdbTools - Initialization
 echo Initializing...
 rem Delete working.bat
-if exist working.bat call delworking.bat
+if exist working.bat goto delworking
 rem Restart Adb
 cd bin
 adb.exe kill-server
@@ -233,6 +233,7 @@ rem Creating working.bat
 	echo cd bin
 	echo adb.exe install %adb_install_app%
 	echo cd ..
+	echo cd scripts 
         echo call delworking.bat
 )>"working.bat"
 call working.bat
@@ -506,6 +507,9 @@ SET /A backuptimes=%backuptimes% + 1
         echo echo ==============================
 	echo cd bin
 	echo adb.exe backup -apk -shared -all -f %CD%/backups/backup%backuptimes%.ab
+	echo cd ..
+	echo cd scripts 
+        echo call delworking.bat
 )>"working.bat"
 call working.bat
 
@@ -741,3 +745,9 @@ choice /d y /t 2 > nul
 exit
 
 rem End of Selection 4 - Exit
+
+rem Selection O - Others
+
+:delworking
+cd scripts 
+call delworking.bat
