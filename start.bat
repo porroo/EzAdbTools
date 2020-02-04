@@ -11,24 +11,27 @@ color 0c
 
 cls
 goto int
-title EzAdbTools - Initialization
 
 rem Selection 0 - Initialization
 
 :int
 title EzAdbTools - Initialization
 echo Initializing...
+
 rem Delete working.bat
 if exist working.bat goto delworking
+
 rem Restart Adb
 cd bin
 adb.exe kill-server
 adb.exe start-server
 cd ..
+
 rem Empty all variables
 set M=
 set pressanykey=
 set adb_install_app=
+
 rem Set variables
 set productnamever=Ez Adb Tools Test Build 202002021231HKT
 set productnamever=%productnamever:"=% 
@@ -85,7 +88,7 @@ if not %M%==x GOTO wrgintm
 :wrgintm
 title EzAdbTools - Wrong Input
 cls
-echo You have entered a wrong input, try again.
+echo You have inputted a wrong input, try again.
 choice /d y /t 2 > nul
 goto menu
 
@@ -96,7 +99,7 @@ rem Selection 2 - adb Related
 :wrginta
 title EzAdbTools - Wrong Input
 cls
-echo You have entered a wrong input, try again.
+echo You have inputted a wrong input, try again.
 choice /d y /t 2 > nul
 goto adb
 
@@ -207,7 +210,7 @@ if not %M%==x GOTO wrgintaam
 :wrgintaam
 title EzAdbTools - Wrong Input
 cls
-echo You have entered a wrong input, try again.
+echo You have inputted a wrong input, try again.
 choice /d y /t 2 > nul
 goto adb_appman
 
@@ -274,7 +277,7 @@ if not %M%==n GOTO wrgintas
 :wrgintas
 title EzAdbTools - Wrong Input
 cls
-echo You have entered a wrong input, try again.
+echo You have inputted a wrong input, try again.
 choice /d y /t 2 > nul
 goto adb_root_shell_ask
 
@@ -305,6 +308,7 @@ echo.
 echo This will stop EzAdbTools, restart this program if you need it later.
 cd bin 
 adb.exe shell su
+adb.exe shell
 
 rem End of Selection 2.2 - Android Shell
 
@@ -371,7 +375,7 @@ if not %M%==x GOTO wrgintar
 :wrgintar
 title EzAdbTools - Wrong Input
 cls
-echo You have entered a wrong input, try again.
+echo You have inputted a wrong input, try again.
 choice /d y /t 2 > nul
 goto adb_reboot
 
@@ -586,7 +590,7 @@ if not %M%==x GOTO wrgintf
 :wrgintf
 title EzAdbTools - Wrong Input
 cls
-echo You have entered a wrong input, try again.
+echo You have inputted a wrong input, try again.
 choice /d y /t 2 > nul
 goto fastboot
 
@@ -647,7 +651,7 @@ if not %M%==x GOTO wrgintfu
 :wrgintfu
 title EzAdbTools - Wrong Input
 cls
-echo You have entered a wrong input, try again.
+echo You have inputted a wrong input, try again.
 choice /d y /t 2 > nul
 goto fastboot_unlock
 
