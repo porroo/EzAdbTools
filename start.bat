@@ -80,6 +80,7 @@ set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO adb
 if %M%==2 GOTO fastboot
 if %M%==3 GOTO links
+if %M%==L GOTO elic
 if %M%==X GOTO exit
 if %M%==x GOTO exit
 if not %M%==1 GOTO wrgintm
@@ -789,5 +790,11 @@ rem Selection O - Others
 :delworking
 cd scripts 
 call delworking.bat
+
+:elic
+cls
+type LICENSE
+pause
+goto menu
 
 rem End of Selection O - Others
