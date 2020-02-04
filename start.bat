@@ -82,12 +82,14 @@ echo.
 echo 1 - adb related
 echo 2 - fastboot related
 echo 3 - Links
+echo 4 - Command Line
 echo X - Exit
 echo.
 set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO adb
 if %M%==2 GOTO fastboot
 if %M%==3 GOTO links
+if %M%==4 GOTO cmd
 if %M%==L GOTO elic
 if %M%==X GOTO exit
 if %M%==x GOTO exit
@@ -932,7 +934,7 @@ rem End of Selection 4 - Exit
 
 rem Selection 5 - Links
 :links
-title EzAdbTools - Start Menu
+title EzAdbTools - Links
 cls
 set M=
 echo.
@@ -964,6 +966,28 @@ if not %M%==X GOTO wrgintm
 if not %M%==x GOTO wrgintm
 
 rem End of Selection 5 - Links
+
+rem Selection 6 - Command Line
+
+title EzAdbTools - Start Menu
+cls
+set M=
+echo.
+echo ==============================
+echo ___________         _____       .______. ___________           .__          
+echo \_   _____/_______ /  _  \    __| _/\_ |_\__    ___/___   ____ |  |   ______
+echo  |    __)_\___   //  /_\  \  / __ |  | __ \|    | /  _ \ /  _ \|  |  /  ___/
+echo  |        \/    //    |    \/ /_/ |  | \_\ \    |(  <_> |  <_> )  |__\___ \ 
+echo /_______  /_____ \____|__  /\____ |  |___  /____| \____/ \____/|____/____  >
+echo         \/      \/       \/      \/      \/                              \/ 
+echo %productnamever%
+echo ==============================
+echo Command Line
+echo ==============================
+echo.
+echo This will EzAdbTools, do 'call eat.bat' to start this program again.
+cd bin
+cmd
 
 rem Selection O - Others
 
