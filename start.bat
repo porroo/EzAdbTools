@@ -73,15 +73,18 @@ echo ==============================
 echo.
 echo 1 - adb related
 echo 2 - fastboot related
+echo 3 - Links
 echo X - Exit
 echo.
-set /P M="Input options shown on screen then press ENTER: "
+set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO adb
 if %M%==2 GOTO fastboot
+if %M%==3 GOTO links
 if %M%==X GOTO exit
 if %M%==x GOTO exit
 if not %M%==1 GOTO wrgintm
 if not %M%==2 GOTO wrgintm
+if not %M%==3 GOTO wrgintm
 if not %M%==X GOTO wrgintm
 if not %M%==x GOTO wrgintm
 
@@ -123,7 +126,7 @@ echo 5 - Full Backup
 echo R - Enable Root Mode
 echo X - Back
 echo.
-set /P M="Input options shown on screen then press ENTER: "
+set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO adb_app_install
 if %M%==2 GOTO adb_root_shell_ask
 if %M%==3 GOTO adb_devices
@@ -162,7 +165,7 @@ echo 5 - Full Backup
 echo R - Disable Root Mode
 echo X - Back
 echo.
-set /P M="Input options shown on screen then press ENTER: "
+set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO adb_appman
 if %M%==2 GOTO adb_root_shell_ask
 if %M%==3 GOTO adb_devices
@@ -199,7 +202,7 @@ echo.
 echo 1 - Install Application
 echo X - Back
 echo.
-set /P M="Input options shown on screen then press ENTER: "
+set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO adb_app_install
 if %M%==X GOTO adb
 if %M%==x GOTO adb
@@ -354,7 +357,7 @@ echo 5 - Reboot into Download Mode
 echo 6 - Reboot into Safe Mode (ROOT)
 echo X - Back
 echo.
-set /P M="Input options shown on screen then press ENTER: "
+set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO adb_reboot_device
 if %M%==2 GOTO adb_reboot_fastboot
 if %M%==3 GOTO adb_reboot_recovery
@@ -577,7 +580,7 @@ echo 1 - Reboot device
 echo 2 - Bootloader unlocking menu
 echo X - Back
 echo.
-set /P M="Input options shown on screen then press ENTER: "
+set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO fastboot_reboot
 if %M%==2 GOTO fastboot_unlock
 if %M%==X GOTO menu
@@ -636,7 +639,7 @@ echo 2 - Bootloader Unlock (No code)
 echo 3 - Bootloader Unlock (Code needed)
 echo X - Back
 echo.
-set /P M="Input options shown on screen then press ENTER: "
+set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO fastboot_unlock_stat
 if %M%==2 GOTO fastboot_unlock_nocode
 if %M%==3 GOTO fastboot_unlock_code
@@ -752,8 +755,39 @@ exit
 
 rem End of Selection 4 - Exit
 
+rem Selection 5 - Links
+:links
+title EzAdbTools - Start Menu
+cls
+set M=
+echo.
+echo ==============================
+echo %productnamever%
+echo ==============================
+echo Links
+echo ==============================
+echo.
+echo 1 - XDA Thread
+echo 2 - GitHub Page
+echo X - Exit
+echo.
+set /P M="Input options shown above then press ENTER: "
+if %M%==1 start https://forum.xda-developers.com/android/software/tools-ezadbtools-source-simple-adb-t4033297
+if %M%==2 start https://github.com/TipzTeam/EzAdbTools
+if %M%==X GOTO exit
+if %M%==x GOTO exit
+if not %M%==1 GOTO wrgintm
+if not %M%==2 GOTO wrgintm
+if not %M%==3 GOTO wrgintm
+if not %M%==X GOTO wrgintm
+if not %M%==x GOTO wrgintm
+
+rem End of Selection 5 - Links
+
 rem Selection O - Others
 
 :delworking
 cd scripts 
 call delworking.bat
+
+rem End of Selection O - Others
