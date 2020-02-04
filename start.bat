@@ -33,7 +33,7 @@ set pressanykey=
 set adb_install_app=
 
 rem Set variables
-set productnamever=Ez Adb Tools Test Build 202002021231HKT
+set productnamever=Ez Adb Tools Test Build 202002040941HKT
 set productnamever=%productnamever:"=% 
 
 rem adb.exe check
