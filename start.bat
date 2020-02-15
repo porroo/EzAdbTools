@@ -119,7 +119,6 @@ goto adb
 :adb
 title EzAdbTools - adb Related
 cls
-if %root_mode%==1 goto adb_root_mode
 set M=
 echo.
 echo ==============================
@@ -134,7 +133,6 @@ echo 3 - Check connected devices
 echo 4 - Reboot Menu
 echo 5 - Full Backup
 echo 6 - Sideload flashable zip file
-echo R - Enable Root Mode
 echo X - Back
 echo.
 set /P M="Input options shown above then press ENTER: "
@@ -144,8 +142,6 @@ if %M%==3 GOTO adb_devices
 if %M%==4 GOTO adb_reboot
 if %M%==5 GOTO adb_full_backup
 if %M%==6 GOTO adb_sideload
-if %M%==R GOTO adb_root_mode_on
-if %M%==r GOTO adb_root_mode_on
 if %M%==X GOTO menu
 if %M%==x GOTO menu
 if not %M%==1 GOTO wrginta
@@ -796,6 +792,7 @@ exit
 rem End of Selection 4 - Exit
 
 rem Selection 5 - Links
+
 :links
 title EzAdbTools - Links
 cls
@@ -826,7 +823,8 @@ rem End of Selection 5 - Links
 
 rem Selection 6 - Command Line
 
-title EzAdbTools - Start Menu
+:cmd
+title EzAdbTools - Command Line
 cls
 set M=
 echo.
@@ -839,6 +837,7 @@ echo.
 echo This will EzAdbTools, do 'call eat.bat' to start this program again.
 cd bin
 cmd
+rem End of Selection 6 - Command Line
 
 rem Selection O - Others
 
