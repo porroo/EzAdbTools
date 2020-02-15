@@ -42,7 +42,6 @@ set sideload_zip=
 rem Set variables
 set productnamever=Ez Adb Tools Test Build 202002040941HKT
 set productnamever=%productnamever:"=% 
-goto menu
 
 rem adb.exe check
 echo Checking for adb.exe...
