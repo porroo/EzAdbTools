@@ -8,10 +8,7 @@ You might need additional drivers for your smartphone to make it work with adb a
 ## Usage
 Download the binary and extract the downloaded <b>.zip</b> file, then double click on the <b>start.bat</b> file to start using this tool.
 ### Warnings 
-- Do <b>NOT</b> launch any other batch file in the folder in case you screwed something up.
-
-## Versioning
-We use our own versioning system <b>TipzVer</b> for versioning. For the versions available, see the [tags on this repository](https://github.com/TipzTeam/EzAdbTools/tags)
+- Do <b>NOT</b> launch any other batch file in the folder if you don't understand what it does in case you screwed something up.
 
 ## Authors
 * **Ricky Cheung** - *Initial work* - [TipzTeam](https://github.com/TipzTeam)
