@@ -814,8 +814,8 @@ echo.
 set /P M="Input options shown above then press ENTER: "
 if %M%==1 start https://forum.xda-developers.com/android/software/tools-ezadbtools-source-simple-adb-t4033297
 if %M%==2 start https://github.com/TipzTeam/EzAdbTools
-if %M%==X GOTO quit
-if %M%==x GOTO quit
+if %M%==X GOTO menu
+if %M%==x GOTO menu
 if not %M%==1 GOTO wrgintm
 if not %M%==2 GOTO wrgintm
 if not %M%==3 GOTO wrgintm
