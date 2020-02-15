@@ -18,8 +18,8 @@ Download the binary and extract the downloaded <b>.zip</b> file, then double cli
 - Unstable builds may cntain bugs so we suggest you to use the ones in the [Releases](https://github.com/TipzTeam/EzAdbTools/releases) tab
 
 ## Authors
-* **Ricky Cheung** - *Initial work* - [TipzTeam](https://github.com/TipzTeam)<br>
-<br>
+* **Ricky Cheung** - *Initial work* - [TipzTeam](https://github.com/TipzTeam)
+
 See also the list of [contributors](https://github.com/TipzTeam/EzAdbTools/contributors) who participated in this project.
 
 ## License
