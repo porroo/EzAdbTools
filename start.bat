@@ -239,16 +239,17 @@ set delworkingbat=1
 
 rem Creating working.bat
     (
-        echo echo ==============================
-        echo echo %productnamever%
-        echo echo ==============================
-        echo echo Install Application
-        echo echo ==============================
-	    echo cd bin
-	    echo adb.exe install %adb_install_app%
-	    echo cd ..
-	    echo cd scripts 
-        echo call delworking.bat
+    echo echo ==============================
+    echo echo %productnamever%
+    echo echo ==============================
+    echo echo Install Application
+    echo echo ==============================
+	echo cd bin
+	echo adb.exe install %adb_install_app%
+	echo cd ..
+	echo cd scripts 
+    echo call delworking.bat
+	echo cls
 )>"working.bat"
 call working.bat
 ) else (
@@ -525,6 +526,7 @@ SET /A backuptimes=%backuptimes% + 1
 	    echo cd ..
 	    echo cd scripts 
         echo call delworking.bat
+		echo cls
 )>"working.bat"
 call working.bat
 
@@ -586,15 +588,17 @@ set delworkingbat=1
 
 rem Creating working.bat
     (
-        echo echo ==============================
-        echo echo %productnamever%
-        echo echo ==============================
-        echo echo Sideload flashable zip file
-        echo echo ==============================
+    echo echo ==============================
+    echo echo %productnamever%
+    echo echo ==============================
+    echo echo Sideload flashable zip file
+    echo echo ==============================
 	echo cd bin
 	echo adb.exe sideload %sideload_zip%
 	echo cd ..
-        echo call delworking.bat
+	echo cd scripts
+    echo call delworking.bat
+	echo cls
 )>"working.bat"
 call working.bat
 
@@ -755,15 +759,17 @@ set delworkingbat=1
 
 rem Creating working.bat
     (
-        echo echo ==============================
-        echo echo %productnamever%
-        echo echo ==============================
-        echo echo Unlock Bootloader (Code needed)
-        echo echo ==============================
+    echo echo ==============================
+    echo echo %productnamever%
+    echo echo ==============================
+    echo echo Unlock Bootloader (Code needed)
+    echo echo ==============================
 	echo cd bin
 	echo fastboot.exe oem-unlock %unlock_key%
 	echo cd ..
-        echo call delworking.bat
+    echo cd scripts
+    echo call delworking.bat
+	echo cls
 )>"working.bat"
 call working.bat
 
