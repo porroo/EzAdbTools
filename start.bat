@@ -33,6 +33,11 @@ rem Empty all variables
 set M=
 set pressanykey=
 set adb_install_app=
+set sideload_zip=
+set backupfirst=
+set backuptimes=
+set root_mode=
+set sideload_zip=
 
 rem Set variables
 set productnamever=Ez Adb Tools Test Build 202002040941HKT
@@ -140,6 +145,7 @@ echo 2 - Android Shell
 echo 3 - Check connected devices
 echo 4 - Reboot Menu
 echo 5 - Full Backup
+echo 6 - Sideload flashable zip file
 echo R - Enable Root Mode
 echo X - Back
 echo.
@@ -149,6 +155,7 @@ if %M%==2 GOTO adb_root_shell_ask
 if %M%==3 GOTO adb_devices
 if %M%==4 GOTO adb_reboot
 if %M%==5 GOTO adb_full_backup
+if %M%==6 GOTO adb_sideload
 if %M%==R GOTO adb_root_mode_on
 if %M%==r GOTO adb_root_mode_on
 if %M%==X GOTO menu
@@ -158,6 +165,7 @@ if not %M%==2 GOTO wrginta
 if not %M%==3 GOTO wrginta
 if not %M%==4 GOTO wrginta
 if not %M%==5 GOTO wrginta
+if not %N%==6 GOTO wrginta
 if not %M%==R GOTO wrginta
 if not %M%==r GOTO wrginta
 if not %M%==X GOTO wrginta
@@ -692,6 +700,48 @@ choice /d y /t 3 > nul
 
 rem End of Selection 2.R - Root Mode
 
+rem Selection 2.6 - Sideload
+:adb_sideload
+title EzAdbTools - Sideload flashable zip file
+cls
+set M=
+echo.
+echo ==============================
+echo ___________         _____       .______. ___________           .__          
+echo \_   _____/_______ /  _  \    __| _/\_ |_\__    ___/___   ____ |  |   ______
+echo  |    __)_\___   //  /_\  \  / __ |  | __ \|    | /  _ \ /  _ \|  |  /  ___/
+echo  |        \/    //    |    \/ /_/ |  | \_\ \    |(  <_> |  <_> )  |__\___ \ 
+echo /_______  /_____ \____|__  /\____ |  |___  /____| \____/ \____/|____/____  >
+echo         \/      \/       \/      \/      \/                              \/ 
+echo %productnamever%
+echo ==============================
+echo Sideload flashable zip file
+echo ==============================
+echo.
+set /P sideload_zip="Drag and drop the flashable zip file you want to flash: "
+set delworkingbat=1
+
+rem Creating working.bat
+    (
+        echo echo ==============================
+        echo echo ___________         _____       .______. ___________           .__          
+        echo echo \_   _____/_______ /  _  \    __| _/\_ |_\__    ___/___   ____ |  |   ______
+        echo echo  |    __)_\___   //  /_\  \  / __ |  | __ \|    | /  _ \ /  _ \|  |  /  ___/
+        echo echo  |        \/    //    |    \/ /_/ |  | \_\ \    |(  <_> |  <_> )  |__\___ \ 
+        echo echo /_______  /_____ \____|__  /\____ |  |___  /____| \____/ \____/|____/____  >
+        echo echo         \/      \/       \/      \/      \/                              \/ 
+        echo echo %productnamever%
+        echo echo ==============================
+        echo echo Sideload flashable zip file
+        echo echo ==============================
+	echo cd bin
+	echo adb.exe sideload %sideload_zip%
+	echo cd ..
+        echo call delworking.bat
+)>"working.bat"
+call working.bat
+
+
 rem Selection 3 - fastboot Related
 
 :fastboot
@@ -910,9 +960,6 @@ rem Selection 4 - Exit
 title EzAdbTools - Exit
 cls
 set M=
-set pressanykey=
-set adb_install_app=
-set productnamever=
 echo.
 echo ==============================
 echo ___________         _____       .______. ___________           .__          
