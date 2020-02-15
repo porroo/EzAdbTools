@@ -20,9 +20,6 @@ rem Selection 0 - Initialization
 title EzAdbTools - Initialization
 echo Initializing...
 
-rem Delete working.bat
-if exist working.bat goto delworking
-
 rem Restart Adb
 cd bin
 adb.exe kill-server
@@ -840,10 +837,6 @@ cmd
 rem End of Selection 6 - Command Line
 
 rem Selection O - Others
-
-:delworking
-cd scripts 
-call delworking.bat
 
 :elic
 cls
