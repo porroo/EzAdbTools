@@ -23,7 +23,7 @@ Download the binary and extract the downloaded <b>.zip</b> file, then double cli
 See also the list of [contributors](https://github.com/TipzTeam/EzAdbTools/contributors) who participated in this project.
 
 ## License
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details
 
 ## Links
 <b>XDA Thread</b>: https://forum.xda-developers.com/android/software/tools-ezadbtools-source-simple-adb-t4033297
