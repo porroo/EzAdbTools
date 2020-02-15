@@ -1,7 +1,8 @@
 @echo off
+
 :: Notes
 rem Added colors!
-color 0c
+color 0a
 
 :: This is the main script of EzAdbTools
 :: ========================================
@@ -250,10 +251,10 @@ rem Creating working.bat
         echo echo ==============================
         echo echo Install Application
         echo echo ==============================
-	echo cd bin
-	echo adb.exe install %adb_install_app%
-	echo cd ..
-	echo cd scripts 
+	    echo cd bin
+	    echo adb.exe install %adb_install_app%
+	    echo cd ..
+	    echo cd scripts 
         echo call delworking.bat
 )>"working.bat"
 call working.bat
@@ -524,10 +525,12 @@ SET /A backuptimes=%backuptimes% + 1
         echo echo ==============================
         echo echo %productnamever%
         echo echo ==============================
-	echo cd bin
-	echo adb.exe backup -apk -shared -all -f %CD%/backups/backup%backuptimes%.ab
-	echo cd ..
-	echo cd scripts 
+		echo echo Full Backup
+		echo echo ==============================
+	    echo cd bin
+	    echo adb.exe backup -apk -shared -all -f %CD%/backups/backup%backuptimes%.ab
+	    echo cd ..
+	    echo cd scripts 
         echo call delworking.bat
 )>"working.bat"
 call working.bat
@@ -806,13 +809,13 @@ echo ==============================
 echo.
 echo 1 - XDA Thread
 echo 2 - GitHub Page
-echo X - Exit
+echo X - Back
 echo.
 set /P M="Input options shown above then press ENTER: "
 if %M%==1 start https://forum.xda-developers.com/android/software/tools-ezadbtools-source-simple-adb-t4033297
 if %M%==2 start https://github.com/TipzTeam/EzAdbTools
-if %M%==X GOTO exit
-if %M%==x GOTO exit
+if %M%==X GOTO quit
+if %M%==x GOTO quit
 if not %M%==1 GOTO wrgintm
 if not %M%==2 GOTO wrgintm
 if not %M%==3 GOTO wrgintm
