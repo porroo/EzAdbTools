@@ -1,5 +1,5 @@
-# EzAdbTools, a open source batch tool
-This is a tool for the developers that is new to the Android developing community. 
+# EzAdbTools, an open source batch tool
+This tools is a basic batch tool that uses adb.exe and fastboot.exe for those Android Geeks or new Android developers.
 
 ## Requirements
 This binary requires a copy of Windows 7 for maximum compatibility. It currently only supports Windows, in future updates we might add support for macOS and Linux.
@@ -10,6 +10,7 @@ You might need additional drivers for your smartphone to make it work with adb a
 - Lenovo Phab Plus (PB1-770M)
 - Oppo A57
 - Huawei P20 Lite (ANE-LX2)
+- Ticwatch Pro
 
 ## Usage
 Download the binary and extract the downloaded <b>.zip</b> file, then double click on the <b>start.bat</b> file to start using this tool.
@@ -25,5 +26,5 @@ See also the list of [contributors](https://github.com/TipzTeam/EzAdbTools/contr
 ## License
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details
 
-## Links
+## Forums Thread
 <b>XDA Thread</b>: https://forum.xda-developers.com/android/software/tools-ezadbtools-source-simple-adb-t4033297
