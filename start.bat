@@ -1,8 +1,4 @@
 @echo off
-
-:: Notes
-rem Added colors!
-
 color 0a
 
 :: ========================================
@@ -10,9 +6,6 @@ color 0a
 :: |***\__For adb and fastboot noobs__/***|
 :: |****\___XDA: tiny.cc/ezatxda_____/****|
 :: ========================================
-
-cls
-goto int
 
 rem Selection 0 - Initialization
 
