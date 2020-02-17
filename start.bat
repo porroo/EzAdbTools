@@ -2,6 +2,7 @@
 
 :: Notes
 rem Added colors!
+
 color 0a
 
 :: This is the main script of EzAdbTools
@@ -193,7 +194,7 @@ if not %M%==x GOTO wrginta
 
 rem End of Selection 2 - adb Related
 
-rem Selection 2.1 - Install Application
+rem Selection 2.1 - Application Manager
 
 :adb_appman
 title EzAdbTools - Application Manager
@@ -205,14 +206,20 @@ echo ==============================
 echo Application Manager
 echo ==============================
 echo.
-echo 1 - Install Application
+echo 1 - Install Applications
+echo 2 - Uninstall Applications (Incomplete)
+echo 3 - List Applications
 echo X - Back
 echo.
 set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO adb_app_install
+if %M%==2 GOTO adb_app_uni
+if %M%==3 GOTO adb_app_list
 if %M%==X GOTO adb
 if %M%==x GOTO adb
 if not %M%==1 GOTO wrgintaam
+if not %M%==2 GOTO wrgintaam
+if not %M%==3 GOTO wrgintaam
 if not %M%==X GOTO wrgintaam
 if not %M%==x GOTO wrgintaam
 
@@ -223,14 +230,16 @@ echo You have inputted a wrong input, try again.
 choice /d y /t 2 > nul
 goto adb_appman
 
+rem Selection 2.1.1 - Install Applications
+
 :adb_app_install
-title EzAdbTools - Install Application
+title EzAdbTools - Install Applications
 cls
 echo.
 echo ==============================
 echo %productnamever%
 echo ==============================
-echo Install Application
+echo Install Applications
 echo ==============================
 echo.
 set /P adb_install_app="Drag and drop the apk file into this window then hit enter: "
@@ -242,7 +251,7 @@ rem Creating working.bat
     echo echo ==============================
     echo echo %productnamever%
     echo echo ==============================
-    echo echo Install Application
+    echo echo Install Applications
     echo echo ==============================
 	echo cd bin
 	echo adb.exe install %adb_install_app%
@@ -258,7 +267,45 @@ call working.bat
 	goto adb_app_install
 )
 
-rem End of Selection 2.1 - Install Application
+rem End of Selection 2.1.1 - Install Applications
+
+rem Selection 2.1.2 - Uninstall Applications
+
+:adb_app_uni
+title EzAdbTools - Uninstall Applications
+cls
+echo.
+echo ==============================
+echo %productnamever%
+echo ==============================
+echo Uninstall Applications
+echo ==============================
+echo.
+echo Incomplete.
+choice /d y /t 2 > nul
+goto adb_appman
+
+rem End of Selection 2.1.2 - Uninstall Applications
+
+rem Selection 2.1.3 - List Applications
+
+:adb_app_list
+title EzAdbTools - List Applications
+cls
+echo.
+echo ==============================
+echo %productnamever%
+echo ==============================
+echo List Applications
+echo ==============================
+echo.
+cd bin
+adb shell pm list packages -f
+cd ..
+pause
+goto adb_appman
+
+rem End of Selection 2.1 - Application Manager
 
 rem Selection 2.2 - Android Shell
 
