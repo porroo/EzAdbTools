@@ -5,11 +5,10 @@ rem Added colors!
 
 color 0a
 
-:: This is the main script of EzAdbTools
 :: ========================================
-:: |   EzAdbTools, Made by Ricky Cheung   |
-:: |      For adb and fastboot noobs      |
-:: |        XDA: tiny.cc/ezatxda          |
+:: |**\EzAdbTools, Made by Ricky Cheung/**|
+:: |***\__For adb and fastboot noobs__/***|
+:: |****\___XDA: tiny.cc/ezatxda_____/****|
 :: ========================================
 
 cls
