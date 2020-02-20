@@ -110,6 +110,7 @@ goto adb
 title EzAdbTools - adb Related
 cls
 set M=
+if %root_mode%==1 goto adb_root_setup
 echo.
 echo ==============================
 echo %productnamever%
@@ -119,34 +120,82 @@ echo ==============================
 echo.
 echo 1 - Install Application
 echo 2 - Android Shell
-echo 3 - Check connected devices
-echo 4 - Reboot Menu
-echo 5 - Full Backup
-echo 6 - Sideload flashable zip file
+echo 3 - Reboot Menu
+echo 4 - Full Backup
+echo 5 - Sideload flashable zip file
+echo C - Check connected devices
+echo R - Root Mode (Unstable)
 echo X - Back
 echo.
 set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO adb_app_install
 if %M%==2 GOTO adb_root_shell_ask
-if %M%==3 GOTO adb_devices
-if %M%==4 GOTO adb_reboot
-if %M%==5 GOTO adb_full_backup
-if %M%==6 GOTO adb_sideload
+if %M%==C GOTO adb_devices
+if %M%==c GOTO adb_devices
+if %M%==3 GOTO adb_reboot
+if %M%==4 GOTO adb_full_backup
+if %M%==5 GOTO adb_sideload
+if %M%==R GOTO adb_root_mode_ask
+if %M%==r GOTO adb_root_mode_ask
 if %M%==X GOTO menu
 if %M%==x GOTO menu
 if not %M%==1 GOTO wrginta
 if not %M%==2 GOTO wrginta
+if not %M%==C GOTO wrginta
+if not %M%==c GOTO wrginta
 if not %M%==3 GOTO wrginta
 if not %M%==4 GOTO wrginta
-if not %M%==5 GOTO wrginta
-if not %N%==6 GOTO wrginta
+if not %N%==5 GOTO wrginta
 if not %M%==R GOTO wrginta
 if not %M%==r GOTO wrginta
 if not %M%==X GOTO wrginta
 if not %M%==x GOTO wrginta
 
-:adb
-title EzAdbTools - adb Related
+:adb_root_mode_ask
+title EzAdbTools - Enable Root Mode (Prompt)
+cls
+echo.
+echo ==============================
+echo %productnamever%
+echo ==============================
+echo Enable Root Mode (Prompt)
+echo ==============================
+echo.
+echo Do you want to enable root mode? (Y/N)
+if %M%==Y GOTO adb_root_setup
+if %M%==y GOTO adb_root_setup
+if %M%==N GOTO adb
+if %M%==n GOTO adb
+if not %M%==Y GOTO wrgintrmp
+if not %M%==y GOTO wrgintrmp
+if not %M%==N GOTO wrgintrmp
+if not %M%==n GOTO wrgintrmp
+
+:wrgintrmp
+title EzAdbTools - Wrong Input
+cls
+echo You have inputted a wrong input, try again.
+choice /d y /t 2 > nul
+goto adb_root_mode_ask
+
+:adb_root_setup
+title EzAdbTools - Root Mode Setup
+cls
+cd bin
+adb.exe root
+cd ..
+goto adb_root_mode
+
+:adb_root_out
+title EzAdbTools - Disable Root Mode
+cls
+cd bin
+adb.exe unroot
+cd ..
+goto adb
+
+:adb_root_mode
+title EzAdbTools - adb Related (Root Mode)
 cls
 set M=
 echo.
@@ -158,33 +207,35 @@ echo ==============================
 echo.
 echo 1 - Application Manager
 echo 2 - Android Shell
-echo 3 - Check connected devices
-echo 4 - Reboot Menu
-echo 5 - Full Backup
+echo 3 - Reboot Menu
+echo 4 - Full Backup
+echo C - Check connected devices
 echo R - Disable Root Mode
 echo X - Back
 echo.
 set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO adb_appman
 if %M%==2 GOTO adb_root_shell_ask
-if %M%==3 GOTO adb_devices
-if %M%==4 GOTO adb_reboot
-if %M%==5 GOTO adb_full_backup
-if %M%==R GOTO adb_root_mode_off
-if %M%==r GOTO adb_root_mode_off
+if %M%==C GOTO adb_devices
+if %M%==c GOTO adb_devices
+if %M%==3 GOTO adb_reboot
+if %M%==4 GOTO adb_full_backup
+if %M%==R GOTO adb_root_out
+if %M%==r GOTO adb_root_out
 if %M%==X GOTO menu
 if %M%==x GOTO menu
 if not %M%==1 GOTO wrginta
 if not %M%==2 GOTO wrginta
+if not %M%==C GOTO wrginta
+if not %M%==c GOTO wrginta
 if not %M%==3 GOTO wrginta
 if not %M%==4 GOTO wrginta
-if not %M%==5 GOTO wrginta
 if not %M%==R GOTO wrginta
 if not %M%==r GOTO wrginta
 if not %M%==X GOTO wrginta
 if not %M%==x GOTO wrginta
 
-rem End of Selection 2 - adb Related
+rem End of Selection 2 - adb Related (Root Mode and No Root Mode)
 
 rem Selection 2.1 - Application Manager
 
@@ -892,6 +943,7 @@ echo ==============================
 echo LICENSE
 echo ==============================
 type LICENSE
+echo Press to go back to menu.
 pause
 goto menu
 
