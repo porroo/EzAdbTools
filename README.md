@@ -10,6 +10,7 @@ You might need additional drivers for your smartphone to make it work with adb a
 - Lenovo Phab Plus (PB1-770M)
 - Oppo A57
 - Huawei P20 Lite (ANE-LX2)
+- Huawei nova 4 (VCE-L22)
 - Ticwatch Pro
 
 ## Usage
