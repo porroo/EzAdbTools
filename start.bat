@@ -7,6 +7,13 @@ color 0a
 :: |****\___XDA: tiny.cc/ezatxda_____/****|
 :: ========================================
 
+:: LICENSE INFORMATION
+:: --------------------
+:: EzAdbTools  Copyright (C) 2020  Rick Cheung (Tipz Team)
+:: This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+:: This is free software, and you are welcome to redistribute it
+:: under certain conditions; type `show c' for details.
+
 rem Selection 0 - Initialization
 
 :int
