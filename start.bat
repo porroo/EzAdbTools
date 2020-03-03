@@ -374,8 +374,7 @@ echo ==============================
 echo Check Connected Devices
 echo ==============================
 echo.
-echo Remember to authorize your computer before using any tools.
-echo (If you got here by using any tools please make sure you have plugged-in any Android device and authorize your computer.)
+echo Remember to authorize your computer before you do anything!
 echo.
 cd bin
 adb.exe devices
@@ -551,12 +550,12 @@ echo ==============================
 echo.
 echo This feature is not tested.
 choice /d y /t 2 > nul
-if %backupfirst%=="yes" (
+if %backupfirst%=="no" (
+SET /A backuptimes=%backuptimes% + 1
+) else (
 SET backuptimes=1
 SET backupfirst=no
 set delworkingbat=1
-) else if %backupfirst%=="no" (
-SET /A backuptimes=%backuptimes% + 1
 )
     (
         echo echo ==============================
