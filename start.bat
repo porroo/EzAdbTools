@@ -100,6 +100,7 @@ title EzAdbTools - Wrong Input
 cls
 echo You have inputted a wrong input, try again.
 choice /d y /t 2 > nul
+set M=
 goto menu
 
 rem End of Selection 1 - Start Menu
@@ -111,13 +112,13 @@ title EzAdbTools - Wrong Input
 cls
 echo You have inputted a wrong input, try again.
 choice /d y /t 2 > nul
+set M=
 goto adb
 
 :adb
 title EzAdbTools - adb Related
 cls
 set M=
-if %root_mode%==1 goto adb_root_setup
 echo.
 echo ==============================
 echo %productnamever%
@@ -131,7 +132,6 @@ echo 3 - Reboot Menu
 echo 4 - Full Backup
 echo 5 - Sideload flashable zip file
 echo C - Check connected devices
-echo R - Root Mode (Unstable)
 echo X - Back
 echo.
 set /P M="Input options shown above then press ENTER: "
@@ -142,8 +142,6 @@ if %M%==c GOTO adb_devices
 if %M%==3 GOTO adb_reboot
 if %M%==4 GOTO adb_full_backup
 if %M%==5 GOTO adb_sideload
-if %M%==R GOTO adb_root_mode_ask
-if %M%==r GOTO adb_root_mode_ask
 if %M%==X GOTO menu
 if %M%==x GOTO menu
 if not %M%==1 GOTO wrginta
@@ -153,8 +151,6 @@ if not %M%==c GOTO wrginta
 if not %M%==3 GOTO wrginta
 if not %M%==4 GOTO wrginta
 if not %N%==5 GOTO wrginta
-if not %M%==R GOTO wrginta
-if not %M%==r GOTO wrginta
 if not %M%==X GOTO wrginta
 if not %M%==x GOTO wrginta
 
@@ -183,66 +179,10 @@ title EzAdbTools - Wrong Input
 cls
 echo You have inputted a wrong input, try again.
 choice /d y /t 2 > nul
+set M=
 goto adb_root_mode_ask
 
-:adb_root_setup
-title EzAdbTools - Root Mode Setup
-cls
-cd bin
-adb.exe root
-cd ..
-goto adb_root_mode
-
-:adb_root_out
-title EzAdbTools - Disable Root Mode
-cls
-cd bin
-adb.exe unroot
-cd ..
-goto adb
-
-:adb_root_mode
-title EzAdbTools - adb Related (Root Mode)
-cls
-set M=
-echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
-echo adb Related (Root Mode)
-echo ==============================
-echo.
-echo 1 - Application Manager
-echo 2 - Android Shell
-echo 3 - Reboot Menu
-echo 4 - Full Backup
-echo C - Check connected devices
-echo R - Disable Root Mode
-echo X - Back
-echo.
-set /P M="Input options shown above then press ENTER: "
-if %M%==1 GOTO adb_appman
-if %M%==2 GOTO adb_root_shell_ask
-if %M%==C GOTO adb_devices
-if %M%==c GOTO adb_devices
-if %M%==3 GOTO adb_reboot
-if %M%==4 GOTO adb_full_backup
-if %M%==R GOTO adb_root_out
-if %M%==r GOTO adb_root_out
-if %M%==X GOTO menu
-if %M%==x GOTO menu
-if not %M%==1 GOTO wrginta
-if not %M%==2 GOTO wrginta
-if not %M%==C GOTO wrginta
-if not %M%==c GOTO wrginta
-if not %M%==3 GOTO wrginta
-if not %M%==4 GOTO wrginta
-if not %M%==R GOTO wrginta
-if not %M%==r GOTO wrginta
-if not %M%==X GOTO wrginta
-if not %M%==x GOTO wrginta
-
-rem End of Selection 2 - adb Related (Root Mode and No Root Mode)
+rem End of Selection 2 - adb Related
 
 rem Selection 2.1 - Application Manager
 
@@ -278,6 +218,7 @@ title EzAdbTools - Wrong Input
 cls
 echo You have inputted a wrong input, try again.
 choice /d y /t 2 > nul
+set M=
 goto adb_appman
 
 rem Selection 2.1.1 - Install Applications
@@ -386,6 +327,7 @@ title EzAdbTools - Wrong Input
 cls
 echo You have inputted a wrong input, try again.
 choice /d y /t 2 > nul
+set M=
 goto adb_root_shell_ask
 
 :adb_android_shell
@@ -432,6 +374,7 @@ echo Check Connected Devices
 echo ==============================
 echo.
 echo Remember to authorize your computer before you do anything!
+echo.
 cd bin
 adb.exe devices
 cd ..
@@ -484,6 +427,7 @@ title EzAdbTools - Wrong Input
 cls
 echo You have inputted a wrong input, try again.
 choice /d y /t 2 > nul
+set M=
 goto adb_reboot
 
 :adb_reboot_device
@@ -616,12 +560,12 @@ SET /A backuptimes=%backuptimes% + 1
         echo echo ==============================
         echo echo %productnamever%
         echo echo ==============================
-		echo echo Full Backup
-		echo echo ==============================
-	    echo cd bin
-	    echo adb.exe backup -apk -shared -all -f %CD%/backups/backup%backuptimes%.ab
-	    echo cd ..
-	    echo cd scripts 
+	echo echo Full Backup
+	echo echo ==============================
+	echo cd bin
+	echo adb.exe backup -apk -shared -all -f %CD%/backups/backup%backuptimes%.ab
+	echo cd ..
+	echo cd scripts 
         echo call delworking.bat
 		echo cls
 )>"working.bat"
@@ -690,12 +634,12 @@ rem Creating working.bat
     echo echo ==============================
     echo echo Sideload flashable zip file
     echo echo ==============================
-	echo cd bin
-	echo adb.exe sideload %sideload_zip%
-	echo cd ..
-	echo cd scripts
+    echo cd bin
+    echo adb.exe sideload %sideload_zip%
+    echo cd ..
+    echo cd scripts
     echo call delworking.bat
-	echo cls
+    echo cls
 )>"working.bat"
 call working.bat
 
@@ -732,6 +676,7 @@ title EzAdbTools - Wrong Input
 cls
 echo You have inputted a wrong input, try again.
 choice /d y /t 2 > nul
+set M=
 goto fastboot
 
 rem End of Selection 3 - fastboot Related
@@ -793,6 +738,7 @@ title EzAdbTools - Wrong Input
 cls
 echo You have inputted a wrong input, try again.
 choice /d y /t 2 > nul
+set M=
 goto fastboot_unlock
 
 rem End of Selection 3.2 - Bootloader unlocking related
@@ -816,7 +762,7 @@ cd ..
 choice /d y /t 2 > nul
 goto fastboot_unlock
 
-rem End ofSelection 3.2.1 - Bootloader Unlock Status
+rem End of Selection 3.2.1 - Bootloader Unlock Status
 
 rem Selection 3.2.2 - Bootloader Unlock (No code)
 
@@ -861,12 +807,12 @@ rem Creating working.bat
     echo echo ==============================
     echo echo Unlock Bootloader (Code needed)
     echo echo ==============================
-	echo cd bin
-	echo fastboot.exe oem-unlock %unlock_key%
-	echo cd ..
+    echo cd bin
+    echo fastboot.exe oem-unlock %unlock_key%
+    echo cd ..
     echo cd scripts
     echo call delworking.bat
-	echo cls
+    echo cls
 )>"working.bat"
 call working.bat
 
