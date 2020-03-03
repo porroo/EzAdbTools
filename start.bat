@@ -311,7 +311,8 @@ echo ==============================
 echo Android Shell
 echo ==============================
 echo.
-echo Do you want to use Android Shell in root mode?
+echo Do you want to use Android Shell in root mode? 
+echo (Root mode will only work with rooted devices)
 set /P M="Select an option (Y/N): "
 if %M%==Y GOTO adb_su_android_shell
 if %M%==N GOTO adb_android_shell
