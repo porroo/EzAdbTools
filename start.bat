@@ -374,7 +374,8 @@ echo ==============================
 echo Check Connected Devices
 echo ==============================
 echo.
-echo Remember to authorize your computer before you do anything!
+echo Remember to authorize your computer before using any tools.
+echo (If you got here by using any tools please make sure you have plugged-in any Android device and authorize your computer.)
 echo.
 cd bin
 adb.exe devices
