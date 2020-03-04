@@ -9,7 +9,7 @@ color 0a
 
 :: LICENSE INFORMATION
 :: --------------------
-:: EzAdbTools  Copyright (C) 2020  Rick Cheung (Tipz Team)
+:: EzAdbTools  Copyright (C) 2020  Ricky Cheung (Tipz Team)
 :: This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
 :: This is free software, and you are welcome to redistribute it
 :: under certain conditions; type `show c' for details.
@@ -89,13 +89,7 @@ if %M%==4 GOTO cmd
 if %M%==L GOTO elic
 if %M%==X GOTO exit
 if %M%==x GOTO exit
-if not %M%==1 GOTO wrgintm
-if not %M%==2 GOTO wrgintm
-if not %M%==3 GOTO wrgintm
-if not %M%==X GOTO wrgintm
-if not %M%==x GOTO wrgintm
-
-:wrgintm
+cls
 title EzAdbTools - Wrong Input
 cls
 echo You have inputted a wrong input, try again.
@@ -106,14 +100,6 @@ goto menu
 rem End of Selection 1 - Start Menu
 
 rem Selection 2 - adb Related
-
-:wrginta
-title EzAdbTools - Wrong Input
-cls
-echo You have inputted a wrong input, try again.
-choice /d y /t 2 > nul
-set M=
-goto adb
 
 :adb
 title EzAdbTools - adb Related
@@ -144,15 +130,13 @@ if %M%==4 GOTO adb_full_backup
 if %M%==5 GOTO adb_sideload
 if %M%==X GOTO menu
 if %M%==x GOTO menu
-if not %M%==1 GOTO wrginta
-if not %M%==2 GOTO wrginta
-if not %M%==C GOTO wrginta
-if not %M%==c GOTO wrginta
-if not %M%==3 GOTO wrginta
-if not %M%==4 GOTO wrginta
-if not %N%==5 GOTO wrginta
-if not %M%==X GOTO wrginta
-if not %M%==x GOTO wrginta
+cls
+title EzAdbTools - Wrong Input
+cls
+echo You have inputted a wrong input, try again.
+choice /d y /t 2 > nul
+set M=
+goto adb
 
 :adb_root_mode_ask
 title EzAdbTools - Enable Root Mode (Prompt)
@@ -169,12 +153,7 @@ if %M%==Y GOTO adb_root_setup
 if %M%==y GOTO adb_root_setup
 if %M%==N GOTO adb
 if %M%==n GOTO adb
-if not %M%==Y GOTO wrgintrmp
-if not %M%==y GOTO wrgintrmp
-if not %M%==N GOTO wrgintrmp
-if not %M%==n GOTO wrgintrmp
-
-:wrgintrmp
+cls
 title EzAdbTools - Wrong Input
 cls
 echo You have inputted a wrong input, try again.
@@ -207,13 +186,7 @@ if %M%==2 GOTO adb_app_uni
 if %M%==3 GOTO adb_app_list
 if %M%==X GOTO adb
 if %M%==x GOTO adb
-if not %M%==1 GOTO wrgintaam
-if not %M%==2 GOTO wrgintaam
-if not %M%==3 GOTO wrgintaam
-if not %M%==X GOTO wrgintaam
-if not %M%==x GOTO wrgintaam
-
-:wrgintaam
+cls
 title EzAdbTools - Wrong Input
 cls
 echo You have inputted a wrong input, try again.
@@ -318,12 +291,7 @@ if %M%==Y GOTO adb_su_android_shell
 if %M%==N GOTO adb_android_shell
 if %M%==y GOTO adb_su_android_shell
 if %M%==n GOTO adb_android_shell
-if not %M%==Y GOTO wrgintas
-if not %M%==N GOTO wrgintas
-if not %M%==y GOTO wrgintas
-if not %M%==n GOTO wrgintas
-
-:wrgintas
+cls
 title EzAdbTools - Wrong Input
 cls
 echo You have inputted a wrong input, try again.
@@ -414,16 +382,7 @@ if %M%==5 GOTO adb_reboot_download
 if %M%==6 GOTO adb_reboot_safemode_root
 if %M%==X GOTO adb
 if %M%==x GOTO adb
-if not %M%==1 GOTO wrgintar
-if not %M%==2 GOTO wrgintar
-if not %M%==3 GOTO wrgintar
-if not %M%==4 GOTO wrgintar
-if not %M%==5 GOTO wrgintar
-if not %M%==6 GOTO wrgintar
-if not %M%==X GOTO wrgintar
-if not %M%==x GOTO wrgintar
-
-:wrgintar
+cls
 title EzAdbTools - Wrong Input
 cls
 echo You have inputted a wrong input, try again.
@@ -667,12 +626,7 @@ if %M%==1 GOTO fastboot_reboot
 if %M%==2 GOTO fastboot_unlock
 if %M%==X GOTO menu
 if %M%==x GOTO menu
-if not %M%==1 GOTO wrgintf
-if not %M%==2 GOTO wrgintf
-if not %M%==X GOTO wrgintf
-if not %M%==x GOTO wrgintf
-
-:wrgintf
+cls
 title EzAdbTools - Wrong Input
 cls
 echo You have inputted a wrong input, try again.
@@ -728,13 +682,7 @@ if %M%==2 GOTO fastboot_unlock_nocode
 if %M%==3 GOTO fastboot_unlock_code
 if %M%==X GOTO menu
 if %M%==x GOTO menu
-if not %M%==1 GOTO wrgintfu
-if not %M%==2 GOTO wrgintfu
-if not %M%==2 GOTO wrgintfu
-if not %M%==X GOTO wrgintfu
-if not %M%==x GOTO wrgintfu
-
-:wrgintfu
+cls
 title EzAdbTools - Wrong Input
 cls
 echo You have inputted a wrong input, try again.
@@ -860,11 +808,13 @@ if %M%==1 start https://forum.xda-developers.com/android/software/tools-ezadbtoo
 if %M%==2 start https://github.com/TipzTeam/EzAdbTools
 if %M%==X GOTO menu
 if %M%==x GOTO menu
-if not %M%==1 GOTO wrgintm
-if not %M%==2 GOTO wrgintm
-if not %M%==3 GOTO wrgintm
-if not %M%==X GOTO wrgintm
-if not %M%==x GOTO wrgintm
+cls
+title EzAdbTools - Wrong Input
+cls
+echo You have inputted a wrong input, try again.
+choice /d y /t 2 > nul
+set M=
+goto links
 
 rem End of Selection 5 - Links
 
