@@ -87,6 +87,7 @@ if %M%==2 GOTO fastboot
 if %M%==3 GOTO links
 if %M%==4 GOTO cmd
 if %M%==L GOTO elic
+if %M%==O GOTO lolcat
 if %M%==X GOTO exit
 if %M%==x GOTO exit
 cls
@@ -137,29 +138,6 @@ echo You have inputted a wrong input, try again.
 choice /d y /t 2 > nul
 set M=
 goto adb
-
-:adb_root_mode_ask
-title EzAdbTools - Enable Root Mode (Prompt)
-cls
-echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
-echo Enable Root Mode (Prompt)
-echo ==============================
-echo.
-echo Do you want to enable root mode? (Y/N)
-if %M%==Y GOTO adb_root_setup
-if %M%==y GOTO adb_root_setup
-if %M%==N GOTO adb
-if %M%==n GOTO adb
-cls
-title EzAdbTools - Wrong Input
-cls
-echo You have inputted a wrong input, try again.
-choice /d y /t 2 > nul
-set M=
-goto adb_root_mode_ask
 
 rem End of Selection 2 - adb Related
 
@@ -850,5 +828,45 @@ type LICENSE
 echo Press to go back to menu.
 pause
 goto menu
+
+:lolcat
+title Seay Adbe Thing - Start List
+cls
+set M=
+echo.
+echo ==============================
+echo Seay Adbe Thing
+echo ==============================
+echo Start List
+echo ==============================
+echo.
+echo 1 - Adbe
+echo 2 - fix your magic thing on your hand
+echo 3 - things that make you go to stuff
+echo 4 - magic monitor
+echo X - bye
+echo.
+set /P M="=Just use the typey thing to entur stuff: "
+if %M%==1 GOTO lolcatrep
+if %M%==2 GOTO lolcatrep
+if %M%==3 GOTO lolcatrep
+if %M%==4 GOTO lolcatrep
+if %M%==O GOTO menu
+if %M%==X GOTO lolcatrep
+if %M%==x GOTO lolcatrep
+cls
+title Seay Adbe Thing - Not corrext stuff
+cls
+echo You have destoryed your typer, buy a new one lol.
+choice /d y /t 2 > nul
+set M=
+goto lolcat
+
+:lolcatrep
+title Seay Adbe Thing - lol
+cls
+echo say lol
+choice /d y /t 2 > nul
+goto :lolcat
 
 rem End of Selection O - Others
