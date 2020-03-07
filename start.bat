@@ -31,10 +31,7 @@ set M=
 set pressanykey=
 set adb_install_app=
 set sideload_zip=
-set backupfirst=
-set backuptimes=
 set root_mode=
-set sideload_zip=
 
 rem Set variables
 set productnamever=EzAdbTools Unstable Builds
@@ -598,12 +595,14 @@ echo fastboot Related
 echo ==============================
 echo.
 echo 1 - Reboot device
-echo 2 - Bootloader unlocking menu
+echo 2 - Bootloader unlocking related
+echo 3 - Get device-id
 echo X - Back
 echo.
 set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO fastboot_reboot
 if %M%==2 GOTO fastboot_unlock
+if %M%==3 GOTO fastboot_device_id
 if %M%==X GOTO menu
 if %M%==x GOTO menu
 cls
@@ -642,24 +641,26 @@ rem End of Selection 3.1 - Reboot Device
 rem Selection 3.2 - Bootloader unlocking related
 
 :fastboot_unlock
-title EzAdbTools - Bootloader unlocking menu
+title EzAdbTools - Bootloader unlocking related
 cls
 echo.
 echo ==============================
 echo %productnamever%
 echo ==============================
-echo Bootloader unlocking menu
+echo Bootloader unlocking related 
 echo ==============================
 echo.
 echo 1 - Bootloader Unlock Status
 echo 2 - Bootloader Unlock (No code)
 echo 3 - Bootloader Unlock (Code needed)
+echo 4 - unlock.bin Unlock
 echo X - Back
 echo.
 set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO fastboot_unlock_stat
 if %M%==2 GOTO fastboot_unlock_nocode
 if %M%==3 GOTO fastboot_unlock_code
+if %M%==4 GOTO fastboot_unlock_bin
 if %M%==X GOTO menu
 if %M%==x GOTO menu
 cls
@@ -718,6 +719,7 @@ rem Selection 3.2.3 - Bootloader Unlock (Code needed)
 
 :fastboot_unlock_code
 title EzAdbTools - Bootloader Unlock (Code needed)
+set unlock_key=
 cls
 echo.
 echo ==============================
@@ -746,6 +748,60 @@ rem Creating working.bat
 call working.bat
 
 rem End of Selection 3.2.3 - Bootloader Unlock (Code)
+
+rem Selection 3.2.4 - unlock.bin Unlock
+
+:fastboot_unlock_bin
+title EzAdbTools - unlock.bin Unlock
+set unlock_bin=
+cls
+echo.
+echo ==============================
+echo %productnamever%
+echo ==============================
+echo unlock.bin Unlock
+echo ==============================
+echo.
+set /P unlock_bin="Drag and drop the unlock.bin into our window and press ENTER: "
+set delworkingbat=1
+
+rem Creating working.bat
+    (
+    echo echo ==============================
+    echo echo %productnamever%
+    echo echo ==============================
+    echo echo unlock.bin Unlock
+    echo echo ==============================
+    echo cd bin
+    echo fastboot.exe flash unlock %unlock_bin%
+    echo cd ..
+    echo cd scripts
+    echo call delworking.bat
+    echo cls
+)>"working.bat"
+call working.bat
+
+rem End of Selection 3.2.4 - unlock.bin Unlock
+
+rem Selection 3.3 - Get device-id
+
+:fastboot_device_id
+title EzAdbTools - Get device-id
+cls
+echo.
+echo ==============================
+echo %productnamever%
+echo ==============================
+echo Get device-id
+echo ==============================
+echo.
+cd bin
+fastboot oem device-id
+cd ..
+pause
+goto fastboot
+
+rem End of Selection 3.3 - Get device-id
 
 rem Selection 4 - Exit
 
