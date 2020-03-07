@@ -654,6 +654,7 @@ echo 1 - Bootloader Unlock Status
 echo 2 - Bootloader Unlock (No code)
 echo 3 - Bootloader Unlock (Code needed)
 echo 4 - unlock.bin Unlock
+echo R - Relock Bootloader
 echo X - Back
 echo.
 set /P M="Input options shown above then press ENTER: "
@@ -661,6 +662,8 @@ if %M%==1 GOTO fastboot_unlock_stat
 if %M%==2 GOTO fastboot_unlock_nocode
 if %M%==3 GOTO fastboot_unlock_code
 if %M%==4 GOTO fastboot_unlock_bin
+if %M%==R GOTO fastboot_relockbl
+if %M%==r GOTO fastboot_relockbl
 if %M%==X GOTO menu
 if %M%==x GOTO menu
 cls
@@ -782,6 +785,11 @@ rem Creating working.bat
 call working.bat
 
 rem End of Selection 3.2.4 - unlock.bin Unlock
+
+rem Selection 3.2.R - Relock Bootloader
+
+:fastboot_relockbl
+echo wait not yet
 
 rem Selection 3.3 - Get device-id
 
