@@ -35,7 +35,14 @@ set root_mode=
 
 rem Set variables
 set productnamever=EzAdbTools Unstable Builds
-set productnamever=%productnamever:"=% 
+set productnamever=%productnamever:"=%
+
+rem Set first print
+(
+	echo echo ==============================
+	echo echo %productnamever%
+	echo echo ==============================
+)>"startprint"
 
 rem adb.exe check
 echo Checking for adb.exe...
@@ -66,9 +73,7 @@ title EzAdbTools - Start Menu
 cls
 set M=
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Start Menu
 echo ==============================
 echo.
@@ -107,9 +112,7 @@ title EzAdbTools - adb Related
 cls
 set M=
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo adb Related
 echo ==============================
 echo.
@@ -147,9 +150,7 @@ rem Selection 2.1 - Application Manager
 title EzAdbTools - Application Manager
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Application Manager
 echo ==============================
 echo.
@@ -178,9 +179,7 @@ rem Selection 2.1.1 - Install Applications
 title EzAdbTools - Install Applications
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Install Applications
 echo ==============================
 echo.
@@ -190,9 +189,7 @@ set delworkingbat=1
 
 rem Creating working.bat
     (
-    echo echo ==============================
-    echo echo %productnamever%
-    echo echo ==============================
+    echo type startprint
     echo echo Install Applications
     echo echo ==============================
 	echo cd bin
@@ -217,9 +214,7 @@ rem Selection 2.1.2 - Uninstall Applications
 title EzAdbTools - Uninstall Applications
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Uninstall Applications
 echo ==============================
 echo.
@@ -235,9 +230,7 @@ rem Selection 2.1.3 - List Applications
 title EzAdbTools - List Applications
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo List Applications
 echo ==============================
 echo.
@@ -256,9 +249,7 @@ rem Ask for root shell
 title EzAdbTools - Android Shell
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Android Shell
 echo ==============================
 echo.
@@ -281,9 +272,7 @@ goto adb_root_shell_ask
 title EzAdbTools - Android Shell
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Android Shell
 echo ==============================
 echo.
@@ -295,9 +284,7 @@ adb.exe shell
 title EzAdbTools - Android Shell
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Android Shell
 echo ==============================
 echo.
@@ -314,9 +301,7 @@ rem Selection 2.3 - Connected devices
 title EzAdbTools - Connected devices
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Connected devices
 echo ==============================
 echo.
@@ -337,9 +322,7 @@ title EzAdbTools - Reboot Menu
 cls
 set M=
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Reboot Menu
 echo ==============================
 echo.
@@ -372,9 +355,7 @@ goto adb_reboot
 title EzAdbTools - Reboot device
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Reboot device
 echo ==============================
 echo.
@@ -389,9 +370,7 @@ goto adb_reboot
 title EzAdbTools - Reboot into Fastboot Mode
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Reboot into Fastboot Mode
 echo ==============================
 echo.
@@ -406,9 +385,7 @@ goto adb_reboot
 title EzAdbTools - Reboot into Recovery Mode
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Reboot into Recovery Mode
 echo ==============================
 echo.
@@ -423,9 +400,7 @@ goto adb_reboot
 title EzAdbTools - Reboot into Emergency Download Mode
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Reboot into 
 echo Emergency Download Mode
 echo ==============================
@@ -441,9 +416,7 @@ goto adb_reboot
 title EzAdbTools - Reboot into Download Mode
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Reboot into Download Mode
 echo ==============================
 echo.
@@ -458,9 +431,7 @@ goto adb_reboot
 title EzAdbTools - Reboot into Safe Mode (ROOT)
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Reboot into Safe Mode (ROOT)
 echo ==============================
 echo.
@@ -479,9 +450,7 @@ rem Selection 2.5 - Full Backup
 title EzAdbTools - Full Backup
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Full Backup
 echo ==============================
 echo.
@@ -495,9 +464,7 @@ SET backupfirst=no
 set delworkingbat=1
 )
     (
-        echo echo ==============================
-        echo echo %productnamever%
-        echo echo ==============================
+        echo type startprint
 	echo echo Full Backup
 	echo echo ==============================
 	echo cd bin
@@ -517,9 +484,7 @@ title EzAdbTools - Enable Root Mode
 cls
 set M=
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Enable Root Mode
 echo ==============================
 echo.
@@ -535,9 +500,7 @@ title EzAdbTools - Disable Root Mode
 cls
 set M=
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Disable Root Mode
 echo ==============================
 echo.
@@ -567,9 +530,7 @@ set delworkingbat=1
 
 rem Creating working.bat
     (
-    echo echo ==============================
-    echo echo %productnamever%
-    echo echo ==============================
+    echo type startprint
     echo echo Sideload flashable zip file
     echo echo ==============================
     echo cd bin
@@ -589,9 +550,7 @@ title EzAdbTools - fastboot Related
 cls
 set M=
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo fastboot Related
 echo ==============================
 echo.
@@ -622,9 +581,7 @@ rem Selection 3.1 - Reboot Device
 title EzAdbTools - Reboot Device
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Reboot Device
 echo ==============================
 echo.
@@ -645,9 +602,7 @@ rem Selection 3.2 - Bootloader unlocking related
 title EzAdbTools - Bootloader unlocking related
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Bootloader unlocking related 
 echo ==============================
 echo.
@@ -683,9 +638,7 @@ rem Selection 3.2.1 - Bootloader Unlock Status
 title EzAdbTools - Bootloader Unlock Status
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Bootloader Unlock Status
 echo ==============================
 echo.
@@ -704,9 +657,7 @@ rem Selection 3.2.2 - Bootloader Unlock (No code)
 title EzAdbTools - Bootloader Unlock (No code)
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Bootloader Unlock (No code)
 echo ==============================
 echo.
@@ -726,9 +677,7 @@ title EzAdbTools - Bootloader Unlock (Code needed)
 set unlock_key=
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Unlock Bootloader (Code needed)
 echo ==============================
 echo.
@@ -737,9 +686,7 @@ set delworkingbat=1
 
 rem Creating working.bat
     (
-    echo echo ==============================
-    echo echo %productnamever%
-    echo echo ==============================
+    echo type startprint
     echo echo Unlock Bootloader (Code needed)
     echo echo ==============================
     echo cd bin
@@ -760,9 +707,7 @@ title EzAdbTools - unlock.bin Unlock
 set unlock_bin=
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo unlock.bin Unlock
 echo ==============================
 echo.
@@ -771,9 +716,7 @@ set delworkingbat=1
 
 rem Creating working.bat
     (
-    echo echo ==============================
-    echo echo %productnamever%
-    echo echo ==============================
+    echo type startprint
     echo echo unlock.bin Unlock
     echo echo ==============================
     echo cd bin
@@ -798,9 +741,7 @@ rem Selection 3.3 - Get device-id
 title EzAdbTools - Get device-id
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Get device-id
 echo ==============================
 echo.
@@ -819,9 +760,7 @@ title EzAdbTools - Exit
 cls
 set M=
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Exit
 echo ==============================
 echo.
@@ -838,9 +777,7 @@ title EzAdbTools - Links
 cls
 set M=
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Links
 echo ==============================
 echo.
@@ -870,9 +807,7 @@ title EzAdbTools - Command Line
 cls
 set M=
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Command Line
 echo ==============================
 echo.
@@ -886,9 +821,7 @@ rem Selection O - Others
 :elic
 cls
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo LICENSE
 echo ==============================
 type LICENSE
