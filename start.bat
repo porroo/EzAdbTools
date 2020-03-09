@@ -37,13 +37,6 @@ rem Set variables
 set productnamever=EzAdbTools Unstable Builds
 set productnamever=%productnamever:"=%
 
-rem Set first print
-(
-	echo echo ==============================
-	echo echo %productnamever%
-	echo echo ==============================
-)>"startprint"
-
 rem adb.exe check
 echo Checking for adb.exe...
 if not exist "%CD%\bin\adb.exe" (
@@ -73,9 +66,13 @@ title EzAdbTools - Start Menu
 cls
 set M=
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Start Menu
-echo ==============================
+echo ========================================
 echo.
 echo 1 - adb related
 echo 2 - fastboot related
@@ -114,9 +111,13 @@ title EzAdbTools - adb Related
 cls
 set M=
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo adb Related
-echo ==============================
+echo ========================================
 echo.
 echo 1 - Install Application
 echo 2 - Android Shell
@@ -152,9 +153,13 @@ rem Selection 2.1 - Application Manager
 title EzAdbTools - Application Manager
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Application Manager
-echo ==============================
+echo ========================================
 echo.
 echo 1 - Install Applications
 echo 2 - Uninstall Applications (Incomplete)
@@ -181,9 +186,13 @@ rem Selection 2.1.1 - Install Applications
 title EzAdbTools - Install Applications
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Install Applications
-echo ==============================
+echo ========================================
 echo.
 set /P adb_install_app="Drag and drop the apk file into this window then hit enter: "
 if exist %adb_install_app% (
@@ -191,9 +200,13 @@ set delworkingbat=1
 
 rem Creating working.bat
     (
-    echo type startprint
+    echo echo ========================================
+	echo cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+	echo cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+	echo cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+	echo echo ========================================
     echo echo Install Applications
-    echo echo ==============================
+    echo echo ========================================
 	echo cd bin
 	echo adb.exe install %adb_install_app%
 	echo cd ..
@@ -216,9 +229,13 @@ rem Selection 2.1.2 - Uninstall Applications
 title EzAdbTools - Uninstall Applications
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Uninstall Applications
-echo ==============================
+echo ========================================
 echo.
 echo Incomplete.
 choice /d y /t 2 > nul
@@ -232,9 +249,13 @@ rem Selection 2.1.3 - List Applications
 title EzAdbTools - List Applications
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo List Applications
-echo ==============================
+echo ========================================
 echo.
 cd bin
 adb shell pm list packages -f
@@ -251,9 +272,13 @@ rem Ask for root shell
 title EzAdbTools - Android Shell
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Android Shell
-echo ==============================
+echo ========================================
 echo.
 echo Do you want to use Android Shell in root mode? 
 echo (Root mode will only work with rooted devices)
@@ -274,9 +299,13 @@ goto adb_root_shell_ask
 title EzAdbTools - Android Shell
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Android Shell
-echo ==============================
+echo ========================================
 echo.
 echo This will stop EzAdbTools, restart this program if you need it later.
 cd bin 
@@ -286,9 +315,13 @@ adb.exe shell
 title EzAdbTools - Android Shell
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Android Shell
-echo ==============================
+echo ========================================
 echo.
 echo This will stop EzAdbTools, restart this program if you need it later.
 cd bin 
@@ -303,9 +336,13 @@ rem Selection 2.3 - Connected devices
 title EzAdbTools - Connected devices
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Connected devices
-echo ==============================
+echo ========================================
 echo.
 echo Remember to authorize your computer before you do anything!
 echo.
@@ -324,9 +361,13 @@ title EzAdbTools - Reboot Menu
 cls
 set M=
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Reboot Menu
-echo ==============================
+echo ========================================
 echo.
 echo 1 - Reboot device
 echo 2 - Reboot into Fastboot Mode
@@ -357,9 +398,13 @@ goto adb_reboot
 title EzAdbTools - Reboot device
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Reboot device
-echo ==============================
+echo ========================================
 echo.
 cd bin
 adb.exe reboot
@@ -372,9 +417,13 @@ goto adb_reboot
 title EzAdbTools - Reboot into Fastboot Mode
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Reboot into Fastboot Mode
-echo ==============================
+echo ========================================
 echo.
 cd bin
 adb.exe reboot bootloader
@@ -387,9 +436,13 @@ goto adb_reboot
 title EzAdbTools - Reboot into Recovery Mode
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Reboot into Recovery Mode
-echo ==============================
+echo ========================================
 echo.
 cd bin
 adb.exe reboot recovery
@@ -402,10 +455,13 @@ goto adb_reboot
 title EzAdbTools - Reboot into Emergency Download Mode
 cls
 echo.
-type startprint
-echo Reboot into 
-echo Emergency Download Mode
-echo ==============================
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
+echo Reboot into Emergency Download Mode
+echo ========================================
 echo.
 cd bin
 adb.exe reboot edl
@@ -418,9 +474,13 @@ goto adb_reboot
 title EzAdbTools - Reboot into Download Mode
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Reboot into Download Mode
-echo ==============================
+echo ========================================
 echo.
 cd bin
 adb.exe reboot download
@@ -433,9 +493,13 @@ goto adb_reboot
 title EzAdbTools - Reboot into Safe Mode (ROOT)
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Reboot into Safe Mode (ROOT)
-echo ==============================
+echo ========================================
 echo.
 cd bin
 adb.exe shell su & adb.exe shell echo "1" > /data/property/persist.sys.safemode
@@ -452,9 +516,13 @@ rem Selection 2.5 - Full Backup
 title EzAdbTools - Full Backup
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Full Backup
-echo ==============================
+echo ========================================
 echo.
 echo This feature is not tested.
 choice /d y /t 2 > nul
@@ -466,9 +534,13 @@ SET backupfirst=no
 set delworkingbat=1
 )
     (
-        echo type startprint
+        echo echo ========================================
+	echo cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+	echo cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+	echo cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+	echo echo ========================================
 	echo echo Full Backup
-	echo echo ==============================
+	echo echo ========================================
 	echo cd bin
 	echo adb.exe backup -apk -shared -all -f %CD%/backups/backup%backuptimes%.ab
 	echo cd ..
@@ -486,9 +558,13 @@ title EzAdbTools - Enable Root Mode
 cls
 set M=
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Enable Root Mode
-echo ==============================
+echo ========================================
 echo.
 cd bin
 adb.exe root
@@ -502,9 +578,13 @@ title EzAdbTools - Disable Root Mode
 cls
 set M=
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Disable Root Mode
-echo ==============================
+echo ========================================
 echo.
 cd bin
 adb.exe unroot
@@ -521,20 +601,26 @@ title EzAdbTools - Sideload flashable zip file
 cls
 set M=
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Sideload flashable zip file
-echo ==============================
+echo ========================================
 echo.
 set /P sideload_zip="Drag and drop the flashable zip file you want to flash: "
 set delworkingbat=1
 
 rem Creating working.bat
     (
-    echo type startprint
+    echo echo ========================================
+	echo cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+	echo cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+	echo cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+	echo echo ========================================
     echo echo Sideload flashable zip file
-    echo echo ==============================
+    echo echo ========================================
     echo cd bin
     echo adb.exe sideload %sideload_zip%
     echo cd ..
@@ -552,9 +638,13 @@ title EzAdbTools - fastboot Related
 cls
 set M=
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo fastboot Related
-echo ==============================
+echo ========================================
 echo.
 echo 1 - Reboot device
 echo 2 - Bootloader unlocking related
@@ -583,9 +673,13 @@ rem Selection 3.1 - Reboot Device
 title EzAdbTools - Reboot Device
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Reboot Device
-echo ==============================
+echo ========================================
 echo.
 echo Rebooting device in fastboot mode in 5 seconds...
 choice /d y /t 5 > nul
@@ -604,9 +698,13 @@ rem Selection 3.2 - Bootloader unlocking related
 title EzAdbTools - Bootloader unlocking related
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Bootloader unlocking related 
-echo ==============================
+echo ========================================
 echo.
 echo 1 - Bootloader Unlock Status
 echo 2 - Bootloader Unlock (No code)
@@ -640,9 +738,13 @@ rem Selection 3.2.1 - Bootloader Unlock Status
 title EzAdbTools - Bootloader Unlock Status
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Bootloader Unlock Status
-echo ==============================
+echo ========================================
 echo.
 echo True means unlocked, False means not unlocked
 cd bin 
@@ -659,9 +761,13 @@ rem Selection 3.2.2 - Bootloader Unlock (No code)
 title EzAdbTools - Bootloader Unlock (No code)
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Bootloader Unlock (No code)
-echo ==============================
+echo ========================================
 echo.
 cd bin
 fastboot.exe oem unlock
@@ -679,18 +785,26 @@ title EzAdbTools - Bootloader Unlock (Code needed)
 set unlock_key=
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Unlock Bootloader (Code needed)
-echo ==============================
+echo ========================================
 echo.
 set /P unlock_key="Input the code you got for unlocking your device: "
 set delworkingbat=1
 
 rem Creating working.bat
     (
-    echo type startprint
+    echo echo ========================================
+	echo cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+	echo cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+	echo cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+	echo echo ========================================
     echo echo Unlock Bootloader (Code needed)
-    echo echo ==============================
+    echo echo ========================================
     echo cd bin
     echo fastboot.exe oem-unlock %unlock_key%
     echo cd ..
@@ -709,18 +823,26 @@ title EzAdbTools - unlock.bin Unlock
 set unlock_bin=
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo unlock.bin Unlock
-echo ==============================
+echo ========================================
 echo.
 set /P unlock_bin="Drag and drop the unlock.bin into our window and press ENTER: "
 set delworkingbat=1
 
 rem Creating working.bat
     (
-    echo type startprint
+        echo echo ========================================
+	echo cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+	echo cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+	echo cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+	echo echo ========================================
     echo echo unlock.bin Unlock
-    echo echo ==============================
+    echo echo ========================================
     echo cd bin
     echo fastboot.exe flash unlock %unlock_bin%
     echo cd ..
@@ -743,9 +865,13 @@ rem Selection 3.3 - Get device-id
 title EzAdbTools - Get device-id
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Get device-id
-echo ==============================
+echo ========================================
 echo.
 cd bin
 fastboot oem device-id
@@ -762,9 +888,13 @@ title EzAdbTools - Exit
 cls
 set M=
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Exit
-echo ==============================
+echo ========================================
 echo.
 echo Exiting in 2 seconds...
 choice /d y /t 2 > nul
@@ -779,9 +909,13 @@ title EzAdbTools - Links
 cls
 set M=
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Links
-echo ==============================
+echo ========================================
 echo.
 echo 1 - XDA Thread
 echo 2 - GitHub Page
@@ -809,9 +943,13 @@ title EzAdbTools - Command Line
 cls
 set M=
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo Command Line
-echo ==============================
+echo ========================================
 echo.
 echo This will EzAdbTools, do 'call eat.bat' to start this program again.
 cd bin
@@ -823,9 +961,13 @@ rem Selection O - Others
 :elic
 cls
 echo.
-type startprint
+echo ========================================
+cecho {0A}|{0C}**{0E}\{09}___{0A}%productnamever%, by Ricky{09}___{0E}/{0C}**{0A}|
+cecho {0A}|{0C}***{0E}\{09}__{0A}For adb and fastboot noobs{09}__{0E}/{0C}***{0A}|
+cecho {0A}|{0C}****{0E}\{09}___{0A}XDA: tiny.cc/ezatxda{09}_____{0E}/{0C}****{0A}|
+echo ========================================
 echo License
-echo ==============================
+echo ========================================
 type LICENSE
 echo Press to go back to menu.
 pause
@@ -836,11 +978,11 @@ title Seay Adbe Thing - Start List
 cls
 set M=
 echo.
-echo ==============================
+echo ========================================
 echo Seay Adbe Thing
-echo ==============================
+echo ========================================
 echo A notee at start
-echo ==============================
+echo ========================================
 echo.
 echo 1 - Adbe
 echo 2 - fix your magic thing on your hand
