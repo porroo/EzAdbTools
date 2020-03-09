@@ -521,9 +521,7 @@ title EzAdbTools - Sideload flashable zip file
 cls
 set M=
 echo.
-echo ==============================
-echo %productnamever%
-echo ==============================
+type startprint
 echo Sideload flashable zip file
 echo ==============================
 echo.
