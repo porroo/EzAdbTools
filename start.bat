@@ -81,7 +81,7 @@ echo 1 - adb related
 echo 2 - fastboot related
 echo 3 - Links
 echo 4 - Command Line
-echo 5 - Install adb driver
+echo 5 - Install adb driver (Incomplete)
 echo X - Exit
 echo.
 set /P M="Input options shown above then press ENTER: "
