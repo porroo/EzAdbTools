@@ -82,6 +82,7 @@ echo 2 - fastboot related
 echo 3 - Links
 echo 4 - Command Line
 echo 5 - Install adb driver (Incomplete)
+echo L - License
 echo X - Exit
 echo.
 set /P M="Input options shown above then press ENTER: "
@@ -91,6 +92,7 @@ if %M%==3 GOTO links
 if %M%==4 GOTO cmd
 if %M%==5 GOTO adb_driver_int
 if %M%==L GOTO elic
+if %M%==l GOTO elic
 if %M%==O GOTO lolcat
 if %M%==asdf GOTO asdf
 if %M%==X GOTO exit
@@ -822,7 +824,7 @@ rem Selection O - Others
 cls
 echo.
 type startprint
-echo LICENSE
+echo License
 echo ==============================
 type LICENSE
 echo Press to go back to menu.
@@ -837,7 +839,7 @@ echo.
 echo ==============================
 echo Seay Adbe Thing
 echo ==============================
-echo Start List
+echo A notee at start
 echo ==============================
 echo.
 echo 1 - Adbe
