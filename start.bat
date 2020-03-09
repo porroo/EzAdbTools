@@ -118,7 +118,7 @@ echo 2 - Android Shell
 echo 3 - Reboot Menu
 echo 4 - Full Backup
 echo 5 - Sideload flashable zip file
-echo C - Check connected devices
+echo C - Connected devices
 echo X - Back
 echo.
 set /P M="Input options shown above then press ENTER: "
@@ -308,16 +308,16 @@ adb.exe shell
 
 rem End of Selection 2.2 - Android Shell
 
-rem Selection 2.3 - Check Connected Devices
+rem Selection 2.3 - Connected devices
 
 :adb_devices
-title EzAdbTools - Check Connected Devices
+title EzAdbTools - Connected devices
 cls
 echo.
 echo ==============================
 echo %productnamever%
 echo ==============================
-echo Check Connected Devices
+echo Connected devices
 echo ==============================
 echo.
 echo Remember to authorize your computer before you do anything!
@@ -328,7 +328,7 @@ cd ..
 set /p pressanykey="Press any key to return to the menu..."
 goto adb
 
-rem End of Selection 2.3 - Check Connected Devices
+rem End of Selection 2.3 - Connected devices
 
 rem Selection 2.4 - Reboot Menu
 
