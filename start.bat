@@ -95,7 +95,6 @@ if %M%==5 GOTO adb_driver_int
 if %M%==L GOTO elic
 if %M%==l GOTO elic
 if %M%==O GOTO lolcat
-if %M%==asdf GOTO asdf
 if %M%==X GOTO exit
 if %M%==x GOTO exit
 cls
@@ -915,10 +914,4 @@ cd drivers
 pnputil -i -a android_winusb.inf
 cd ..
 pause
-goto menu
-
-rem asdf
-:asdf
-echo Mine turtle will expload on your pc lol 
-choice /d y /t 2 > nul
 goto menu
