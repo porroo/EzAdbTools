@@ -38,9 +38,10 @@ set productnamever=EzAdbTools Unstable Builds
 set productnamever=%productnamever:"=%
 
 rem Set first print
-(
-	echo echo %productnamever%
-	echo echo ==============================
+( 
+	echo.
+	echo %productnamever%
+	echo ==============================
 )>"startprint"
 
 rem adb.exe check
