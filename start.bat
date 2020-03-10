@@ -913,6 +913,7 @@ echo Incomplete feature.
 cd bin
 cd drivers
 pnputil -i -a android_winusb.inf
+cd ..
 pause
 goto menu
 
