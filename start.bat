@@ -811,6 +811,8 @@ set delworkingbat=1
 	echo call delworking.bat
 )>"working.bat"
 call working.bat
+
+rem End of Selection 3.4 - Flash image file
 	
 rem Selection 4 - Exit
 
