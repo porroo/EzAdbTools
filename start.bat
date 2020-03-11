@@ -577,12 +577,14 @@ echo.
 echo 1 - Reboot device
 echo 2 - Bootloader unlocking related
 echo 3 - Get device-id
+echo 4 - Flash image file
 echo X - Back
 echo.
 set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO fastboot_reboot
 if %M%==2 GOTO fastboot_unlock
 if %M%==3 GOTO fastboot_device_id
+if %M%==4 GOTO fastboot_flash
 if %M%==X GOTO menu
 if %M%==x GOTO menu
 cls
@@ -782,6 +784,34 @@ goto fastboot
 
 rem End of Selection 3.3 - Get device-id
 
+rem Selection 3.4 - Flash image file
+
+:fastboot_flash
+title EzAdbTools - Flash image file
+cls
+echo.
+type logo.ASART
+type startprint
+echo Flash image file
+echo ==============================
+echo.
+set /P fastboot_flash_type="Type the image type you want to flash than press ENTER: "
+set /P fastboot_flash_image="Drag and drop the image you want to flash than press ENTER: "
+set delworkingbat=1
+(
+	echo type type logo.ASART
+	echo type startprint
+	echo echo unlock.bin Unlock
+	echo echo ==============================
+	echo echo.
+	echo cd bin
+	echo fastboot.exe flash %fastboot_flash_type% %fastboot_flash_image% 
+	echo cd ..
+	echo cls
+	echo call delworking.bat
+)>"working.bat"
+call working.bat
+	
 rem Selection 4 - Exit
 
 :exit
