@@ -828,6 +828,13 @@ echo ==============================
 echo.
 echo Exiting in 2 seconds...
 choice /d y /t 2 > nul
+:: Stopping tasks
+taskkill /im /f adb.exe
+taskkill /im /f fastboot.exe
+
+:: Deleting temp files
+del startprint
+del working.bat
 exit
 
 rem End of Selection 4 - Exit
