@@ -31,7 +31,7 @@ set M=
 set pressanykey=
 set adb_install_app=
 set sideload_zip=
-set root_mode=
+:: set root_mode=
 
 rem Set variables
 set productnamever=EzAdbTools Unstable Builds
