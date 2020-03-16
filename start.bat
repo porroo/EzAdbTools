@@ -889,7 +889,11 @@ type logo.ASART
 type startprint
 echo License
 echo ==============================
-type LICENSE
+set /p lver="Please select a License version (L/N)"
+if %lver%=L type LICENSE.l
+if %lver%=L type LICENSE.l
+if %lver%=N type LICENSE
+if %lver%=n type LICENSE
 echo Press to go back to menu.
 pause
 goto menu
