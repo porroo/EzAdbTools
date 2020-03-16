@@ -906,14 +906,14 @@ pause
 goto menu
 
 :lolcat
-title Seay Adbe Thing - Start List
+title Seay Adbe Thing - Star Lis
 cls
 set M=
 echo.
 type logo.ASART
 echo Seay Adbe Thing
 echo ==============================
-echo A notee at start
+echo Star Lis
 echo ==============================
 echo.
 echo 1 - Adbe
