@@ -100,7 +100,7 @@ if %M%==x GOTO exit
 cls
 title EzAdbTools - Wrong Input
 cls
-echo You have inputted a wrong input, try again.
+echo You typed a incorrect command, try again.
 choice /d y /t 2 > nul
 set M=
 goto menu
@@ -140,7 +140,7 @@ if %M%==x GOTO menu
 cls
 title EzAdbTools - Wrong Input
 cls
-echo You have inputted a wrong input, try again.
+echo You typed a incorrect command, try again.
 choice /d y /t 2 > nul
 set M=
 goto adb
@@ -172,7 +172,7 @@ if %M%==x GOTO adb
 cls
 title EzAdbTools - Wrong Input
 cls
-echo You have inputted a wrong input, try again.
+echo You typed a incorrect command, try again.
 choice /d y /t 2 > nul
 set M=
 goto adb_appman
@@ -272,7 +272,7 @@ if %M%==n GOTO adb_android_shell
 cls
 title EzAdbTools - Wrong Input
 cls
-echo You have inputted a wrong input, try again.
+echo You typed a incorrect command, try again.
 choice /d y /t 2 > nul
 set M=
 goto adb_root_shell_ask
@@ -359,7 +359,7 @@ if %M%==x GOTO adb
 cls
 title EzAdbTools - Wrong Input
 cls
-echo You have inputted a wrong input, try again.
+echo You typed a incorrect command, try again.
 choice /d y /t 2 > nul
 set M=
 goto adb_reboot
@@ -590,7 +590,7 @@ if %M%==x GOTO menu
 cls
 title EzAdbTools - Wrong Input
 cls
-echo You have inputted a wrong input, try again.
+echo You typed a incorrect command, try again.
 choice /d y /t 2 > nul
 set M=
 goto fastboot
@@ -649,7 +649,7 @@ if %M%==x GOTO menu
 cls
 title EzAdbTools - Wrong Input
 cls
-echo You have inputted a wrong input, try again.
+echo You typed a incorrect command, try again.
 choice /d y /t 2 > nul
 set M=
 goto fastboot_unlock
@@ -863,7 +863,7 @@ if %M%==x GOTO menu
 cls
 title EzAdbTools - Wrong Input
 cls
-echo You have inputted a wrong input, try again.
+echo You typed a incorrect command, try again.
 choice /d y /t 2 > nul
 set M=
 goto links
