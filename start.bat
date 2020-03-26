@@ -80,18 +80,20 @@ echo ==============================
 echo.
 echo 1 - adb related
 echo 2 - fastboot related
-echo 3 - Links
-echo 4 - Command Line
-echo 5 - Install adb driver (Incomplete)
+echo 3 - Advanced Tools
+echo 4 - Links
+echo 5 - Command Line
+echo 6 - Install adb driver (Incomplete)
 echo L - License
 echo X - Exit
 echo.
 set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO adb
 if %M%==2 GOTO fastboot
-if %M%==3 GOTO links
-if %M%==4 GOTO cmd
-if %M%==5 GOTO adb_driver_int
+if %M%==3 GOTO adv
+if %M%==4 GOTO links
+if %M%==5 GOTO cmd
+if %M%==6 GOTO adb_driver_int
 if %M%==L GOTO elic
 if %M%==l GOTO elic
 if %M%==O call lolcat.bat
@@ -887,6 +889,63 @@ cd bin
 cmd
 rem End of Selection 6 - Command Line
 
+rem Selection 7 - Advanced Tools
+
+:adv
+title EzAdbTools - Advanced Tools
+cls
+set M=
+echo.
+type logo.ASART
+type startprint
+echo Advanced Tools
+echo ==============================
+echo.
+echo 1 - ROM Port Tools
+echo X - Back
+echo.
+if %M%==1 GOTO adv_port
+if %M%==X GOTO menu
+if %M%==x GOTO menu
+cls
+title EzAdbTools - Wrong Input
+cls
+echo You typed a incorrect command, try again.
+choice /d y /t 2 > nul
+set M=
+goto adv
+
+rem Selection 7.1 - ROM Port Tools
+:adv_port
+title EzAdbTools - ROM Port Tools
+cls
+set M=
+echo.
+type logo.ASART
+type startprint
+echo ROM Port Tools
+echo ==============================
+echo.
+echo 1 - Port Boot.img
+echo 2 - Port Recovery.img
+echo X - Back
+echo.
+if %M%==1 call adv_port_bootimg.bat
+if %M%==1 call adv_port_recovery.bat
+if %M%==X GOTO adv
+if %M%==x GOTO adv
+cls
+title EzAdbTools - Wrong Input
+cls
+echo You typed a incorrect command, try again.
+choice /d y /t 2 > nul
+set M=
+goto adv_port
+
+rem End of Selection 7.1 - ROM Port Tools
+
+rem End of Selection 7 - Advanced Tools
+
 rem Selection O - Others
 
 :elic
@@ -904,6 +963,7 @@ if %lver%=n type LICENSE
 echo Press to go back to menu.
 pause
 goto menu
+
 
 rem End of Selection O - Others
 
