@@ -1,9 +1,9 @@
 # EzAdbTools, an open source batch tool
 This tools is a basic batch tool that uses adb.exe and fastboot.exe for those Android Geeks or new Android developers.
 
-## Requirements
-This binary requires a copy of Windows 7 for maximum compatibility. It currently only supports Windows, in future updates we might add support for macOS and Linux.
-You might need additional drivers for your smartphone to make it work with adb and fastboot.
+## System Requirements
+- Windows 7 or newer
+- Any Android device
 
 ## Tested Devices
 - LG G6 (H870DS) (with LG's official driver)
