@@ -80,20 +80,20 @@ echo ==============================
 echo.
 echo 1 - adb related
 echo 2 - fastboot related
-echo 3 - Advanced Tools
-echo 4 - Links
-echo 5 - Command Line
-echo 6 - Install adb driver (Incomplete)
+:: echo 3 - Advanced Tools
+echo 3 - Links
+echo 4 - Command Line
+echo 5 - Install adb driver (Incomplete)
 echo L - License
 echo X - Exit
 echo.
 set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO adb
 if %M%==2 GOTO fastboot
-if %M%==3 GOTO adv
-if %M%==4 GOTO links
-if %M%==5 GOTO cmd
-if %M%==6 GOTO adb_driver_int
+:: if %M%==3 GOTO adv
+if %M%==3 GOTO links
+if %M%==4 GOTO cmd
+if %M%==5 GOTO adb_driver_int
 if %M%==L GOTO elic
 if %M%==l GOTO elic
 if %M%==O call lolcat.bat
