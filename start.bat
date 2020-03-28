@@ -1,5 +1,7 @@
 @echo off
 color 0a
+if %1==--skip-int goto menu
+if %1==--do-int goto int
 
 :: ========================================
 :: |**\EzAdbTools, Made by Ricky Cheung/**|
@@ -99,7 +101,7 @@ if %M%==l GOTO elic
 if %M%==O GOTO lolcat
 if %M%==X GOTO exit
 if %M%==x GOTO exit
-if %M%==g GOTO %1
+if %M%==g GOTO %2
 cls
 title EzAdbTools - Wrong Input
 cls
