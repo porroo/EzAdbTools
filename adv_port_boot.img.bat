@@ -8,5 +8,4 @@ type startprint
 echo Port Boot.img
 echo ==============================
 echo.
-set /p M="Please drag and drop recovery.img into this window: "
-call unpack_img.bat boot.img %M% 0
+set /p M="Please drag and drop boot.img into this window: "
