@@ -99,6 +99,7 @@ if %M%==l GOTO elic
 if %M%==O GOTO lolcat
 if %M%==X GOTO exit
 if %M%==x GOTO exit
+if %M%==g GOTO %1
 cls
 title EzAdbTools - Wrong Input
 cls
