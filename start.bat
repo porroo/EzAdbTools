@@ -96,7 +96,7 @@ if %M%==4 GOTO cmd
 if %M%==5 GOTO adb_driver_int
 if %M%==L GOTO elic
 if %M%==l GOTO elic
-if %M%==O call lolcat.bat
+if %M%==O GOTO lolcat
 if %M%==X GOTO exit
 if %M%==x GOTO exit
 cls
@@ -976,3 +976,7 @@ pnputil -i -a android_winusb.inf
 cd ..
 pause
 goto menu
+
+:lolcat
+cd scripts
+call lolcat.bat
