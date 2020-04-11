@@ -4,6 +4,7 @@ This tools is a basic batch tool that uses adb.exe and fastboot.exe for those An
 ## System Requirements
 - Windows 7 or newer
 - Any Android device
+- Device driver installed
 
 ## Usage
 Download the binary and extract the downloaded <b>.zip</b> file, then double click on the <b>start.bat</b> file to start using this tool.
