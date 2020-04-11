@@ -5,14 +5,6 @@ This tools is a basic batch tool that uses adb.exe and fastboot.exe for those An
 - Windows 7 or newer
 - Any Android device
 
-## Tested Devices
-- LG G6 (H870DS) (with LG's official driver)
-- Lenovo Phab Plus (PB1-770M)
-- Oppo A57
-- Huawei P20 Lite (ANE-LX2)
-- Huawei nova 4 (VCE-L22)
-- Ticwatch Pro
-
 ## Usage
 Download the binary and extract the downloaded <b>.zip</b> file, then double click on the <b>start.bat</b> file to start using this tool.
 ### Warnings 
