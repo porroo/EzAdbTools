@@ -983,3 +983,4 @@ goto menu
 :lolcat
 cd scripts
 call lolcat.bat
+:: echo welcome to lolcat
