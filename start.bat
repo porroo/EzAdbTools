@@ -973,7 +973,9 @@ rem End of Selection O - Others
 
 rem Driver Instller
 :adb_driver_int
-echo Incomplete feature.
+echo Driver installer is deprecated, 
+echo and might get removed in a future update.
+echo Please refer to driver_inst.txt for more information.
 cd bin
 cd drivers
 pnputil -i -a android_winusb.inf
