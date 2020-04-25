@@ -56,6 +56,14 @@ choice /d y /t 2 > nul
 exit
 )
 echo Found fastboot.exe
+
+rem Set first print
+( 
+	echo.
+	echo %productnamever%
+	echo ==============================
+)>"startprint"
+
 goto :menu
 
 rem End of Selection 0 - Initialization
