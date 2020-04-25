@@ -1,7 +1,6 @@
 @echo off
 color 0a
 if %1==--skip-int goto menu
-if %1==--do-int goto int
 
 :: ========================================
 :: |**\EzAdbTools, Made by Ricky Cheung/**|
