@@ -461,7 +461,7 @@ echo Reboot into Safe Mode (ROOT)
 echo ==============================
 echo.
 cd bin
-adb.exe shell su & adb.exe shell echo "1" > /data/property/persist.sys.safemode
+adb shell su -c 'setprop persist.sys.safemode 1'
 cd ..
 echo Done!
 choice /d y /t 2 > nul
