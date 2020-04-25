@@ -130,6 +130,7 @@ echo 2 - Android Shell
 echo 3 - Reboot Menu
 echo 4 - Full Backup
 echo 5 - Sideload flashable zip file
+echo 6 - Logcat
 echo C - Connected devices
 echo X - Back
 echo.
@@ -141,6 +142,7 @@ if %M%==c GOTO adb_devices
 if %M%==3 GOTO adb_reboot
 if %M%==4 GOTO adb_full_backup
 if %M%==5 GOTO adb_sideload
+if %M%==6 GOTO adb_logcat
 if %M%==X GOTO menu
 if %M%==x GOTO menu
 cls
@@ -567,6 +569,28 @@ rem Creating working.bat
 )>"working.bat"
 call working.bat
 
+rem End of Selection 2.6 - Sideload flashable zip file
+
+rem Selection 2.7 - Logcat
+
+:adb_logcat
+title EzAdbTools - fastboot Related
+cls
+set M=
+echo.
+type logo.ASART
+type startprint
+echo Logcat
+echo ==============================
+echo.
+echo You will have to restart this application
+echo to close to logcat.
+pause
+adb logcat
+
+rem End of Selection 2.7 - Logcat
+
+rem End of Selection 2 - adb Related
 
 rem Selection 3 - fastboot Related
 
