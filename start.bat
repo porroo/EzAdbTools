@@ -658,8 +658,6 @@ call working.bat
 :fastboot_relockbl
 echo wait not yet
 
-rem Selection 3.3 - Get device-id
-
 :fastboot_device_id
 title EzAdbTools - Get device-id
 cls
@@ -762,8 +760,6 @@ echo.
 echo This will EzAdbTools, do 'call eat.bat' to start this program again.
 cd bin
 cmd
-
-rem Selection O - Others
 
 :elic
 cls
