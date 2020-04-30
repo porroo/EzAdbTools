@@ -2,43 +2,24 @@
 color 0a
 if %1==--skip-int goto menu
 
-:: ========================================
-:: |**\EzAdbTools, Made by Ricky Cheung/**|
-:: |***\__For adb and fastboot noobs__/***|
-:: |****\___XDA: tiny.cc/ezatxda_____/****|
-:: ========================================
-
-:: LICENSE INFORMATION
-:: --------------------
-:: EzAdbTools  Copyright (C) 2020  Ricky Cheung (Tipz Team)
-:: This program comes with ABSOLUTELY NO WARRANTY;
-:: This is free software, and you are welcome to redistribute it
-:: under certain conditions; type `show c' for details.
-
-rem Selection 0 - Initialization
-
 :int
 title EzAdbTools - Initialization
 echo Initializing...
 
-rem Restart Adb
 cd bin
 adb.exe kill-server
 adb.exe start-server
 cd ..
 
-rem Empty all variables
 set M=
 set pressanykey=
 set adb_install_app=
 set sideload_zip=
 :: set root_mode=
 
-rem Set variables
 set productnamever=EzAdbTools Unstable Builds
 set productnamever=%productnamever:"=%
 
-rem adb.exe check
 echo Checking for adb.exe...
 if not exist "%CD%\bin\adb.exe" (
 echo Unable to find adb.exe. Redownload this application.
@@ -48,7 +29,6 @@ exit
 echo Found adb.exe
 )
 
-rem fastboot.exe check
 echo Checking for fastboot...
 if not exist "%CD%\bin\fastboot.exe" (
 echo Unable to find fastboot.exe. Redownload this application.
@@ -57,7 +37,6 @@ exit
 )
 echo Found fastboot.exe
 
-rem Set first print
 ( 
 	echo.
 	echo %productnamever%
@@ -65,10 +44,6 @@ rem Set first print
 )>"startprint"
 
 goto :menu
-
-rem End of Selection 0 - Initialization
-
-rem Selection 1 - Start Menu
 
 :menu
 title EzAdbTools - Start Menu
@@ -92,7 +67,6 @@ echo.
 set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO adb
 if %M%==2 GOTO fastboot
-:: if %M%==3 GOTO adv
 if %M%==3 GOTO links
 if %M%==4 GOTO cmd
 if %M%==5 GOTO adb_driver_int
@@ -110,10 +84,6 @@ echo You typed a incorrect command, try again.
 choice /d y /t 2 > nul
 set M=
 goto menu
-
-rem End of Selection 1 - Start Menu
-
-rem Selection 2 - adb Related
 
 :adb
 title EzAdbTools - adb Related
@@ -153,10 +123,6 @@ choice /d y /t 2 > nul
 set M=
 goto adb
 
-rem End of Selection 2 - adb Related
-
-rem Selection 2.1 - Application Manager
-
 :adb_appman
 title EzAdbTools - Application Manager
 cls
@@ -185,8 +151,6 @@ choice /d y /t 2 > nul
 set M=
 goto adb_appman
 
-rem Selection 2.1.1 - Install Applications
-
 :adb_app_install
 title EzAdbTools - Install Applications
 cls
@@ -199,8 +163,6 @@ echo.
 set /P adb_install_app="Drag and drop the apk file into this window then hit enter: "
 if exist %adb_install_app% (
 set delworkingbat=1
-
-rem Creating working.bat
     (
     echo type logo.ASART
     echo type startprint
@@ -220,10 +182,6 @@ call working.bat
 	goto adb_app_install
 )
 
-rem End of Selection 2.1.1 - Install Applications
-
-rem Selection 2.1.2 - Uninstall Applications
-
 :adb_app_uni
 title EzAdbTools - Uninstall Applications
 cls
@@ -236,10 +194,6 @@ echo.
 echo Incomplete.
 choice /d y /t 2 > nul
 goto adb_appman
-
-rem End of Selection 2.1.2 - Uninstall Applications
-
-rem Selection 2.1.3 - List Applications
 
 :adb_app_list
 title EzAdbTools - List Applications
@@ -255,35 +209,6 @@ adb shell pm list packages -f
 cd ..
 pause
 goto adb_appman
-
-rem End of Selection 2.1 - Application Manager
-
-rem Selection 2.2 - Android Shell
-
-rem Ask for root shell
-:adb_root_shell_ask
-title EzAdbTools - Android Shell
-cls
-echo.
-type logo.ASART
-type startprint
-echo Android Shell
-echo ==============================
-echo.
-echo Do you want to use Android Shell in root mode? 
-echo (Root mode will only work with rooted devices)
-set /P M="Select an option (Y/N): "
-if %M%==Y GOTO adb_su_android_shell
-if %M%==N GOTO adb_android_shell
-if %M%==y GOTO adb_su_android_shell
-if %M%==n GOTO adb_android_shell
-cls
-title EzAdbTools - Wrong Input
-cls
-echo You typed a incorrect command, try again.
-choice /d y /t 2 > nul
-set M=
-goto adb_root_shell_ask
 
 :adb_android_shell
 title EzAdbTools - Android Shell
@@ -312,10 +237,6 @@ cd bin
 adb.exe shell su
 adb.exe shell
 
-rem End of Selection 2.2 - Android Shell
-
-rem Selection 2.3 - Connected devices
-
 :adb_devices
 title EzAdbTools - Connected devices
 cls
@@ -332,10 +253,6 @@ adb.exe devices
 cd ..
 set /p pressanykey="Press any key to return to the menu..."
 goto adb
-
-rem End of Selection 2.3 - Connected devices
-
-rem Selection 2.4 - Reboot Menu
 
 :adb_reboot
 title EzAdbTools - Reboot Menu
@@ -469,10 +386,6 @@ echo Done!
 choice /d y /t 2 > nul
 goto adb_reboot
 
-rem End of Selection 2.4 - Reboot Menu
-
-rem Selection 2.5 - Full Backup
-
 :adb_full_backup
 title EzAdbTools - Full Backup
 cls
@@ -505,9 +418,6 @@ set delworkingbat=1
 )>"working.bat"
 call working.bat
 
-rem End of Selection 2.5 - Full Backup
-
-rem Selection 2.R - Root Mode
 :adb_root_mode_on
 title EzAdbTools - Enable Root Mode
 cls
@@ -540,9 +450,6 @@ set root_mode=0
 echo Root mode is disabled.
 choice /d y /t 3 > nul
 
-rem End of Selection 2.R - Root Mode
-
-rem Selection 2.6 - Sideload
 :adb_sideload
 title EzAdbTools - Sideload flashable zip file
 cls
@@ -554,8 +461,6 @@ echo ==============================
 echo.
 set /P sideload_zip="Drag and drop the flashable zip file you want to flash: "
 set delworkingbat=1
-
-rem Creating working.bat
     (
     echo type startprint
     echo echo Sideload flashable zip file
@@ -568,10 +473,6 @@ rem Creating working.bat
     echo cls
 )>"working.bat"
 call working.bat
-
-rem End of Selection 2.6 - Sideload flashable zip file
-
-rem Selection 2.7 - Logcat
 
 :adb_logcat
 title EzAdbTools - fastboot Related
@@ -587,12 +488,6 @@ echo You will have to restart this application
 echo to close to logcat.
 pause
 adb logcat
-
-rem End of Selection 2.7 - Logcat
-
-rem End of Selection 2 - adb Related
-
-rem Selection 3 - fastboot Related
 
 :fastboot
 title EzAdbTools - fastboot Related
@@ -625,10 +520,6 @@ choice /d y /t 2 > nul
 set M=
 goto fastboot
 
-rem End of Selection 3 - fastboot Related
-
-rem Selection 3.1 - Reboot Device
-
 :fastboot_reboot
 title EzAdbTools - Reboot Device
 cls
@@ -646,10 +537,6 @@ cd ..
 echo Done!
 choice /d y /t 2 > nul
 goto fastboot
-
-rem End of Selection 3.1 - Reboot Device
-
-rem Selection 3.2 - Bootloader unlocking related
 
 :fastboot_unlock
 title EzAdbTools - Bootloader unlocking related
@@ -684,10 +571,6 @@ choice /d y /t 2 > nul
 set M=
 goto fastboot_unlock
 
-rem End of Selection 3.2 - Bootloader unlocking related
-
-rem Selection 3.2.1 - Bootloader Unlock Status
-
 :fastboot_unlock_stat
 title EzAdbTools - Bootloader Unlock Status
 cls
@@ -703,10 +586,6 @@ fastboot.exe oem device-info
 cd ..
 choice /d y /t 2 > nul
 goto fastboot_unlock
-
-rem End of Selection 3.2.1 - Bootloader Unlock Status
-
-rem Selection 3.2.2 - Bootloader Unlock (No code)
 
 :fastboot_unlock_nocode
 title EzAdbTools - Bootloader Unlock (No code)
@@ -724,10 +603,6 @@ echo Done!
 choice /d y /t 2 > nul
 goto fastboot_unlock
 
-rem End of Selection 3.2.2 - Bootloader Unlock (No Code)
-
-rem Selection 3.2.3 - Bootloader Unlock (Code needed)
-
 :fastboot_unlock_code
 title EzAdbTools - Bootloader Unlock (Code needed)
 set unlock_key=
@@ -740,8 +615,6 @@ echo ==============================
 echo.
 set /P unlock_key="Input the code you got for unlocking your device: "
 set delworkingbat=1
-
-rem Creating working.bat
     (
     echo type logo.ASART
     echo type startprint
@@ -756,10 +629,6 @@ rem Creating working.bat
 )>"working.bat"
 call working.bat
 
-rem End of Selection 3.2.3 - Bootloader Unlock (Code)
-
-rem Selection 3.2.4 - unlock.bin Unlock
-
 :fastboot_unlock_bin
 title EzAdbTools - unlock.bin Unlock
 set unlock_bin=
@@ -772,8 +641,6 @@ echo ==============================
 echo.
 set /P unlock_bin="Drag and drop the unlock.bin into our window and press ENTER: "
 set delworkingbat=1
-
-rem Creating working.bat
     (
     echo type type logo.ASART
     echo type startprint
@@ -787,10 +654,6 @@ rem Creating working.bat
     echo cls
 )>"working.bat"
 call working.bat
-
-rem End of Selection 3.2.4 - unlock.bin Unlock
-
-rem Selection 3.2.R - Relock Bootloader
 
 :fastboot_relockbl
 echo wait not yet
@@ -811,10 +674,6 @@ fastboot oem device-id
 cd ..
 pause
 goto fastboot
-
-rem End of Selection 3.3 - Get device-id
-
-rem Selection 3.4 - Flash image file
 
 :fastboot_flash
 title EzAdbTools - Flash image file
@@ -842,10 +701,6 @@ set delworkingbat=1
 )>"working.bat"
 call working.bat
 
-rem End of Selection 3.4 - Flash image file
-	
-rem Selection 4 - Exit
-
 :exit
 title EzAdbTools - Exit
 cls
@@ -866,10 +721,6 @@ taskkill /im /f fastboot.exe
 del startprint
 del working.bat
 exit
-
-rem End of Selection 4 - Exit
-
-rem Selection 5 - Links
 
 :links
 title EzAdbTools - Links
@@ -898,10 +749,6 @@ choice /d y /t 2 > nul
 set M=
 goto links
 
-rem End of Selection 5 - Links
-
-rem Selection 6 - Command Line
-
 :cmd
 title EzAdbTools - Command Line
 cls
@@ -915,64 +762,6 @@ echo.
 echo This will EzAdbTools, do 'call eat.bat' to start this program again.
 cd bin
 cmd
-rem End of Selection 6 - Command Line
-
-rem Selection 7 - Advanced Tools
-
-:adv
-title EzAdbTools - Advanced Tools
-cls
-set M=
-echo.
-type logo.ASART
-type startprint
-echo Advanced Tools
-echo ==============================
-echo.
-echo 1 - ROM Port Tools
-echo X - Back
-echo.
-if %M%==1 GOTO adv_port
-if %M%==X GOTO menu
-if %M%==x GOTO menu
-cls
-title EzAdbTools - Wrong Input
-cls
-echo You typed a incorrect command, try again.
-choice /d y /t 2 > nul
-set M=
-goto adv
-
-rem Selection 7.1 - ROM Port Tools
-:adv_port
-title EzAdbTools - ROM Port Tools
-cls
-set M=
-echo.
-type logo.ASART
-type startprint
-echo ROM Port Tools
-echo ==============================
-echo.
-echo 1 - Port Boot.img
-echo 2 - Port Recovery.img
-echo X - Back
-echo.
-if %M%==1 call adv_port_bootimg.bat
-if %M%==1 call adv_port_recovery.bat
-if %M%==X GOTO adv
-if %M%==x GOTO adv
-cls
-title EzAdbTools - Wrong Input
-cls
-echo You typed a incorrect command, try again.
-choice /d y /t 2 > nul
-set M=
-goto adv_port
-
-rem End of Selection 7.1 - ROM Port Tools
-
-rem End of Selection 7 - Advanced Tools
 
 rem Selection O - Others
 
@@ -991,9 +780,6 @@ if %lver%=n type LICENSE
 echo Press to go back to menu.
 pause
 goto menu
-
-
-rem End of Selection O - Others
 
 rem Driver Instller
 :adb_driver_int
