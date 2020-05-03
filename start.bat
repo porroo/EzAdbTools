@@ -151,7 +151,6 @@ set delworkingbat=1
 	echo cd bin
 	echo adb.exe install %adb_install_app%
 	echo cd ..
-	echo cd scripts 
     echo call delworking.bat
 	echo cls
 )>"working.bat"
@@ -378,7 +377,6 @@ set delworkingbat=1
 	echo cd bin
 	echo adb.exe backup -apk -shared -all -f %CD%/backups/backup%backuptimes%.ab
 	echo cd ..
-	echo cd scripts 
     echo call delworking.bat
 	echo cls
 )>"working.bat"
@@ -434,7 +432,6 @@ set delworkingbat=1
     echo cd bin
     echo adb.exe sideload %sideload_zip%
     echo cd ..
-    echo cd scripts
     echo call delworking.bat
     echo cls
 )>"working.bat"
@@ -581,7 +578,6 @@ set delworkingbat=1
     echo cd bin
     echo fastboot.exe oem-unlock %unlock_key%
     echo cd ..
-    echo cd scripts
     echo call delworking.bat
     echo cls
 )>"working.bat"
@@ -606,7 +602,6 @@ set delworkingbat=1
     echo cd bin
     echo fastboot.exe flash unlock %unlock_bin%
     echo cd ..
-    echo cd scripts
     echo call delworking.bat
     echo cls
 )>"working.bat"
@@ -648,7 +643,6 @@ set delworkingbat=1
 	echo cd bin
 	echo fastboot.exe flash %fastboot_flash_part% %fastboot_flash_image% 
 	echo cd ..
-	echo cls
 	echo call delworking.bat
 )>"working.bat"
 call working.bat
