@@ -1,6 +1,5 @@
 @echo off
 color 0a
-if %1==--skip-int goto menu
 
 :int
 title EzAdbTools - Initialization
@@ -15,10 +14,6 @@ set M=
 set pressanykey=
 set adb_install_app=
 set sideload_zip=
-:: set root_mode=
-
-set productnamever=EzAdbTools Unstable Builds
-set productnamever=%productnamever:"=%
 
 echo Checking for adb.exe...
 if not exist "%CD%\bin\adb.exe" (
@@ -37,12 +32,6 @@ exit
 )
 echo Found fastboot.exe
 
-( 
-	echo.
-	echo %productnamever%
-	echo ==============================
-)>"startprint"
-
 goto :menu
 
 :menu
@@ -50,7 +39,6 @@ title EzAdbTools - Start Menu
 cls
 set M=
 echo.
-type logo.ASART
 type startprint
 echo Start Menu
 echo ==============================
@@ -69,10 +57,8 @@ if %M%==3 GOTO links
 if %M%==4 GOTO cmd
 if %M%==L GOTO elic
 if %M%==l GOTO elic
-if %M%==O GOTO lolcat
 if %M%==X GOTO exit
 if %M%==x GOTO exit
-if %M%==g GOTO %2
 if %M%=show c GOTO elic
 cls
 title EzAdbTools - Wrong Input
@@ -87,7 +73,6 @@ title EzAdbTools - adb Related
 cls
 set M=
 echo.
-type logo.ASART
 type startprint
 echo adb Related
 echo ==============================
@@ -124,7 +109,6 @@ goto adb
 title EzAdbTools - Application Manager
 cls
 echo.
-type logo.ASART
 type startprint
 echo Application Manager
 echo ==============================
@@ -152,7 +136,6 @@ goto adb_appman
 title EzAdbTools - Install Applications
 cls
 echo.
-type logo.ASART
 type startprint
 echo Install Applications
 echo ==============================
@@ -161,7 +144,6 @@ set /P adb_install_app="Drag and drop the apk file into this window then hit ent
 if exist %adb_install_app% (
 set delworkingbat=1
     (
-    echo type logo.ASART
     echo type startprint
     echo echo Install Applications
     echo echo ==============================
@@ -183,7 +165,6 @@ call working.bat
 title EzAdbTools - Uninstall Applications
 cls
 echo.
-type logo.ASART
 type startprint
 echo Uninstall Applications
 echo ==============================
@@ -196,7 +177,6 @@ goto adb_appman
 title EzAdbTools - List Applications
 cls
 echo.
-type logo.ASART
 type startprint
 echo List Applications
 echo ==============================
@@ -211,7 +191,6 @@ goto adb_appman
 title EzAdbTools - Android Shell
 cls
 echo.
-type logo.ASART
 type startprint
 echo Android Shell
 echo ==============================
@@ -224,7 +203,6 @@ adb.exe shell
 title EzAdbTools - Android Shell
 cls
 echo.
-type logo.ASART
 type startprint
 echo Android Shell
 echo ==============================
@@ -238,7 +216,6 @@ adb.exe shell
 title EzAdbTools - Connected devices
 cls
 echo.
-type logo.ASART
 type startprint
 echo Connected devices
 echo ==============================
@@ -256,7 +233,6 @@ title EzAdbTools - Reboot Menu
 cls
 set M=
 echo.
-type logo.ASART
 type startprint
 echo Reboot Menu
 echo ==============================
@@ -290,7 +266,6 @@ goto adb_reboot
 title EzAdbTools - Reboot device
 cls
 echo.
-type logo.ASART
 type startprint
 echo Reboot device
 echo ==============================
@@ -306,7 +281,6 @@ goto adb_reboot
 title EzAdbTools - Reboot into Fastboot Mode
 cls
 echo.
-type logo.ASART
 type startprint
 echo Reboot into Fastboot Mode
 echo ==============================
@@ -322,7 +296,6 @@ goto adb_reboot
 title EzAdbTools - Reboot into Recovery Mode
 cls
 echo.
-type logo.ASART
 type startprint
 echo Reboot into Recovery Mode
 echo ==============================
@@ -338,7 +311,6 @@ goto adb_reboot
 title EzAdbTools - Reboot into Emergency Download Mode
 cls
 echo.
-type logo.ASART
 type startprint
 echo Reboot into 
 echo Emergency Download Mode
@@ -355,7 +327,6 @@ goto adb_reboot
 title EzAdbTools - Reboot into Download Mode
 cls
 echo.
-type logo.ASART
 type startprint
 echo Reboot into Download Mode
 echo ==============================
@@ -371,7 +342,6 @@ goto adb_reboot
 title EzAdbTools - Reboot into Safe Mode (ROOT)
 cls
 echo.
-type logo.ASART
 type startprint
 echo Reboot into Safe Mode (ROOT)
 echo ==============================
@@ -387,7 +357,6 @@ goto adb_reboot
 title EzAdbTools - Full Backup
 cls
 echo.
-type logo.ASART
 type startprint
 echo Full Backup
 echo ==============================
@@ -402,16 +371,15 @@ SET backupfirst=no
 set delworkingbat=1
 )
     (
-    	echo type logo.ASART
-        echo type startprint
+    echo type startprint
 	echo echo Full Backup
 	echo echo ==============================
 	echo cd bin
 	echo adb.exe backup -apk -shared -all -f %CD%/backups/backup%backuptimes%.ab
 	echo cd ..
 	echo cd scripts 
-        echo call delworking.bat
-		echo cls
+    echo call delworking.bat
+	echo cls
 )>"working.bat"
 call working.bat
 
@@ -476,7 +444,6 @@ title EzAdbTools - fastboot Related
 cls
 set M=
 echo.
-type logo.ASART
 type startprint
 echo Logcat
 echo ==============================
@@ -491,7 +458,6 @@ title EzAdbTools - fastboot Related
 cls
 set M=
 echo.
-type logo.ASART
 type startprint
 echo fastboot Related
 echo ==============================
@@ -521,7 +487,6 @@ goto fastboot
 title EzAdbTools - Reboot Device
 cls
 echo.
-type logo.ASART
 type startprint
 echo Reboot Device
 echo ==============================
@@ -539,7 +504,6 @@ goto fastboot
 title EzAdbTools - Bootloader unlocking related
 cls
 echo.
-type logo.ASART
 type startprint
 echo Bootloader unlocking related 
 echo ==============================
@@ -572,7 +536,6 @@ goto fastboot_unlock
 title EzAdbTools - Bootloader Unlock Status
 cls
 echo.
-type logo.ASART
 type startprint
 echo Bootloader Unlock Status
 echo ==============================
@@ -588,7 +551,6 @@ goto fastboot_unlock
 title EzAdbTools - Bootloader Unlock (No code)
 cls
 echo.
-type logo.ASART
 type startprint
 echo Bootloader Unlock (No code)
 echo ==============================
@@ -605,7 +567,6 @@ title EzAdbTools - Bootloader Unlock (Code needed)
 set unlock_key=
 cls
 echo.
-type logo.ASART
 type startprint
 echo Unlock Bootloader (Code needed)
 echo ==============================
@@ -613,7 +574,6 @@ echo.
 set /P unlock_key="Input the code you got for unlocking your device: "
 set delworkingbat=1
     (
-    echo type logo.ASART
     echo type startprint
     echo echo Unlock Bootloader (Code needed)
     echo echo ==============================
@@ -631,7 +591,6 @@ title EzAdbTools - unlock.bin Unlock
 set unlock_bin=
 cls
 echo.
-type logo.ASART
 type startprint
 echo unlock.bin Unlock
 echo ==============================
@@ -659,7 +618,6 @@ echo wait not yet
 title EzAdbTools - Get device-id
 cls
 echo.
-type logo.ASART
 type startprint
 echo Get device-id
 echo ==============================
@@ -674,7 +632,6 @@ goto fastboot
 title EzAdbTools - Flash image file
 cls
 echo.
-type logo.ASART
 type startprint
 echo Flash image file
 echo ==============================
@@ -683,7 +640,6 @@ set /P fastboot_flash_type="Type the image type you want to flash than press ENT
 set /P fastboot_flash_image="Drag and drop the image you want to flash than press ENTER: "
 set delworkingbat=1
 (
-	echo type type logo.ASART
 	echo type startprint
 	echo echo unlock.bin Unlock
 	echo echo ==============================
@@ -701,19 +657,14 @@ title EzAdbTools - Exit
 cls
 set M=
 echo.
-type logo.ASART
 type startprint
 echo Exit
 echo ==============================
 echo.
 echo Exiting in 2 seconds...
 choice /d y /t 2 > nul
-:: Stopping tasks
 taskkill /im /f adb.exe
 taskkill /im /f fastboot.exe
-
-:: Deleting temp files
-del startprint
 del working.bat
 exit
 
@@ -722,7 +673,6 @@ title EzAdbTools - Links
 cls
 set M=
 echo.
-type logo.ASART
 type startprint
 echo Links
 echo ==============================
@@ -749,7 +699,6 @@ title EzAdbTools - Command Line
 cls
 set M=
 echo.
-type logo.ASART
 type startprint
 echo Command Line
 echo ==============================
@@ -761,7 +710,6 @@ cmd
 :elic
 cls
 echo.
-type logo.ASART
 type startprint
 echo License
 echo ==============================
@@ -773,8 +721,3 @@ if %lver%=n type LICENSE
 echo Press to go back to menu.
 pause
 goto menu
-
-:lolcat
-cd scripts
-call lolcat.bat
-:: echo welcome to lolcat
