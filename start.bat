@@ -714,5 +714,7 @@ echo Scrcpy
 echo ==============================
 echo.
 echo Launching scrcpy...
+cd bin
 scrcpy
+cd ..
 goto menu
