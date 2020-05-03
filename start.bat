@@ -51,6 +51,7 @@ echo 1 - adb related
 echo 2 - fastboot related
 echo 3 - Links
 echo 4 - Command Line
+echo 5 - Scrcpy
 echo X - Exit
 echo.
 set /P M="Input options shown above then press ENTER: "
@@ -58,6 +59,7 @@ if %M%==1 GOTO adb
 if %M%==2 GOTO fastboot
 if %M%==3 GOTO links
 if %M%==4 GOTO cmd
+if %M%==5 GOTO scrcpy
 if %M%==X GOTO exit
 if %M%==x GOTO exit
 if %M%=show c GOTO elic
@@ -701,3 +703,16 @@ echo.
 echo This will EzAdbTools, do 'call eat.bat' to start this program again.
 cd bin
 cmd
+
+:scrcpy
+title EzAdbTools - Scrcpy
+cls
+set M=
+echo.
+type startprint
+echo Scrcpy
+echo ==============================
+echo.
+echo Launching scrcpy...
+scrcpy
+goto menu
