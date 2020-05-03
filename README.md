@@ -8,9 +8,6 @@ This tools is a basic batch tool that uses adb.exe and fastboot.exe for those An
 
 ## Usage
 Download the binary and extract the downloaded <b>.zip</b> file, then double click on the <b>start.bat</b> file to start using this tool.
-### Warnings 
-- Do <b>NOT</b> launch any other batch file in the folder if you don't understand what it does in case you screwed something up.
-- Master branch may cntain bugs so we suggest you to use the ones in the [Releases](https://github.com/TipzTeam/EzAdbTools/releases) tab
 
 ## Authors
 * **Ricky Cheung** - *Initial work* - [TipzTeam](https://github.com/TipzTeam)
