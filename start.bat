@@ -14,6 +14,10 @@ set M=
 set pressanykey=
 set adb_install_app=
 set sideload_zip=
+set fastboot_flash_part=
+set fastboot_flash_image=
+set unlock_bin=
+set unlock_key=
 
 echo Checking for adb.exe...
 if not exist "%CD%\bin\adb.exe" (
@@ -633,7 +637,7 @@ type startprint
 echo Flash image file
 echo ==============================
 echo.
-set /P fastboot_flash_type="Type the image type you want to flash than press ENTER: "
+set /P fastboot_flash_part="Type the partition you want to flash than press ENTER: "
 set /P fastboot_flash_image="Drag and drop the image you want to flash than press ENTER: "
 set delworkingbat=1
 (
@@ -642,7 +646,7 @@ set delworkingbat=1
 	echo echo ==============================
 	echo echo.
 	echo cd bin
-	echo fastboot.exe flash %fastboot_flash_type% %fastboot_flash_image% 
+	echo fastboot.exe flash %fastboot_flash_part% %fastboot_flash_image% 
 	echo cd ..
 	echo cls
 	echo call delworking.bat
