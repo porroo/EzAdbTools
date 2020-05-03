@@ -57,10 +57,8 @@ echo ==============================
 echo.
 echo 1 - adb related
 echo 2 - fastboot related
-:: echo 3 - Advanced Tools
 echo 3 - Links
 echo 4 - Command Line
-echo 5 - Install adb driver (Incomplete)
 echo L - License
 echo X - Exit
 echo.
@@ -69,7 +67,6 @@ if %M%==1 GOTO adb
 if %M%==2 GOTO fastboot
 if %M%==3 GOTO links
 if %M%==4 GOTO cmd
-if %M%==5 GOTO adb_driver_int
 if %M%==L GOTO elic
 if %M%==l GOTO elic
 if %M%==O GOTO lolcat
@@ -774,18 +771,6 @@ if %lver%=L type LICENSE.l
 if %lver%=N type LICENSE
 if %lver%=n type LICENSE
 echo Press to go back to menu.
-pause
-goto menu
-
-rem Driver Instller
-:adb_driver_int
-echo Driver installer is deprecated, 
-echo and might get removed in a future update.
-echo Please refer to the wiki for more information.
-cd bin
-cd drivers
-pnputil -i -a android_winusb.inf
-cd ..
 pause
 goto menu
 
