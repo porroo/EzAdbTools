@@ -34,7 +34,7 @@ set sideload_zip=
 set root_mode=
 
 rem Set variables
-set productnamever=EzAdbTools Unstable Builds
+set productnamever=EzAdbTools v0.0.1.final
 set productnamever=%productnamever:"=%
 
 rem Set first print
@@ -82,7 +82,6 @@ echo 1 - adb related
 echo 2 - fastboot related
 echo 3 - Links
 echo 4 - Command Line
-echo 5 - Install adb driver (Incomplete)
 echo L - License
 echo X - Exit
 echo.
@@ -91,7 +90,6 @@ if %M%==1 GOTO adb
 if %M%==2 GOTO fastboot
 if %M%==3 GOTO links
 if %M%==4 GOTO cmd
-if %M%==5 GOTO adb_driver_int
 if %M%==L GOTO elic
 if %M%==l GOTO elic
 if %M%==O GOTO lolcat
@@ -905,13 +903,3 @@ choice /d y /t 2 > nul
 goto :lolcat
 
 rem End of Selection O - Others
-
-rem Driver Instller
-:adb_driver_int
-echo Incomplete feature.
-cd bin
-cd drivers
-pnputil -i -a android_winusb.inf
-cd ..
-pause
-goto menu
