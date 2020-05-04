@@ -363,19 +363,13 @@ echo ==============================
 echo.
 echo This feature is not tested.
 choice /d y /t 2 > nul
-if %backupfirst%=="no" (
-SET /A backuptimes=%backuptimes% + 1
-) else (
-SET backuptimes=1
-SET backupfirst=no
-set delworkingbat=1
-)
     (
     echo type startprint
 	echo echo Full Backup
 	echo echo ==============================
 	echo cd bin
-	echo adb.exe backup -apk -shared -all -f %CD%/backups/backup%backuptimes%.ab
+	echo mkdir backups
+	echo adb.exe backup -apk -shared -all -f \backups\backup.ab
 	echo cd ..
     echo call delworking.bat
 	echo cls
