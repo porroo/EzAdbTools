@@ -49,17 +49,15 @@ echo ==============================
 echo.
 echo 1 - adb related
 echo 2 - fastboot related
-echo 3 - Links
-echo 4 - Command Line
-echo 5 - Scrcpy
+echo 3 - Command Line
+echo 4 - Scrcpy
 echo X - Exit
 echo.
 set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO adb
 if %M%==2 GOTO fastboot
-if %M%==3 GOTO links
-if %M%==4 GOTO cmd
-if %M%==5 GOTO scrcpy
+if %M%==3 GOTO cmd
+if %M%==4 GOTO scrcpy
 if %M%==X GOTO exit
 if %M%==x GOTO exit
 if %M%=show c GOTO elic
@@ -664,32 +662,6 @@ taskkill /im /f adb.exe
 taskkill /im /f fastboot.exe
 del working.bat
 exit
-
-:links
-title EzAdbTools - Links
-cls
-set M=
-echo.
-type startprint
-echo Links
-echo ==============================
-echo.
-echo 1 - XDA Thread
-echo 2 - GitHub Page
-echo X - Back
-echo.
-set /P M="Input options shown above then press ENTER: "
-if %M%==1 start https://forum.xda-developers.com/android/software/tools-ezadbtools-source-simple-adb-t4033297
-if %M%==2 start https://github.com/TipzTeam/EzAdbTools
-if %M%==X GOTO menu
-if %M%==x GOTO menu
-cls
-title EzAdbTools - Wrong Input
-cls
-echo You typed a incorrect command, try again.
-choice /d y /t 2 > nul
-set M=
-goto links
 
 :cmd
 title EzAdbTools - Command Line
