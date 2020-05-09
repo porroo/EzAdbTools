@@ -682,8 +682,33 @@ type startprint
 echo Display control
 echo ==============================
 echo.
+echo 1 - Use scrcpy
+echo X - Exit
+echo.
+set /P M="Input options shown above then press ENTER: "
+if %M%==1 GOTO use_scrcpy
+if %M%==x GOTO menu
+if %M%==X GOTO menu
+cls
+title EzAdbTools
+cls
+echo You typed a incorrect command, try again.
+choice /d y /t 2 > nul
+set M=
+goto scrcpy
+
+:use_scrcpy
+title EzAdbTools
+cls
+set M=
+echo.
+type startprint
+echo scrcpy
+echo ==============================
+echo.
 echo Launching scrcpy...
+echo.
 cd bin
 scrcpy
 cd ..
-goto menu
+goto scrcpy
