@@ -1,33 +1,13 @@
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::                                                    :::
-:::          Carliv Image Kitchen for Android          :::
-:::   boot+recovery images copyright-2016 carliv@xda   :::
-:::   including support for MTK powered phones images  :::
-:::                                                    :::
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 @echo off
 cd "%~dp0"
 IF EXIST "%~dp0\bin" SET PATH=%PATH%;"%~dp0\bin"
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-Setlocal EnableDelayedExpansion
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::       
-echo ***************************************************
-echo *                                                 *
-cecho *      {0B}Carliv Image Kitchen for Android{#} v1.3      *{\n}
-cecho *     boot+recovery images (c)2016 {0B}carliv@xda{#}     *{\n}
-cecho * including support for {0E}MTK powered {#}phones images *{\n}
-cecho *               {0A}WINDOWS x64 {#}version               *{\n}
-echo ***************************************************
-echo *           The repacking images script           *
-echo ***************************************************
+Setlocal EnableDelayedExpansion:       
 echo(
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 if "%~n1" == "" goto noinput
 cecho Processing the{0E} %~n1 folder{#}.{\n}
 echo(
 set "folder=%~n1"
 cd %folder%
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo Repacking the image....
 echo(
 for /f "delims=" %%a in ('dir /b *-kernel') do set nfile=!nfile!%%~na
@@ -43,28 +23,24 @@ for /f "delims=" %%a in (%file%.img-ramdisk-compress) do set compress=!compress!
 cecho Ramdisk compression:{0E} %compress%{#}{\n}
 goto %compress%
 echo(
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :gz
 echo(
 mkbootfs ramdisk | minigzip -c -9 > %file%.img-ramdisk.gz
 set ramdisk=!ramdisk!%file%.img-ramdisk.gz
 cecho The ramdisk is:{0E}      %ramdisk%{#}{\n}
 goto repack
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :xz
 echo(
 mkbootfs ramdisk | xz -1zv -Ccrc32 > %file%.img-ramdisk.xz
 set ramdisk=!ramdisk!%file%.img-ramdisk.xz
 cecho The ramdisk is:{0E}      %ramdisk%{#}{\n}
 goto repack
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :lzma
 echo(
 mkbootfs ramdisk | xz --format=lzma -1zv > %file%.img-ramdisk.lzma
 set ramdisk=!ramdisk!%file%.img-ramdisk.lzma
 cecho The ramdisk is:{0E}      %ramdisk%{#}{\n}
 goto repack
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :bz2
 echo(
 mkbootfs ramdisk | bzip2 -kv > %file%.img-ramdisk.bz2
@@ -72,21 +48,18 @@ set ramdisk=!ramdisk!%file%.img-ramdisk.bz2
 cecho The ramdisk is:{0E}      %ramdisk%{#}{\n}
 goto repack
 echo(
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :lz4
 echo(
 mkbootfs ramdisk | lz4 -l stdin stdout > %file%.img-ramdisk.lz4
 set ramdisk=!ramdisk!%file%.img-ramdisk.lz4
 cecho The ramdisk is:{0E}      %ramdisk%{#}{\n}
 goto repack
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :lzo
 echo(
 mkbootfs ramdisk | lzop -v > %file%.img-ramdisk.lzo
 set ramdisk=!ramdisk!%file%.img-ramdisk.lzo
 cecho The ramdisk is:{0E}      %ramdisk%{#}{\n}
 goto repack
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :repack
 echo(
 echo Getting the image repacking arguments....
@@ -162,16 +135,13 @@ cd ..\
 echo(
 cecho Done. Your new image was repacked as{0E} %newimage%.img{#}.{\n}
 goto end
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :noinput
 echo(
 cecho {0C}No folder selected. Exit script.{#}{\n}
 echo(
 goto end
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :error
 echo(
 cecho {0C}There is an error in your folder. The kernel or ramdisk is missing. Exit script.{#}{\n}
 echo(
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :end

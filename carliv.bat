@@ -1,32 +1,14 @@
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::                                                    :::
-:::          Carliv Image Kitchen for Android          :::
-:::   boot+recovery images copyright-2016 carliv@xda   :::
-:::   including support for MTK powered phones images  :::
-:::                                                    :::
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 @echo off
 cd "%~dp0"
 IF EXIST "%~dp0\bin" SET PATH=%PATH%;"%~dp0\bin"
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 Setlocal EnableDelayedExpansion
 attrib +h "bin" >nul
 attrib +h "scripts" >nul
 attrib +h "working" >nul
 ufind "%~dp0\bin" "%~dp0\scripts" -regex ".*\.\(exe\|bat\)" -exec chmod +x {} ;
 if %errorlevel% neq 0 goto error
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :main
-cls
-echo( 
-echo ***************************************************
-echo *                                                 *
-cecho *      {0B}Carliv Image Kitchen for Android{#} v1.3      *{\n}
-cecho *     boot+recovery images (c)2016 {0B}carliv@xda{#}     *{\n}
-cecho * including support for {0E}MTK powered {#}phones images *{\n}
-cecho *               {0A}WINDOWS x64 {#}version               *{\n}
-echo *                                                 *
-echo ***************************************************
+cls 
 echo(
 echo  Choose what kind of image you need to work on.
 echo(
@@ -55,19 +37,8 @@ echo(
 cecho {0C}%env% is not a valid option. Please try again! {#}{\n}
 PING -n 3 127.0.0.1>nul
 goto main
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :imgmenu
 cls
-echo ***************************************************
-echo *                                                 *
-cecho *      {0B}Carliv Image Kitchen for Android{#} v1.3      *{\n}
-cecho *     boot+recovery images (c)2016 {0B}carliv@xda{#}     *{\n}
-cecho * including support for {0E}MTK powered {#}phones images *{\n}
-cecho *               {0A}WINDOWS x64 {#}version               *{\n}
-echo *                                                 *
-echo ***************************************************
-cecho *               {0B}IMG scripts{#} section               *{\n}
-echo ***************************************************
 echo(
 cecho Your selected image is {0A}%workfile%{#}.{\n}
 for %%i in ("%workfile%") do set "workfolder=%%~ni"
@@ -106,22 +77,11 @@ echo(
 cecho {0C}%imgenv% is not a valid option. Please try again! {#}{\n}
 PING -n 3 127.0.0.1>nul
 goto imgmenu
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :boot
 set workfile=
 set filetype=
 set workfolder=
 cls
-echo ***************************************************
-echo *                                                 *
-cecho *      {0B}Carliv Image Kitchen for Android{#} v1.3      *{\n}
-cecho *     boot+recovery images (c)2016 {0B}carliv@xda{#}     *{\n}
-cecho * including support for {0E}MTK powered {#}phones images *{\n}
-cecho *               {0A}WINDOWS x64 {#}version               *{\n}
-echo *                                                 *
-echo ***************************************************
-cecho *                {0B}BOOT images{#} section              *{\n}
-echo ***************************************************
 echo(
 for /f %%g in ('dir /b "boot-resources\*.img"') do (
    goto loadboots
@@ -162,22 +122,12 @@ echo(
 cecho {0C}That is not a valid option. Please try again! {#}{\n}
 PING -n 3 127.0.0.1>nul
 goto boot
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 :recovery
 set workfile=
 set filetype=
 set workfolder=
 cls
-echo ***************************************************
-echo *                                                 *
-cecho *      {0B}Carliv Image Kitchen for Android{#} v1.3      *{\n}
-cecho *     boot+recovery images (c)2016 {0B}carliv@xda{#}     *{\n}
-cecho * including support for {0E}MTK powered {#}phones images *{\n}
-cecho *               {0A}WINDOWS x64 {#}version               *{\n}
-echo *                                                 *
-echo ***************************************************
-cecho *             {0E}RECOVERY images{#} section             *{\n}
-echo ***************************************************
 echo(
 for /f %%a in ('dir /b "recovery-resources\*.img"') do (
    goto loadrec
@@ -217,7 +167,6 @@ echo(
 cecho {0C}That is not a valid option. Please try again! {#}{\n}
 PING -n 3 127.0.0.1>nul
 goto recovery
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :img_unpack
 cls
 copy "scripts\unpack_img.bat" "unpack_img.bat" >nul
@@ -236,7 +185,6 @@ if exist recovery.img del recovery.img >nul
 if exist unpack_img.bat del unpack_img.bat >nul
 pause
 goto imgmenu
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :img_repack
 cls
 copy "scripts\repack_img.bat" "repack_img.bat" >nul
@@ -254,13 +202,11 @@ if exist "%workfile%" del "%workfile%" >nul
 if exist image_info.bat del image_info.bat >nul
 pause
 goto imgmenu
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :instructions
 cls
 type "scripts\Instructions.txt"
 pause
 goto main
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :delete_all
 cls
 copy "scripts\clean_all.bat" "clean_all.bat" >nul
@@ -268,7 +214,6 @@ call clean_all.bat
 if exist clean_all.bat del clean_all.bat >nul
 PING -n 3 127.0.0.1>nul
 goto main
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :delete_output
 cls
 copy "scripts\clean_output.bat" "clean_output.bat" >nul
@@ -276,13 +221,11 @@ call clean_output.bat
 if exist clean_output.bat del clean_output.bat >nul
 PING -n 3 127.0.0.1>nul
 goto main
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :error
 echo(
 cecho {0C}The scripts and executables can't get execution permissions! The kitchen won't run this way. {#}{\n}
 PING -n 3 127.0.0.1>nul
 goto end
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :end
 echo(
 for /f %%a in ("%~dp0\working\*") do del /q "%%a" >nul

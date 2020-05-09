@@ -39,7 +39,6 @@ echo Found fastboot.exe
 goto :menu
 
 :menu
-title EzAdbTools
 cls
 set M=
 echo.
@@ -62,7 +61,6 @@ if %M%==X GOTO exit
 if %M%==x GOTO exit
 if %M%=show c GOTO elic
 cls
-title EzAdbTools
 cls
 echo You typed a incorrect command, try again.
 choice /d y /t 2 > nul
@@ -70,7 +68,6 @@ set M=
 goto menu
 
 :adb
-title EzAdbTools
 cls
 set M=
 echo.
@@ -99,7 +96,6 @@ if %M%==6 GOTO adb_logcat
 if %M%==X GOTO menu
 if %M%==x GOTO menu
 cls
-title EzAdbTools
 cls
 echo You typed a incorrect command, try again.
 choice /d y /t 2 > nul
@@ -107,7 +103,6 @@ set M=
 goto adb
 
 :adb_appman
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -126,7 +121,6 @@ if %M%==3 GOTO adb_app_list
 if %M%==X GOTO adb
 if %M%==x GOTO adb
 cls
-title EzAdbTools
 cls
 echo You typed a incorrect command, try again.
 choice /d y /t 2 > nul
@@ -134,7 +128,6 @@ set M=
 goto adb_appman
 
 :adb_app_install
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -162,7 +155,6 @@ call working.bat
 )
 
 :adb_app_uni
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -174,7 +166,6 @@ choice /d y /t 2 > nul
 goto adb_appman
 
 :adb_app_list
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -188,7 +179,6 @@ pause
 goto adb_appman
 
 :adb_android_shell
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -200,7 +190,6 @@ cd bin
 adb.exe shell
 
 :adb_su_android_shell
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -213,7 +202,6 @@ adb.exe shell su
 adb.exe shell
 
 :adb_devices
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -229,7 +217,6 @@ set /p pressanykey="Press any key to return to the menu..."
 goto adb
 
 :adb_reboot
-title EzAdbTools
 cls
 set M=
 echo.
@@ -255,7 +242,6 @@ if %M%==6 GOTO adb_reboot_safemode_root
 if %M%==X GOTO adb
 if %M%==x GOTO adb
 cls
-title EzAdbTools
 cls
 echo You typed a incorrect command, try again.
 choice /d y /t 2 > nul
@@ -263,7 +249,6 @@ set M=
 goto adb_reboot
 
 :adb_reboot_device
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -278,7 +263,6 @@ choice /d y /t 2 > nul
 goto adb_reboot
 
 :adb_reboot_fastboot
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -293,7 +277,6 @@ choice /d y /t 2 > nul
 goto adb_reboot
 
 :adb_reboot_recovery
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -308,12 +291,10 @@ choice /d y /t 2 > nul
 goto adb_reboot
 
 :adb_reboot_edl
-title EzAdbTools
 cls
 echo.
 type startprint
-echo Reboot into 
-echo Emergency Download Mode
+echo Reboot into EDL
 echo ==============================
 echo.
 cd bin
@@ -324,7 +305,6 @@ choice /d y /t 2 > nul
 goto adb_reboot
 
 :adb_reboot_download
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -339,7 +319,6 @@ choice /d y /t 2 > nul
 goto adb_reboot
 
 :adb_reboot_safemode_root
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -354,7 +333,6 @@ choice /d y /t 2 > nul
 goto adb_reboot
 
 :adb_full_backup
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -377,7 +355,6 @@ choice /d y /t 2 > nul
 call working.bat
 
 :adb_root_mode_on
-title EzAdbTools
 cls
 set M=
 echo.
@@ -393,7 +370,6 @@ echo Root mode is enabled.
 choice /d y /t 3 > nul
 
 :adb_root_mode_off
-title EzAdbTools
 cls
 set M=
 echo.
@@ -409,7 +385,6 @@ echo Root mode is disabled.
 choice /d y /t 3 > nul
 
 :adb_sideload
-title EzAdbTools
 cls
 set M=
 echo.
@@ -432,7 +407,6 @@ set delworkingbat=1
 call working.bat
 
 :adb_logcat
-title EzAdbTools
 cls
 set M=
 echo.
@@ -446,7 +420,6 @@ pause
 adb logcat
 
 :fastboot
-title EzAdbTools
 cls
 set M=
 echo.
@@ -468,7 +441,6 @@ if %M%==4 GOTO fastboot_flash
 if %M%==X GOTO menu
 if %M%==x GOTO menu
 cls
-title EzAdbTools
 cls
 echo You typed a incorrect command, try again.
 choice /d y /t 2 > nul
@@ -476,7 +448,6 @@ set M=
 goto fastboot
 
 :fastboot_reboot
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -493,7 +464,6 @@ choice /d y /t 2 > nul
 goto fastboot
 
 :fastboot_unlock
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -517,7 +487,6 @@ if %M%==r GOTO fastboot_relockbl
 if %M%==X GOTO menu
 if %M%==x GOTO menu
 cls
-title EzAdbTools
 cls
 echo You typed a incorrect command, try again.
 choice /d y /t 2 > nul
@@ -525,7 +494,6 @@ set M=
 goto fastboot_unlock
 
 :fastboot_unlock_stat
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -540,7 +508,6 @@ choice /d y /t 2 > nul
 goto fastboot_unlock
 
 :fastboot_unlock_nocode
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -555,7 +522,6 @@ choice /d y /t 2 > nul
 goto fastboot_unlock
 
 :fastboot_unlock_code
-title EzAdbTools
 set unlock_key=
 cls
 echo.
@@ -578,7 +544,6 @@ set delworkingbat=1
 call working.bat
 
 :fastboot_unlock_bin
-title EzAdbTools
 set unlock_bin=
 cls
 echo.
@@ -607,7 +572,6 @@ choice /d y /t 2 > nul
 goto menu
 
 :fastboot_device_id
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -621,7 +585,6 @@ pause
 goto fastboot
 
 :fastboot_flash
-title EzAdbTools
 cls
 echo.
 type startprint
@@ -644,7 +607,6 @@ set delworkingbat=1
 call working.bat
 
 :exit
-title EzAdbTools
 cls
 set M=
 echo.
@@ -660,7 +622,6 @@ del working.bat
 exit
 
 :cmd
-title EzAdbTools
 cls
 set M=
 echo.
@@ -674,7 +635,6 @@ cd bin
 cmd
 
 :scrcpy
-title EzAdbTools
 cls
 set M=
 echo.
@@ -698,7 +658,6 @@ set M=
 goto scrcpy
 
 :use_scrcpy
-title EzAdbTools
 cls
 set M=
 echo.
