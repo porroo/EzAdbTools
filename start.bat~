@@ -50,7 +50,7 @@ echo.
 echo 1 - adb related
 echo 2 - fastboot related
 echo 3 - Command Line
-echo 4 - Display control
+echo 4 - Scrcpy
 echo X - Exit
 echo.
 set /P M="Input options shown above then press ENTER: "
@@ -679,7 +679,7 @@ cls
 set M=
 echo.
 type startprint
-echo Display control
+echo Scrcpy
 echo ==============================
 echo.
 echo Launching scrcpy...
