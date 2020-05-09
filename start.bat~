@@ -668,7 +668,7 @@ type startprint
 echo Command Line
 echo ==============================
 echo.
-echo This will EzAdbTools, execute 'call eat.bat' to 
+echo This will EzAdbTools, do 'call eat.bat' to 
 echo start this program again.
 cd bin
 cmd
