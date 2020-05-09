@@ -34,7 +34,7 @@ set sideload_zip=
 set root_mode=
 
 rem Set variables
-set productnamever=EzAdbTools v0.0.1.final
+set productnamever=EzAdbTools v0.0.1.final2
 set productnamever=%productnamever:"=%
 
 rem Set first print
