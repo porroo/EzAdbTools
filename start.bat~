@@ -567,7 +567,7 @@ set delworkingbat=1
 call working.bat
 
 :fastboot_relockbl
-echo wip
+echo wait not yet
 choice /d y /t 2 > nul
 goto menu
 
