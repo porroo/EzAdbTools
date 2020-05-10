@@ -15,7 +15,7 @@ Download the binary and extract the downloaded <b>.zip</b> file, then double cli
 
 See also the list of [contributors](https://github.com/TipzTeam/EzAdbTools/contributors) who participated in this project.
 
-## Origins of codes
+## Origin of codes
 [scrcpy](https://github.com/Genymobile/scrcpy)
 [platform-tools](https://dl.google.com/android/repository/platform-tools-latest-windows.zip)
 [bzip2](https://sourceforge.net/projects/bzip2/)
