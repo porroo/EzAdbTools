@@ -78,7 +78,7 @@ echo.
 echo 1 - Install Application
 echo 2 - Android Shell
 echo 3 - Reboot Menu
-echo 4 - Full Backup
+echo 4 - Backup
 echo 5 - Sideload flashable zip file
 echo 6 - Logcat
 echo C - Connected devices
@@ -185,9 +185,9 @@ type startprint
 echo Android Shell
 echo ==============================
 echo.
-echo This will stop EzAdbTools, restart this program if you need it later.
 cd bin 
 adb.exe shell
+goto menu
 
 :adb_su_android_shell
 cls
