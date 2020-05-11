@@ -6,8 +6,14 @@ title EzAdbTools
 echo Initializing...
 
 echo Checking system...
-echo %PROCESSOR_ARCHITECTURE%
-if %PROCESSOR_ARCHITECTURE%=32-bit quit
+echo PROCESSOR_ARCHITECTURE var:
+echo %PROCESSOR_ARCHITECTURE% | find /i "x86" > nul
+if %errorlevel%==0 (
+    echo   32-bit
+) else (
+    echo   64-bit
+)
+echo.
 
 echo Resetting adb...
 cd bin
