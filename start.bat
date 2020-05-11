@@ -5,11 +5,17 @@ color 0a
 title EzAdbTools
 echo Initializing...
 
+echo Checking system...
+echo %PROCESSOR_ARCHITECTURE%
+if %PROCESSOR_ARCHITECTURE%=32-bit quit
+
+echo Resetting adb...
 cd bin
 adb.exe kill-server
 adb.exe start-server
 cd ..
 
+echo Resetting variables...
 set M=
 set pressanykey=
 set adb_install_app=
