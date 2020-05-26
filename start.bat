@@ -3,7 +3,7 @@ color 0a
 
 :int
 title EzAdbTools
-echo Initializing...
+echo Checking if your system meet the requirments...
 
 echo Checking system...
 echo PROCESSOR_ARCHITECTURE var:
@@ -14,22 +14,6 @@ if %errorlevel%==0 (
     echo   64-bit
 )
 echo.
-
-echo Resetting adb...
-cd bin
-adb.exe kill-server
-adb.exe start-server
-cd ..
-
-echo Resetting variables...
-set M=
-set pressanykey=
-set adb_install_app=
-set sideload_zip=
-set fastboot_flash_part=
-set fastboot_flash_image=
-set unlock_bin=
-set unlock_key=
 
 echo Checking for adb.exe...
 if not exist "%CD%\bin\adb.exe" (
@@ -47,6 +31,24 @@ choice /d y /t 2 > nul
 exit
 )
 echo Found fastboot.exe
+
+echo Starting Services...
+
+echo Resetting adb...
+cd bin
+adb.exe kill-server
+adb.exe start-server
+cd ..
+
+echo Resetting variables...
+set M=
+set pressanykey=
+set adb_install_app=
+set sideload_zip=
+set fastboot_flash_part=
+set fastboot_flash_image=
+set unlock_bin=
+set unlock_key=
 
 goto :menu
 
