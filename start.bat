@@ -9,9 +9,10 @@ echo Checking system...
 echo PROCESSOR_ARCHITECTURE var:
 echo %PROCESSOR_ARCHITECTURE% | find /i "x86" > nul
 if %errorlevel%==0 (
-    echo   32-bit
+    echo 32-bit systems aren't supported by ExAdbTools, exitting...
+    choice /d y /t 2 > nul
 ) else (
-    echo   64-bit
+    echo 64-bit system is supported, continuing...
 )
 echo.
 
