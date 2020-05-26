@@ -655,7 +655,7 @@ echo Display control
 echo ==============================
 echo.
 echo 1 - Use scrcpy
-echo X - Exit
+echo X - Back
 echo.
 set /P M="Input options shown above then press ENTER: "
 if %M%==1 GOTO use_scrcpy
