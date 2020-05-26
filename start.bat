@@ -6,6 +6,8 @@ title EzAdbTools
 echo Checking if your system meet the requirments...
 
 echo Checking system...
+
+echo PROCESSOR_ARCHITECTURE:
 echo PROCESSOR_ARCHITECTURE var:
 echo %PROCESSOR_ARCHITECTURE% | find /i "x86" > nul
 if %errorlevel%==0 (
