@@ -443,6 +443,7 @@ echo 1 - Reboot device
 echo 2 - Bootloader unlocking related
 echo 3 - Get device-id
 echo 4 - Flash image file
+echo 5 - Enable Charge Screen
 echo X - Back
 echo.
 set /P M="Input options shown above then press ENTER: "
@@ -450,6 +451,7 @@ if %M%==1 GOTO fastboot_reboot
 if %M%==2 GOTO fastboot_unlock
 if %M%==3 GOTO fastboot_device_id
 if %M%==4 GOTO fastboot_flash
+if %M%==4 GOTO fastboot_charge
 if %M%==X GOTO menu
 if %M%==x GOTO menu
 cls
@@ -498,7 +500,6 @@ if %M%==R GOTO fastboot_relockbl
 if %M%==r GOTO fastboot_relockbl
 if %M%==X GOTO menu
 if %M%==x GOTO menu
-cls
 cls
 echo You typed a incorrect command, try again.
 choice /d y /t 2 > nul
@@ -617,6 +618,36 @@ set delworkingbat=1
 	echo call delworking.bat
 )>"working.bat"
 call working.bat
+
+:fastboot_charge
+cls
+echo.
+type startprint
+echo Enable Charge Screen
+echo ==============================
+echo.
+set /P M="Contiune? (Y/N) "
+if %M%==y GOTO fastboot_charge_y
+if %M%==n GOTO fastboot
+if %M%==Y GOTO fastboot_charge_y
+if %M%==N GOTO fastboot
+cls
+echo You typed a incorrect command, try again.
+choice /d y /t 2 > nul
+set M=
+goto fastboot_charge
+
+:fastboot_charge_y
+cls
+echo.
+type startprint
+echo Enable Charge Screen
+echo ==============================
+echo.
+cd bin
+call fastboot.exe oem enable-charger-screen
+cd ..
+goto fastboot
 
 :exit
 cls
