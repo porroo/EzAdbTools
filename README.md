@@ -1,8 +1,9 @@
 # EzAdbTools, an open source batch tool for Android developers
-This tools is a basic batch tool that uses adb, fastboot, etc. for those Android Geeks or new Android developers.
+This tools is a basic batch tool that uses many important tools for most Android developers.
 
 ## System Requirements
 - Windows 7 or newer
+- A 64-bit system
 - Any Android device
 - Device driver installed
 - API Level 21 or higher for scrcpy
