@@ -2,6 +2,7 @@
 cd "%~dp0"
 IF EXIST "%~dp0\bin" SET PATH=%PATH%;"%~dp0\bin"
 Setlocal EnableDelayedExpansion
+call start.bat
 echo(
 if "%~1" == "" goto noinput
 if "%~2" == "" goto noinput

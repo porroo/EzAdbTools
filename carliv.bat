@@ -8,6 +8,7 @@ attrib +h "working" >nul
 ufind "%~dp0\bin" "%~dp0\scripts" -regex ".*\.\(exe\|bat\)" -exec chmod +x {} ;
 if %errorlevel% neq 0 goto error
 :main
+call start.bat
 cls 
 echo(
 echo  Choose what kind of image you need to work on.

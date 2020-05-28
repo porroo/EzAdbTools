@@ -4,6 +4,7 @@ IF EXIST "%~dp0\bin" SET PATH=%PATH%;"%~dp0\bin"
 Setlocal EnableDelayedExpansion:       
 echo(
 if "%~n1" == "" goto noinput
+call start.bat
 cecho Processing the{0E} %~n1 folder{#}.{\n}
 echo(
 set "folder=%~n1"

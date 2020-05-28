@@ -4,6 +4,7 @@ IF EXIST "%~dp0\bin" SET PATH=%PATH%;"%~dp0\bin"
 Setlocal EnableDelayedExpansion
 if "%~1" == "" goto noinput
 set "file=%~nx1"
+call start.bat
 echo(
 cecho Display the informations for{0E} %file%{#}.{\n}
 echo(
