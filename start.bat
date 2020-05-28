@@ -16,10 +16,10 @@
 ::  permissions and limitations under the License.
 ::
 
-color 0a
-
 :int
 title EzAdbTools
+color 0a
+
 echo Checking if your system meet the requirments...
 
 echo Checking system...
