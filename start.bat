@@ -28,16 +28,16 @@ echo PROCESSOR_ARCHITECTURE:
 echo PROCESSOR_ARCHITECTURE var:
 echo %PROCESSOR_ARCHITECTURE% | find /i "x86" > nul
 if %errorlevel%==0 (
-    echo 32-bit systems aren't supported by ExAdbTools, exitting...
+    echo E1000: 32-bit systems aren't supported by ExAdbTools, exitting...
     choice /d y /t 2 > nul
 ) else (
-    echo 64-bit system is supported, continuing...
+    echo 64-bit systems are supported, continuing...
 )
 echo.
 
 echo Checking for adb.exe...
 if not exist "%CD%\bin\adb.exe" (
-echo Unable to find adb.exe. Redownload this application.
+echo E1001: Unable to find adb.exe. Redownload this application.
 choice /d y /t 2 > nul
 exit
 ) else (
@@ -46,7 +46,7 @@ echo Found adb.exe
 
 echo Checking for fastboot...
 if not exist "%CD%\bin\fastboot.exe" (
-echo Unable to find fastboot.exe. Redownload this application.
+echo E1002: Unable to find fastboot.exe. Redownload this application.
 choice /d y /t 2 > nul
 exit
 )
