@@ -696,6 +696,7 @@ echo ==============================
 echo.
 echo This will EzAdbTools, execute 'call eat.bat' to 
 echo start this program again.
+echo 
 cd bin
 cmd
 
