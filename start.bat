@@ -96,7 +96,7 @@ if %M%==x GOTO exit
 if %M%=show c GOTO elic
 cls
 cls
-echo You typed a incorrect command, try again.
+type errorincorrect
 choice /d y /t 2 > nul
 set M=
 goto menu
@@ -131,7 +131,7 @@ if %M%==X GOTO menu
 if %M%==x GOTO menu
 cls
 cls
-echo You typed a incorrect command, try again.
+type errorincorrect
 choice /d y /t 2 > nul
 set M=
 goto adb
@@ -156,7 +156,7 @@ if %M%==X GOTO adb
 if %M%==x GOTO adb
 cls
 cls
-echo You typed a incorrect command, try again.
+type errorincorrect
 choice /d y /t 2 > nul
 set M=
 goto adb_appman
@@ -183,7 +183,7 @@ set delworkingbat=1
 )>"working.bat"
 call working.bat
 ) else (
-    echo Error! File doesn't exist!
+    echo E1004: File doesn't exist!
 	choice /d y /t 2 > nul
 	goto adb_app_install
 )
@@ -277,7 +277,7 @@ if %M%==X GOTO adb
 if %M%==x GOTO adb
 cls
 cls
-echo You typed a incorrect command, try again.
+type errorincorrect
 choice /d y /t 2 > nul
 set M=
 goto adb_reboot
@@ -477,8 +477,7 @@ if %M%==4 GOTO fastboot_charge
 if %M%==X GOTO menu
 if %M%==x GOTO menu
 cls
-cls
-echo You typed a incorrect command, try again.
+type errorincorrect
 choice /d y /t 2 > nul
 set M=
 goto fastboot
@@ -523,7 +522,7 @@ if %M%==r GOTO fastboot_relockbl
 if %M%==X GOTO menu
 if %M%==x GOTO menu
 cls
-echo You typed a incorrect command, try again.
+type errorincorrect
 choice /d y /t 2 > nul
 set M=
 goto fastboot_unlock
@@ -654,7 +653,7 @@ if %M%==n GOTO fastboot
 if %M%==Y GOTO fastboot_charge_y
 if %M%==N GOTO fastboot
 cls
-echo You typed a incorrect command, try again.
+type errorincorrect
 choice /d y /t 2 > nul
 set M=
 goto fastboot_charge
@@ -718,7 +717,7 @@ if %M%==X GOTO menu
 cls
 title EzAdbTools
 cls
-echo You typed a incorrect command, try again.
+type errorincorrect
 choice /d y /t 2 > nul
 set M=
 goto scrcpy
